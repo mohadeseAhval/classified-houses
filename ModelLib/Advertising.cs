@@ -136,8 +136,8 @@ namespace ModelLib
         {
             return entity.Advertising
                 .Include(a => a.City_table.Province_table)
-                .Where(a => a.typeOfAd.Equals(type))
-                .Where(a => a.Condition.Equals(status))
+                .Where(a => a.typeOfAd==type)
+                .Where(a => a.Condition == status)
                 .ToList();
         }
 

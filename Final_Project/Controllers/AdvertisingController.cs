@@ -14,8 +14,9 @@ namespace Final_Project.Controllers
         // GET: Advertising
         public ActionResult Buy()
         {
-            var ads = AdvertisingTable.Read(Condition.Ctrue);
-            return View(ads);
+            var adbuy = AdvertisingTable.Read(Condition.Ctrue, TypeAd.Buy);
+            //var ads = AdvertisingTable.Read(Condition.Ctrue);
+            return View(adbuy);
         }
         public ActionResult Details_Buy(int id)
         {
@@ -23,12 +24,13 @@ namespace Final_Project.Controllers
         }
         public ActionResult Rent()
         {
-            var ads = AdvertisingTable.Read(Condition.Ctrue);
-            return View(ads);
+            var adRent = AdvertisingTable.Read(Condition.Ctrue, TypeAd.Rent);
+            //var ads = AdvertisingTable.Read(Condition.Ctrue);
+            return View(adRent);
         }
         public ActionResult Details_Rent(int id)
         {
-            return View(AdvertisingTable.Read(id));
+            return View(AdvertisingTable.FindById(id));
         }
 
     }
