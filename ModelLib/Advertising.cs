@@ -62,7 +62,6 @@ namespace ModelLib
     {
         EF_DataBase entity = new EF_DataBase();
 
-
         public string Create(Advertising newRecord)
         {
             //Condition Cfalse = default(Condition);
@@ -139,6 +138,73 @@ namespace ModelLib
                 .Where(a => a.typeOfAd==type)
                 .Where(a => a.Condition == status)
                 .ToList();
+        }
+
+        /// <summary>
+        /// این تابع امکان جستجوی انتخابی برای آگهی ها را فراهم میکند. هر کدام از مواردی که می توانند نال باشند، در صورت نال بودن در جستجو در نظر گرفته نمی شوند.
+        /// </summary>
+        /// <param name="status">تایید شده یا نشده</param>
+        /// <param name="needle">یک رشته برای جستجو در نام یا نام شهر یا نام استان آگهی</param>
+        /// <param name="typeAd">خرید یا رهن و اجاره</param>
+        /// <param name="type">آپارتمان یا اداری ای ویلا</param>
+        /// <param name="minPrice">کمترین قیمت</param>
+        /// <param name="maxPrice">بیشترین قیمت</param>
+        /// <param name="roomCount">تعداد خواب</param>
+        /// <param name="floorsCount">تعداد طبقه</param>
+        /// <param name="minArea">کمترین متراژ</param>
+        /// <param name="maxArea">بیشترین متراژ</param>
+        /// <returns>لیستی از آگهی ها</returns>
+        public List<Advertising> Read(Condition status, string needle, TypeAd typeAd, PropertyType? type, long? minPrice, long? maxPrice, numberOfRooms? roomCount, numberOfFloors? floorsCount, int? minArea, int? maxArea)
+        {
+            var query = entity.Advertising
+                .Where(a => a.Condition == status)
+                .Where(a => a.typeOfAd == typeAd);
+
+            if (needle != null)
+            {
+                query.Where(a =>
+                    a.City_table.title.Contains(needle) ||
+                    a.City_table.Province_table.title.Contains(needle) ||
+                    a.title.Contains(needle)
+                );
+            }
+
+            if (type != null)
+            {
+                query.Where(a => a.propertyType == type);
+            }
+
+            if (minPrice != null)
+            {
+                query.Where(a => a.Price >= minPrice);
+            }
+
+            if (maxPrice != null)
+            {
+                query.Where(a => a.Price <= maxPrice);
+            }
+
+            if (roomCount != null)
+            {
+                query.Where(a => a.numberOfRooms == roomCount);
+            }
+
+            if (floorsCount != null)
+            {
+                query.Where(a => a.numberOfFloors == floorsCount);
+            }
+
+            if (minArea != null)
+            {
+                query.Where(a => a.area >= minArea);
+            }
+
+            if (maxArea != null)
+            {
+                query.Where(a => a.area <= maxArea);
+            }
+
+            return query.ToList();
         }
 
         public Advertising FindById(int id)
