@@ -1,0 +1,9 @@
+﻿@model List<ModelLib.Rules>
+
+@foreach (var item in Model)
+{ 
+    <div class="col-sm-12">
+        <span class="title">@item.title</span>
+        <span class="value">@item.desc</span>
+    </div>
+}

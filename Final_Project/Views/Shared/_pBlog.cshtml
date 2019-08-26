@@ -1,0 +1,35 @@
+﻿@using ModelLib.Enums;
+@model List<ModelLib.News>
+@*@{
+    ModelLib.News News = new ModelLib.News();
+    var news = News.Read().Where(item => item.cat == ModelLib.Enums.NewsType.news).ToList();
+}*@
+ 
+@foreach (var item in Model)
+{
+    <div class="col-sm-4 float-right py-4 ">
+        <a href="/Blog/Details/@item.id">
+            <picture class="w-100">
+                <img class="w-100" src="@Href(item.imageUrl)"                    
+                     alt="@item.title"
+                     title="@item.title">
+            </picture>
+            <span class="news-category pt-2">اخبار و مقالات: 
+            @if (item.type == TypeNews.Buy)
+            {
+                <span>خرید</span>
+            }
+            else if (item.type == TypeNews.Rent)
+            {
+                <span>رهن و اجاره</span>
+            }
+            else
+            {
+                <span>فروش</span>
+            }
+            
+            </span>
+            <h2>@item.title</h2> <span class="blue-link">ادامه مطلب > </span>
+        </a>
+    </div>
+}

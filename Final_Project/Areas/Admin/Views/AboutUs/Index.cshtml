@@ -1,0 +1,38 @@
+﻿@model List<ModelLib.AboutUs>
+@{
+    ViewBag.Title = "صفحه مدریت صفحه درباره ما";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="mt-3 ml-2"><h2 class="title-page">صفحه مدریت صفحه درباره ما</h2></div>
+<section class="container-fluid pl-3 pr-3">
+    <a href="/Admin/AboutUs/Operation" class="btn mt-3 btn-add">افزودن پست</a>
+    <table class="table table-responsive table-hover table-bordered table-striped table-page mt-3">
+        <tr>
+            <th>###</th>
+            <th>عنوان اول</th>
+            <td>متن اول</td>
+            <th>عنوان دوم</th>
+            <td>متن دوم</td>
+            <th>عنوان سوم</th>
+            <td>متن سوم</td>
+            <th>عنوان چهارم</th>
+            <td>متن چهارم</td>           
+            <th>ویرایش / حذف</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.title1</td>
+                <td>@item.text1</td> 
+                <td>@item.title2</td>
+                <td>@item.text2</td> 
+                <td>@item.title3</td>
+                <td>@item.text3</td> 
+                <td>@item.title4</td>
+                <td>@item.text4</td>                
+                <td><a href="/Admin/AboutUs/Operation/@item.id" class="icon-edit-page"><i class="fas fa-pen"></i></a> | <a href="/Admin/AboutUs/Delete/@item.id" class="icon-delete-page"><i class="fas fa-trash"></i></a></td>
+            </tr>
+        }
+    </table>
+</section>

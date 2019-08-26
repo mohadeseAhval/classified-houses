@@ -1,0 +1,137 @@
+﻿@model string
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>فرم ورود/ثبت نام</title>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:600'>
+    <link rel="stylesheet" href="~/Content/Account/style.css">
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+    <div class="login-wrap">
+        <div class="login-html">
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">ورود</label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">ثبت نام</label>
+            <div class="login-form">
+                <div class="sign-in-htm">
+                    <form action="/Account/Login" method="post">
+                        <div class="group">
+                            <label for="user" class="label">نام کاربری</label>
+                            <input id="firstNameAndLastName" name="firstNameAndLastName" type="text" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">کلمه عبور</label>
+                            <input id="password" name="password" type="Password" class="input" data-type="password">
+                        </div>
+                        <div class="group">
+                            <input id="check" type="checkbox" class="check" checked>
+                            <label for="check"><span class="icon"></span> من را به خاطر داشته باش</label>
+                        </div>
+                        <div class="group">
+                            <input type="submit" class="button" value="ورود">
+                        </div>
+                        <div class="hr"></div>
+                        <div class="foot-lnk">
+                            <a href="#forgotPass">فراموشی رمز عبور</a>
+                        </div>
+                        <div class="foot-lnk mt-2">
+                            <a href="#forgot">@Model</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="sign-up-htm">
+                    <form>
+                        <div class="group">
+                            <input type="hidden" value="2" id="role_id" name="role_id" />
+                            <label for="firstNameAndLastName1" class="label">نام کاربری</label>
+                            <input id="firstNameAndLastName1" name="firstNameAndLastName1" type="text" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="tell1" class="label">تلفن</label>
+                            <input id="tell1" name="tell1" type="text" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="address1" class="label">ادرس</label>
+                            <input id="address1" name="address1" type="text" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="email1" class="label">ایمیل</label>
+                            <input id="email1" name="email1" type="text" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="NationalCode1" class="label">کدملی</label>
+                            <input id="NationalCode1" name="NationalCode1" type="text" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">کلمه عبور</label>
+                            <input id="Password1" name="Password1" type="Password" class="input" data-type="password">
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">تکرار کلمه عبور </label>
+                            <input id="passr" onchange="funcCheckPass()" name="passr" type="password" class="input" data-type="password">
+                        </div>
+                        
+
+                        <div class="group">
+                            <input type="submit" id="btn-send" name="btn-send" class="button" disabled="disabled" value="ثبت نام">
+                        </div>
+                        <div class="hr"></div>
+                        <div class="foot-lnk">
+                            <label for="tab-1"> قبلا عضو هستید؟ </label>
+                            @*<a href="" for="tab-1">قبلا عضو هستید؟</a>*@
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/main.js"></script>
+</body>
+</html>
+<script type="text/javascript">
+
+    $(function() {
+
+            //alert("Hello");
+        $("#btn-send").click(function () {
+            var Register = {};
+            Register.role_id = $("#role_id").val();
+            Register.firstNameAndLastName = $("#firstNameAndLastName1").val();
+            Register.tell = $("#tell1").val();
+            Register.address = $("#address1").val();
+            Register.email = $("#email1").val();
+            Register.NationalCode = $("#NationalCode1").val();
+            Register.password = $("#Password1").val();
+            Register.repeadpassword = $("#passr").val();
+            
+           
+            //console.log(contact);
+            $("section#page").slideUp("slow")
+            $.ajax({
+                url: "/Account/Adduser",
+                method: "POST",
+                data: Register,
+                success: function () {
+                    $("section#page").slideDown("slow");
+                    $(":input").val("");
+                    //URL:"/Account/login",
+                    //alert("??? ??? ??? ?? ?????? ????? ??");
+                },
+                error: function() { alert("NOK"); }
+            });
+
+
+        });
+
+    });
+
+</script>
+
+

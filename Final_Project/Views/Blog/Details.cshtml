@@ -1,0 +1,109 @@
+﻿@using ModelLib.Enums;
+@model ModelLib.News
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Head{
+    <link href="~/Content/stl.css" rel="stylesheet" />
+}
+<div class="blog clearfix">
+    <div class="container clearfix blog-view">
+        <div class=" pt-3">
+            <div class="single-bread-crumb py-0 ">
+                <div class="w-100 pb-2">
+                    <div class="row">
+                        <ol class="breadcrumb py-1 col-auto pr-lg-0 pl-0" itemscope>
+                            <li class="breadcrumb-item" itemprop="itemListElement" itemscope>
+                                <a href="/Blog/Index" class="">
+                                    <span itemprop="name">بلاگ</span>
+                                </a>
+                                <meta itemprop="position" content="1" />
+
+                            </li>
+                            <li class="breadcrumb-item" itemprop="itemListElement" itemscope>
+                                <a href="/Blog/Details/@Model.id" class="">
+                                    <span itemprop="name">
+                                    @if (Model.type == TypeNews.Buy)
+                                    {
+                                        <span>خرید</span>
+                                    }
+                                    else if (Model.type == TypeNews.Rent)
+                                    {
+                                        <span>رهن و اجاره</span>
+                                    }
+                                    else
+                                    {
+                                        <span>فروش</span>
+                                    }    
+                                    </span>
+                                </a>
+                                <meta itemprop="position" content="2" />
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 pr-lg-0 hentry">
+                <div class="w-100 clearfix text-right date news-title px-lg-0 py-md-2">
+                    <span class="headline">
+                        <a href="/Blog/Details/@Model.id">
+                        @if (Model.type == TypeNews.Buy)
+                        {
+                            <h5 class="mb-3">خرید</h5>
+                        }
+                        else if (Model.type == TypeNews.Rent)
+                        {
+                            <h5 class="mb-3">رهن و اجاره</h5>
+                        }
+                        else
+                        {
+                            <h5 class="mb-3">فروش</h5>
+                        }
+                        
+                        </a>
+                    </span>
+                    <div class="row">
+                        <div class="col-9">
+                            <h1 class="title float-right entry-title">
+                               @Model.title
+                            </h1>
+                        </div>
+                        <div class="col-3">
+                            <div class="print-icon float-left pt-lg-0 pt-md-0 pl-0 text-left">
+                                <div class="text-right clearfix float-left">
+                                </div>
+                                <i class="sh-print"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blogs clearfix ">
+                    <section class="blog-view clearfix">
+                        <div class="view">
+                            <div class="news-image">
+                                <picture class="w-100">
+                                    <img src="@Href(Model.imageUrl)"
+                                         alt="@Model.title" title="@Model.title">
+                                </picture>
+                            </div>
+                            <div class="news-date"></div>
+                            <div class="news-desc">
+                                @Model.desc
+                            </div>
+                            <div class="news-desc entry-content">
+                              <div class="row">
+                                  <p class="txtOne mr-4" style="font-family: Tahoma;">نویسنده: <span>@Model.author</span></p>
+                                  <p class="txtOne mr-5" style="font-family: Tahoma;">نوشته شده در تاریخ: <span>@Model.qdate</span></p>
+                              </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

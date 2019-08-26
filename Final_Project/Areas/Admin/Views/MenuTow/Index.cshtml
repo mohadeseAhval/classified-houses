@@ -1,0 +1,26 @@
+﻿@model List<ModelLib.MenuTow>
+@{
+    ViewBag.Title = "صفحه مدریت صفحه منو فرعی";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="mt-3 ml-2"><h2 class="title-page">صفحه مدریت صفحه منو فرعی</h2></div>
+<section class="container-fluid pl-3 pr-3">
+    <a href="/Admin/MenuTow/Operation" class="btn mt-3 btn-add">افزودن پست</a>
+    <table class="table table-responsive table-hover table-bordered table-striped table-page mt-3">
+        <tr>
+            <th>###</th>
+            <th>عنوان</th>
+            <td>لینک </td>
+            <th>ویرایش / حذف</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.title</td>
+                <td>@item.link</td>
+                <td><a href="/Admin/MenuTow/Operation/@item.id" class="icon-edit-page"><i class="fas fa-pen"></i></a> | <a href="/Admin/MenuTow/Delete/@item.id" class="icon-delete-page"><i class="fas fa-trash"></i></a></td>
+            </tr>
+        }
+    </table>
+</section>

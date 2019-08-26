@@ -1,0 +1,28 @@
+﻿@model List<ModelLib.ContactPage>
+@{
+    ViewBag.Title = "صفحه مدریت صفحه تماس با ما";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="mt-3 ml-2"><h2 class="title-page">صفحه مدریت صفحه تماس ما</h2></div>
+<section class="container-fluid pl-3 pr-3">
+    <a href="/Admin/ContactPage/Operation" class="btn mt-3 btn-add">افزودن پست</a>
+    <table class="table table-responsive table-hover table-bordered table-striped table-page mt-3">
+        <tr>
+            <th>###</th>
+            <th>شماره تماس</th>
+            <td>ساعات کاری </td>
+            <td>آدرس</td>
+            <th>ویرایش / حذف</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.tell</td>
+                <td>@item.hoursOfWork</td>
+                <td>@item.address</td>
+                <td><a href="/Admin/ContactPage/Operation/@item.id" class="icon-edit-page"><i class="fas fa-pen"></i></a> | <a href="/Admin/ContactPage/Delete/@item.id" class="icon-delete-page"><i class="fas fa-trash"></i></a></td>
+            </tr>
+        }
+    </table>
+</section>

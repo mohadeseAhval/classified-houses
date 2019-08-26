@@ -1,0 +1,9 @@
+﻿@model List<ModelLib.Questions>
+
+@foreach (var item in Model)
+{
+    <div class="col-sm-12">
+        <span class="title">@item.question</span>
+        <span class="value">@item.answer</span>
+    </div>
+}

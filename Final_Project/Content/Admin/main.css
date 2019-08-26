@@ -1,0 +1,67 @@
+﻿.title-page{
+    color:#215e70;
+}
+.btn-add{
+    width: 15%;
+    line-height: 24px;
+    color: #215e70;
+    background-color: transparent;
+    border-color: #1ab4c7;
+    display:block;
+}
+.btn-add:hover{
+    color: #ffffff;
+    background-color: #1ab4c7;
+   
+}
+.table-page{
+    background-color: #4a5659;
+    color: #e5e5e5;
+    /*border: 2px solid #4a5659;*/
+}
+.table-page th{
+    border: 1px solid #919191;
+}
+.icon-delete-page{
+    color: #780000;
+    font-size:17px;
+}
+.icon-edit-page{
+    color: #61ba00;
+    font-size: 17px;
+}
+.icon-delete-page:hover{
+    color: #780000;   
+}
+.icon-edit-page:hover{
+    color: #61ba00;
+}
+.imageClass{
+    padding:0.25rem;
+   width:300px; 
+   height:150px;
+    border:1px solid #fff;
+}
+.btnpro{
+    display: block;
+    height: 100%;
+    padding-top: 12px;
+}
+.tableUser{
+    border: 3px solid #17bbc1;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: #ffffff;  
+    font-size: 16px;
+    font-weight: bold;
+}
+.btn-send{
+    color: #ffffff;
+    background-color: #17bbc1;
+    padding: 11px;
+    border-radius: 4px;
+}
+.ptForm{
+    padding-top:25px;
+}

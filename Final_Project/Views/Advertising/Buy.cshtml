@@ -1,0 +1,381 @@
+﻿@model List<ModelLib.Advertising>
+@{
+    ViewBag.Title = "Buy";
+}
+
+<div class="main clearfix searching">
+    <div class="w-100 bg-white">
+        <div class="container pt-2">
+            <div class="row">
+                <div class="col-lg-6 col-8 pr-lg-3 pr-1">
+                    <div class="single-bread-crumb py-0 search-result-page">
+                        <div class="w-100 pb-2">
+                            <div class="row">
+                                <ol class="breadcrumb py-1 col-auto pr-lg-0 pl-0" itemscope
+                                    itemtype="http://schema.org/BreadcrumbList">
+                                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+                                        itemtype="">
+                                        <a href="/"
+                                           class=""><span itemprop="name">صفحه اصلی</span></a>
+                                        <meta itemprop="position" content="1" />
+                                        <meta itemprop="item"
+                                              content="" />
+                                    </li>
+                                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+                                        itemtype="">
+                                        <a href="/Home/Buy" class="">
+                                            <span itemprop="name">خرید</span>
+                                        </a>
+                                        <meta itemprop="position" content="2" />
+                                        <meta itemprop="item"
+                                              content="" />
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-4 pl-lg-2 pl-1">
+                    @* etela bede *@
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-100 bg-white search-results">
+        <div class="fix-div"></div>
+        <div id="request-result" class="container px-0">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="tab">
+                        <form class="filter_form_down clearfix" id="toolbar-form">
+                            <div class="row">
+                                <div class="text-right col-xl-5 col-lg-4 right-tolls-part py-2 align-self-center">
+                                    <span class="announce-number"><h1 class="px-2 px-sm-0">خرید ملک</h1></span>
+                                </div>
+                                <div class="col-xl-7 col-lg-8 left-tolls-part">
+                                    <div class="tab-part view-port-2">
+                                        <i class="sh-list2"></i> <span class="pr-2 medium-sans">گالری</span>
+                                    </div>
+                                    <div class="tab-part view-port-1 active">
+                                        <i class="sh-list"></i> <span class="pr-2 medium-sans">لیست</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <input type="hidden" id="result-count" class="col-12-7 result_count text-center"
+                                   data-total="151">
+                        </form>
+                    </div>
+                    <div class="searched-announce result-announces">
+                        <div id="placeholder-result" class="items pt-4 row px-3 pl-lg-0 modern_list">
+
+                            @Html.Partial("_pBuyAd", Model)
+                        </div>
+                        <div class="paginate-holder text-center">
+                            <ul class="pagination linear-paginate">
+                                <li class="active "><a href="#" class="live-paginate"> 1 </a></li>
+                                <li class=" ">
+                                    <a href="%d8%a2%d8%ac%d9%88%d8%af%d8%a7%d9%86%db%8c%d9%87-%d8%aa%d9%87%d8%b1%d8%a7%d9%86/2.html"
+                                       class="live-paginate">2</a>
+                                </li>
+                                <li class=" ">
+                                    <a href="%d8%a2%d8%ac%d9%88%d8%af%d8%a7%d9%86%db%8c%d9%87-%d8%aa%d9%87%d8%b1%d8%a7%d9%86/3.html"
+                                       class="live-paginate">3</a>
+                                </li>
+                                <li class=" d-none d-md-inline-block">
+                                    <a href="%d8%a2%d8%ac%d9%88%d8%af%d8%a7%d9%86%db%8c%d9%87-%d8%aa%d9%87%d8%b1%d8%a7%d9%86/4.html"
+                                       class="live-paginate">4</a>
+                                </li>
+                                <li class=" d-none d-md-inline-block">
+                                    <a href="%d8%a2%d8%ac%d9%88%d8%af%d8%a7%d9%86%db%8c%d9%87-%d8%aa%d9%87%d8%b1%d8%a7%d9%86/5.html"
+                                       class="live-paginate">5</a>
+                                </li>
+                                <li class=" d-none d-md-inline-block">
+                                    <a href="%d8%a2%d8%ac%d9%88%d8%af%d8%a7%d9%86%db%8c%d9%87-%d8%aa%d9%87%d8%b1%d8%a7%d9%86/6.html"
+                                       class="live-paginate">6</a>
+                                </li>
+                                <li class=" d-none d-md-inline-block">
+                                    <a href="%d8%a2%d8%ac%d9%88%d8%af%d8%a7%d9%86%db%8c%d9%87-%d8%aa%d9%87%d8%b1%d8%a7%d9%86/7.html"
+                                       class="live-paginate">7</a>
+                                </li>
+                                <li class="page-text">
+                                    <a href="%d8%a2%d8%ac%d9%88%d8%af%d8%a7%d9%86%db%8c%d9%87-%d8%aa%d9%87%d8%b1%d8%a7%d9%86/2.html"
+                                       aria-label="Next" class="next-n live-paginate">
+                                        <span aria-hidden="true">
+                                            <i class="sh-narrow"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 left-side mt-3 mt-lg-0">
+                    <div class="inner w-100 bg-white px-3 px-sm-0">
+
+                        <div class="w-100 link-box">
+                            <div class="title medium-sans mt-4 mb-3">نوع های دیگر</div>
+                            <ul>
+                                <li class="pb-3">
+                                    <a href="/Home/Rent">
+                                        رهن و اجاره
+                                    </a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="/Home/Rent">
+                                        رهن و اجاره
+                                    </a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="/Home/Rent">
+                                        رهن و اجاره
+                                    </a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="/Home/Rent">
+                                        رهن و اجاره
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="title medium-sans mt-4 mb-3">متراژ های دیگر</div>
+                            <ul>
+                                <li class="pb-3">
+                                    <a href="/Home/Buy">
+                                        خرید
+                                    </a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="/Home/Buy">
+                                        خرید
+                                    </a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="/Home/Buy">
+                                        خرید
+                                    </a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="/Home/Buy">
+                                        خرید
+                                    </a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="/Home/Buy">
+                                        خرید
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal mobile-call-modal fade" id="alertModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content pt-0">
+            <div class="modal-header">
+                <h5 class="modal-title text-center w-100">اطلاع رسانی</h5>
+                <button type="button" class="close call-close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="sh-quit"></i></span>
+                </button>
+            </div>
+            <div class="modal-body pt-0">
+                <form id="email-alert-form">
+                    <div class="row">
+                        <div class="col-12 pb-3"><h2></h2></div>
+                        <div class="col-12 pb-3 alert-info-text">
+                            <span class="d-inline-block">جستجوی شما :</span>
+                            <span class="search-sentence"></span>
+                        </div>
+                        <div class="col-12 pb-2">
+                            <input name="email" type="email" class="form-control email-input"
+                                   placeholder="آدرس ایمیل خود را وارد کنید" required>
+                        </div>
+                        <div class="col-12 text-center">
+                            <button class="shabesh-button green send-button">ثبت</button>
+                        </div>
+                    </div>
+                    <input type="hidden" name="areas" class="areas" value=""> <input type="hidden" name="sales_type"
+                                                                                     class="sales_type" value="">
+                    <input type="hidden" name="json" class="json" value="">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="packageModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body p-3">
+                <div class="pt-3 pb-3 white-section text-center">
+                    <button class="close" data-dismiss="modal" aria-label="Close"><i class="sh-quit"></i></button>
+                    <h3 class="main-title mt-5 mb-3 px-5">
+                        برای درخواست خرید ، لطفا اطلاعات خود را در فرم زیر وارد
+                        نمایید
+                    </h3>
+                    <div class="container">
+                        <form class="auth-form demo-from px-0" data-submit="package-request">
+                            <div class="row pt-md-5 pb-4">
+                                <div class="form-item col-md-4 col-sm-6 col-12 text-right mb-lg-5 mb-2">
+                                    <input type="text" name="name" id="name" class="demo-input flex-label w-100"
+                                           required> <label class="demo-label" for="name">نام</label> <span class="error-input">لطفا نام خود را وارد کنید .</span>
+                                </div>
+                                <div class="form-item col-md-4 col-sm-6 col-12 text-right mb-lg-5 mb-2">
+                                    <input type="text" name="family" id="family-name"
+                                           class="demo-input flex-label w-100" required> <label class="demo-label"
+                                                                                                for="last-name">
+                                        نام
+                                        خانوادگی
+                                    </label> <span class="error-input">لطفا نام خانوادگی خود را وارد کنید .</span>
+                                </div>
+                                <div class="form-item col-md-4 col-sm-6 col-12 text-right mb-lg-5 mb-2">
+                                    <input type="text" name="agency_name" id="agency_name1"
+                                           class="demo-input flex-label w-100" required> <label class="demo-label"
+                                                                                                for="buildings">
+                                        نام
+                                        املاک یا نام شرکت
+                                    </label> <span class="error-input">لطفا نام املاک خود را وارد کنید .</span>
+                                </div>
+                                <div class="form-item col-md-4 col-sm-6 col-12 text-right mb-lg-5 mb-2">
+                                    <input type="text" name="phone" id="phone" class="demo-input flex-label w-100"
+                                           required> <label class="demo-label" for="static-phone">تلفن ثابت</label>
+                                    <span class="error-input">لطفا تلفن ثابت خود را وارد کنید .</span>
+                                </div>
+                                <div class="form-item col-md-4 col-sm-6 col-12 text-right mb-lg-5 mb-2">
+                                    <input type="text" name="mobile" id="request-mobile"
+                                           class="demo-input number-only flex-label w-100" pattern="09[0-9]{9}"
+                                           required> <label class="demo-label" for="mobile">تلفن همراه</label> <span class="error-input">لطفا تلفن همراه خود را وارد کنید .</span>
+                                </div>
+                                <div class="form-item col-md-4 col-sm-6 col-12 text-right mb-lg-5 mb-2">
+                                    <input type="text" name="email" id="email" class="demo-input flex-label w-100"
+                                           required> <label class="demo-label" for="email">ایمیل</label> <span class="error-input">لطفا ایمیل خود را وارد کنید .</span>
+                                </div>
+                                <input type="hidden" name="package" id="selected-package">
+                                <div class="col-12 col-sm-6 mx-auto">
+                                    <button class="shabesh-button submit-button submit-form red">
+                                        ثبت درخواست
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row login-message mb-3 hidden">
+                                <div class="col-12"><span></span> <i class="sh-checked"></i></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="email-alert">
+    <div class="modal fade" id="email-alert-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">ایمیل به آگهی دهنده</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="email-modal-result"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal mobile-social-modal fade" id="social-modal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close call-close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="sh-quit"></i></span>
+                </button>
+                <h5 class="medium-sans mt-4 text-center w-100" id="usertypelabel">این آگهی را به اشتراک بگذارید</h5>
+            </div>
+            <div class="modal-body">
+                <div class="social-share">
+                    <div class="socials-icon mx-auto text-center">
+                        <ul>
+                            <li class="d-inline-block my-3">
+                                <a target="_blank" class="telegram-link"
+                                   href="https://telegram.me/share/url?url=&amp;text="
+                                   rel="nofollow">
+                                    <div class="circle telegram">
+                                        <picture>
+                                            <img src="../../../img/icon.jpg" alt="telegram" title="telegram">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="d-inline-block my-3 mr-2">
+                                <a target="_blank" class="linkdin-link"
+                                   href="http://www.linkedin.com/shareArticle?url=&amp;title=&amp;summary=&amp;source=https://shabesh.com"
+                                   rel="nofollow">
+                                    <div class="circle linkdin">
+                                        <picture>
+                                            <img src="../../../img/icon.jpg" alt="linkdin" title="linkdin">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="d-inline-block my-3 mr-2">
+                                <a target="_blank" class="whatsapp-link"
+                                   href="whatsapp://send?text=:" rel="nofollow">
+                                    <div class="circle whatsapp">
+                                        <picture>
+                                            <img src="../../../img/icon.jpg" alt="whatsapp" title="whatsapp">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="d-inline-block my-3 mr-2">
+                                <a target="_blank" class="mailto"
+                                   href="mailto:?subject=&body=" rel="nofollow">
+                                    <div class="circle mailto">
+                                        <picture>
+                                            <img src="../../../img/icon.jpg" alt="mail" title="mail">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="placeholder" class="ph-item announce-placeholder main_box single_announce pl-lg-5 list-view col-12 hidden">
+    <div class="announce-inner clearfix px-0">
+        <div class="row px-1 h-100 ">
+            <div class="announce_images col-5 px-0">
+                <div class="ph-picture"></div>
+            </div>
+            <div class="announce_info col-7 px-4">
+                <div class="ph-row mt-4">
+                    <div class="w-50 big"></div>
+                    <div class="w-50 empty"></div>
+                    <div class="w-75"></div>
+                    <div class="w-25 empty"></div>
+                    <div class="w-25"></div>
+                    <div class="w-75 empty"></div>
+                    <div class="w-50"></div>
+                    <div class="w-50 empty"></div>
+                    <div class="w-75"></div>
+                    <div class="w-25 empty"></div>
+                    <div class="w-75"></div>
+                    <div class="w-25 empty"></div>
+                    <div class="w-75"></div>
+                    <div class="w-25 empty"></div>
+                    <div class="w-25"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

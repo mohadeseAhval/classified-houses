@@ -1,0 +1,67 @@
+﻿@using ModelLib;
+@model NewsObject
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="news-page">
+    <div class="container">
+        <div class="row pt-2"></div>
+        <div class="row title-row">
+            <div class="col-lg-12 page-title pr-lg-0">
+                <h1>
+                    بلاگ املاک
+                    <span>مطالب مرتبط با حوزه املاک و بازار مسکن</span>
+                </h1>
+            </div>
+
+        </div>
+        <div class="row section-top">
+            <div class="col-lg-4 vertical-slider pr-lg-0 pt-4 pt-lg-0 pt-md-0 col-md-6 d-none d-md-block">
+                <h2 class="pt-md-0 pt-lg-3">
+                    پربازدیدترین مطالب
+                </h2>
+                <div class="swiper-container-news-top">
+                    <div class="swiper-wrapper">
+                       @Html.Partial("_pVisitc", (List<ModelLib.News>)Model.popularNews_o)
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="button-prev"><i class="sh-up"></i></div>
+                    <div class="button-next"><i class="sh-down"></i></div>
+                </div>
+            </div>
+            <div class="col-lg-8 top-news pr-lg-4 px-lg-0 flex-first flex-lg-last col-md-6">
+                <div class="swiper-container-news-top1">
+                    <div class="swiper-wrapper">                        
+                        @Html.Partial("_pBlogSlider", (List<ModelLib.News>)Model.slider_o)                       
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row section-top second-section-top">
+            <div class="col-lg-4 pr-lg-0 vertical-slider d-none d-md-block pt-lg-4">
+                <h2>آخرین مطالب</h2>                
+                <div class="swiper-container-news-down">
+                    <div class="swiper-wrapper">
+                       @Html.Partial("_pDatepost",(List<ModelLib.News>)Model.LatestNews_o)                       
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="button-prev"><i class="sh-up"></i></div>
+                    <div class="button-next"><i class="sh-down"></i></div>
+                    <div class="swiper-scrollbar hidden"></div>
+                </div>
+            </div>
+            <div class="col-lg-8 top-news pr-lg-4 pl-lg-0">
+                <div class="newsletter_row clearfix py-3 ">
+                    @* news *@
+                </div>
+                <div class="tops_row row">
+                    @Html.Partial("_pBlog", (List<ModelLib.News>)Model.news_o)                   
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>
+

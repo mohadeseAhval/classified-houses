@@ -1,0 +1,222 @@
+﻿@using ModelLib.Enums;
+@using ModelLib;
+
+@model ModelLib.Advertising
+@{
+    ViewBag.Title = "افزودن/اپدیت";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<section class="container-fluid pl-3 pr-3">
+    <div class="mt-3 ml-0"><h2 class="title-page">افزودن/اپدیت</h2></div>
+    <form action="/Admin/Advertising/Operation" method="post" enctype="multipart/form-data" class="mt-3">
+        <input type="hidden" name="id" id="id" value="@Model.id" />
+        <input type="hidden" name="oldUrl" id="oldUrl" value="@Model.imageUrl" />
+        <table class="table">
+            <tr>
+                <td>عنوان</td>
+                <td>
+                    <input type="text" id="title" name="title" class="form-control" value="@Model.title" />
+                </td>
+            </tr>
+            <tr>
+                <td>نوع آگهی</td>
+                <td>
+                    @Html.EnumDropDownListFor(item => item.typeOfAd, new { @class = "form-control" })
+                </td>
+            </tr>  
+            <tr>
+                <td>قیمت</td>
+                <td>
+                    <input type="number" id="Price" name="Price" class="form-control" value="@Model.Price" />
+                </td> 
+            </tr>
+            <tr>
+                <td>رهن</td>
+                <td>
+                    <input type="number" id="rent" name="rent" class="form-control" value="@Model.rent" />
+                </td>
+            </tr>
+            <tr>
+                <td>اجاره</td>
+                <td>
+                    <input type="number" id="mortgage" name="mortgage" class="form-control" value="@Model.mortgage" />
+                </td>
+            </tr>                                                                                        
+            <tr>
+                <td>متراژ</td>
+                <td>                                   
+                    <input type="number" id="area" name="area" class="form-control" value="@Model.area" />
+                </td>
+            </tr>
+            <tr>
+                <td>تعداد خواب</td>
+                <td>
+                    @Html.EnumDropDownListFor(item => item.numberOfRooms, new { @class = "form-control" })                    
+                </td>
+            </tr>
+            <tr>
+                <td>طبقه</td>
+                <td>
+                    @Html.EnumDropDownListFor(item => item.floor, new { @class = "form-control" })                   
+                </td>
+            </tr>
+            <tr>
+                <td>تعداد طبقات</td>
+                <td>
+                    @Html.EnumDropDownListFor(item => item.numberOfFloors, new { @class = "form-control" })                   
+                </td>
+            </tr>
+            <tr>
+                <td>سال ساخت</td>
+                <td>
+                    @Html.EnumDropDownListFor(item => item.productionYear, new { @class = "form-control" })                   
+                </td>
+            </tr>
+            <tr>
+                <td>آدرس</td>
+                <td>
+                    <input type="text" id="address" name="address" class="form-control" value="@Model.address" />
+                </td>
+            </tr>
+            <tr>
+                <td>توضیحات</td>
+                <td>
+                    <textarea name="description" id="description" class="form-control">@Model.description</textarea>                    
+                </td>
+            </tr>
+            <tr>
+                <td>شماره تماس</td>
+                <td>
+                    <input type="text" id="tell" name="tell" class="form-control" value="@Model.tell" />
+                </td>
+            </tr>
+            <tr>
+                <td>استان</td>
+                <td>
+                    <select class="form-control" id="proviences_select">
+                        @if (ViewBag.Proviences == null)
+                        {
+                            <option value="0">هیچ استانی موجود نیست</option>
+                        }
+                        else
+                        {
+                            <option value="0">استان را انتخاب کنید</option>
+                            foreach (ProvincesTb provience in ViewBag.Proviences)
+                            {
+                                <option value="@provience.id" @provience.Selected> @provience.title </option>
+                            }
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>شهر</td>
+                <td>
+                    <select id="cities_select" class="form-control" name="City_id">
+                        @if (ViewBag.Cities == null)
+                        {
+                            <option value="">ابتدا استان را انتخاب کنید</option>
+                        }
+                        else
+                        {
+                            foreach (City city in ViewBag.Cities)
+                            {
+                                <option value="@city.id" @city.Selected> @city.title </option>
+                            }
+                        }
+                    </select>
+                </td>
+            </tr>   
+            <tr>
+                <td>عکس</td>
+                <td>
+                    @if (!String.IsNullOrEmpty(Model.imageUrl))
+                    {<img src="@Href(Model.imageUrl)" alt="Alternate Text" style="width:300px; height:200px;" />}
+                    <input type="file" id="imageurl" name="imageurl" class="form-control" />
+                </td>
+            </tr>       
+            <tr>
+                <td>نوع ملک</td>
+                <td>
+                    @Html.EnumDropDownListFor(item => item.propertyType, new { @class = "form-control" })                    
+                </td>
+            </tr> 
+            <tr>
+                <td>وضعیت آگهی</td>
+                <td>
+                    @Html.EnumDropDownListFor(item => item.Condition, new { @class = "form-control" })
+                </td>
+            </tr>                    
+            <tr>
+                <td>
+                    <input type="submit" value="ذخیره" class="btn btn-success" />
+                </td>
+                <td>
+                    <input type="reset" value="انصراف" class="btn btn-warning" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</section>
+
+<script>
+
+    var resolvedUrl = "@Url.Action("Cities", "Advertising")";
+
+    /**
+     * Build drop down for given element (select)
+     */
+    function buildDromdown(element, config) {
+        var myOption = document.createElement("option");
+        myOption.text = config.text;
+        myOption.value = config.value;
+
+        element.appendChild(myOption);
+    }
+
+    /**
+     * Referesh drop down for given element (select)
+     */
+    function refreshDropdown(element) {
+        while (element.firstChild) {
+            element.removeChild(element.firstChild);
+        }
+    }
+
+    document.getElementById("proviences_select").addEventListener("change", function (e) {
+        // Resolve url
+        var selectedProvienceId = document.getElementById("proviences_select").value;
+        var url = resolvedUrl + '/' + selectedProvienceId;
+
+        // Get cities by requested provience
+        $.ajax({
+            type: "GET",
+            url,
+            success: function (response) {
+                console.log(response);
+                if (response.success) {
+                    // Refresh the dropdown
+                    const cityDropDown = document.getElementById("cities_select");
+                    refreshDropdown(cityDropDown);
+
+                    // If we have no cities
+                    if (response.result.length == 0) {
+                        buildDromdown(cityDropDown, { value: '0', text: 'هیچ شهری موجود نیست' });
+                    } else { // Add new options (cities)
+                        for (var i = 0; i < response.result.length; i++) {
+                            buildDromdown(cityDropDown, { value: response.result[i].id, text: response.result[i].title });
+                        }
+                    }
+                } else {
+                    // Refresh the dropdown
+                    const cityDropDown = document.getElementById("cities_select");
+                    refreshDropdown(cityDropDown);
+
+                    buildDromdown(cityDropDown, { value: '0', text: 'هیچ شهری موجود نیست' });
+                }
+            }
+        });
+    });
+
+
+</script>

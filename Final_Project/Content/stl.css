@@ -1,0 +1,25 @@
+﻿.txtOne{
+    font-size: 14px !important;
+    font-family: IranSansNumbers, IranSans, sans-serif !important;
+}
+.lblOne{
+    width:180px;
+}
+.teOne{
+    width:300px; 
+    height:150px;  
+    padding:0.25rem;
+}
+.lblTow{
+    width:100px
+}
+.imgOne{
+    width:300px; 
+    height:150px;  
+    padding:0.25rem;  
+    border:1px solid #fff;
+}
+.imgTow{
+    width:300px; 
+    height:200px;
+}

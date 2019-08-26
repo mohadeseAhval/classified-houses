@@ -1,0 +1,100 @@
+﻿@model List<ModelLib.AboutUs> 
+@{
+    ViewBag.Title = "About";
+}
+@foreach (var item in Model)
+{
+<section class="about-section first">
+    <div class="container clearfix py-5">
+        <div class="row">
+            <div class="col-lg-6 float-right pt-5">
+                <h1>@item.title1</h1>
+                <p>
+                    @item.text1
+                </p>
+                @*<h1>درباره املاک </h1>
+                <p>
+                    املاک وب سایت و اپلیکیشن تخصصی درج آگهی های املاک است که در آن مالکین و مشاورین املاک آگهی های
+                    فروش، رهن و اجاره انواع املاک مانند آپارتمان مسکونی ،اداری،تجاری،ویلا،مستغلات،زمین،کلنگی،باغ و
+                    باغچه،انبار و سوله را منتشر کرده و توسط هزاران نفر در سراسر کشور دیده میشوند. ما، میان افراد
+                    مرتبط در زمینه املاک اعم از مالکین، خریداران ، مستاجران و مشاورین املاک ارتباط برقرار می کنیم.
+                    املاک به سرعت در حال تبدیل شدن به یک مرجع اینترنتی برای عموم در ایران است، سایتی که هر فردی ، چه
+                    یک دانشجوی دانشگاه که قصد اجاره یک اتاق را دارد وچه یک سرمایه گذار در حوزه ملک، که به دنبال خرید
+                    و اجرای یک پروژه جدید است، به آسانی از آن استفاده کند و از آن بهره مند شود.
+                </p>*@
+            </div>
+            <div class="col-lg-6 text-center text-lg-left px-sm-2 px-0">
+                <img class="" src="~/Images/about-us/about1.jpg"
+                     title="درباره املاک" alt="درباره املاک">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="about-section">
+    <div class="container clearfix">
+        <div class="row">
+            <div class="col-lg-6 float-right text-center text-lg-right px-sm-2 px-0">
+                <img src="~/Images/about-us/about4.jpg" title="درباره املاک" alt="درباره املاک">
+            </div>
+            <div class="col-lg-6 float-left py-5">
+                <h1>@item.title2</h1>
+                <p>
+                    @item.text2
+                </p>
+                @*<h2> خطوط قرمز املاک</h2>
+                <p>
+                    املاک یک شرکت واسطه گری یا یک دفتر معاملات املاک نیست، ما هیچ نوع وجهی در قبال معاملات املاک
+                    دریافت نمی کنیم و اطلاعات کاربران خود را در قبال دریافت پول، در اختیار اشخاص حقیقی و حقوقی قرار
+                    نمی دهیم. تلاش املاک تنها تسهیل معامله املاک در سراسر کشور است.
+                </p>*@
+            </div>
+        </div>
+    </div>
+</section>
+<section class="about-section first">
+    <div class="container clearfix ">
+        <div class="row">
+            <div class="col-lg-6 float-right py-5">
+                <h1>@item.title3</h1>
+                <p>
+                    @item.text3
+                </p>
+                @*<h2>چگونه فعالیت خود را آغاز کردیم؟</h2>
+                <p>
+                    املاک در سال 1394 با هدف ارائه جدیدترین نرم افزارارتباط با مشاورین املاک و جویندگان ملک از طریق
+                    سایت SHABESH.COM آغاز به کار کرد و برای تسهیل استفاده افراد، نرم افزارتلفن همراه آن ایجاد و از
+                    طریق App Store و Google Play و کافه بازار در اختیار کاربران قرار گرفت.
+                </p>*@
+            </div>
+            <div class="col-lg-6 float-left apps py-5">
+               @* app *@
+            </div>
+        </div>
+    </div>
+</section>
+<section class="about-section has-gray-light-bg fourth">
+    <div class="container clearfix">
+        <div class="row">
+            <div class="col-lg-6 text-center text-lg-right px-sm-2 px-0">
+                <img src="~/Images/about-us/about4.jpg"
+                     alt="درباره املاک" title="درباره املاک">
+            </div>
+            <div class="col-lg-6 py-5 float-left">
+                <h1>@item.title4</h1>
+                <p>
+                    @item.text4
+                </p>
+                @*<h2>اصول املاک</h2>
+                <p>
+                    دیگر نیاز نیست در ترافیک سنگین تهران با تحمل گرما و سرما و مشکلات تردد و صرف وقت و انرژی ارزشمند
+                    خود در سراسر تهران به دنبال ملک مورد نظر باشید. شما می توانید با خیال راحت و اطمینان به اطلاعاتی
+                    که در اختیار شما قرار می دهیم، با استفاده از سایت یا اپلیکیشن املاک و فشردن چند دکمه ملک مورد نظر
+                    خود را پیدا کنید. املاک آگهی های مالکین و مشاورین املاک را که از سوی بخش کارشناسی املاک تایید شده
+                    است، در اختیار تمام افراد جامعه قرار می دهد.
+                </p>*@
+            </div>
+        </div>
+    </div>
+</section>
+
+}

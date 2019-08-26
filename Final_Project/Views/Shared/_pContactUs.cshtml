@@ -1,0 +1,27 @@
+﻿@model List<ModelLib.ContactPage>    
+
+@foreach (var item in Model)
+{
+<div class="row mt-4">
+    <div class="col-5">
+        <div class="list-name">شماره تماس :</div>
+    </div>
+    <div class="col-7"><span class="content">@item.tell</span></div>
+</div>
+<div class="row mt-4">
+    <div class="col-5">
+        <div class="list-name">ساعات کاری :</div>
+    </div>
+    <div class="col-7">
+        <span class="content">@item.hoursOfWork</span>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-5">
+        <div class="list-name">آدرس :</div>
+    </div>
+    <div class="col-7">
+        <span class="content">@item.address</span>
+    </div>
+</div>
+}

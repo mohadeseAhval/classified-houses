@@ -1,0 +1,721 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div class="home-page">
+    <section id="page_section" class="page_section home-page-cover slide1 clearfix pb-5">
+        @* title *@
+        <h1 class="text-center pb-4 pt-4">
+            با کیفیت ترین وبسایت آگهی املاک کشور
+        </h1>
+        @* search *@
+        <div class="search_container container">
+            <form class="filter_form filter_form_home advanced_search clearfix" action="https://shabesh.com/search"
+                  id="filter-form">
+                <div class="row mb-3 px-xl-5" id="searchContent" data-form="search">
+                    <div class="col-12 main-search pb-5 pb-lg-4">
+                        <div class="row">
+                            <div class="col-12 col-lg-3 my-2 px-2">
+                                <select class="big-size w-100" name="sales_type">
+                                    <option value="sale">خرید</option>
+                                    <option value="rent">رهن و اجاره</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-9 my-2 px-2">
+                                <div class="row">
+                                    <div class="col-12 col-lg-9 col-xl-10 pl-lg-0">
+                                        <div class="search-input clearfix ">
+                                            <div class="row m-0">
+                                                <div class="result-box multiple p-0 col-auto"></div>
+                                                <div class="col searchform pr-lg-0">
+                                                    <i class="sh-location"></i>
+                                                    <input id="searchtext" name="location"
+                                                           class="big-size form-control searchtext search-location form-input float-right with-icon"
+                                                           type="text" autocomplete="off"
+                                                           placeholder="استان ، شهر یا محله"> <input type="hidden"
+                                                                                                     id="location_ids"
+                                                                                                     name="location_ids"
+                                                                                                     class="area-input"
+                                                                                                     value="" />
+                                                </div>
+                                                <div class="search-box"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 col-xl-2 pr-lg-0 pt-3 pt-lg-0 d-none d-lg-block">
+                                        <button class="home-search shabesh-button main-search-btn w-100 green big-size">
+                                            جستجو
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-3 px-2">
+                                <div class="row">
+                                    <div class="col-12 my-2 my-lg-1 ">
+                                        <select class="w-100 small-size" name="type">
+                                            <option value="">نوع ملک</option>
+                                            <option value="apartment">آپارتمان</option>
+                                            <option value="administrative">اداری</option>                                            
+                                            <option value="villa">ویلا</option>                                            
+                                        </select>
+                                    </div>                                    
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-9 ">
+                                <div class="row more-filters d-none d-lg-flex">
+                                    <div class="col-6 col-lg-2 my-2 my-lg-1 pr-2 pl-1 search-sale">
+                                        <select class="w-100 small-size" name="min_price">
+                                            <option value="">حداقل قیمت</option>
+                                            <option value="50000000">50 میلیون تومان</option>
+                                            <option value="100000000">100 میلیون تومان</option>
+                                            <option value="150000000">150 میلیون تومان</option>
+                                            <option value="200000000">200 میلیون تومان</option>
+                                            <option value="250000000">250 میلیون تومان</option>
+                                            <option value="300000000">300 میلیون تومان</option>
+                                            <option value="350000000">350 میلیون تومان</option>
+                                            <option value="400000000">400 میلیون تومان</option>
+                                            <option value="450000000">450 میلیون تومان</option>
+                                            <option value="500000000">500 میلیون تومان</option>
+                                            <option value="550000000">550 میلیون تومان</option>
+                                            <option value="600000000">600 میلیون تومان</option>
+                                            <option value="650000000">650 میلیون تومان</option>
+                                            <option value="700000000">700 میلیون تومان</option>
+                                            <option value="750000000">750 میلیون تومان</option>
+                                            <option value="800000000">800 میلیون تومان</option>
+                                            <option value="850000000">850 میلیون تومان</option>
+                                            <option value="900000000">900 میلیون تومان</option>
+                                            <option value="950000000">950 میلیون تومان</option>
+                                            <option value="1000000000">1 میلیارد تومان</option>
+                                            <option value="1200000000">1.2 میلیارد تومان</option>
+                                            <option value="1400000000">1.4 میلیارد تومان</option>
+                                            <option value="1600000000">1.6 میلیارد تومان</option>
+                                            <option value="1800000000">1.8 میلیارد تومان</option>
+                                            <option value="2000000000">2 میلیارد تومان</option>
+                                            <option value="2500000000">2.5 میلیارد تومان</option>
+                                            <option value="3000000000">3 میلیارد تومان</option>
+                                            <option value="3500000000">3.5 میلیارد تومان</option>
+                                            <option value="4000000000">4 میلیارد تومان</option>
+                                            <option value="4500000000">4.5 میلیارد تومان</option>
+                                            <option value="5000000000">5 میلیارد تومان</option>
+                                            <option value="6000000000">6 میلیارد تومان</option>
+                                            <option value="7000000000">7 میلیارد تومان</option>
+                                            <option value="8000000000">8 میلیارد تومان</option>
+                                            <option value="9000000000">9 میلیارد تومان</option>
+                                            <option value="10000000000">10 میلیارد تومان</option>
+                                            <option value="20000000000">20 میلیارد تومان</option>
+                                            <option value="30000000000">30 میلیارد تومان</option>
+                                            <option value="40000000000">40 میلیارد تومان</option>
+                                            <option value="50000000000">50 میلیارد تومان</option>
+                                            <option value="100000000000">100 میلیارد تومان</option>
+                                            <option value="150000000000">150 میلیارد تومان</option>
+                                            <option value="200000000000">200 میلیارد تومان</option>
+                                            <option value="300000000000">300 میلیارد تومان</option>
+                                            <option value="400000000000">400 میلیارد تومان</option>
+                                            <option value="500000000000">500 میلیارد تومان</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6 col-lg-2 my-2 my-lg-1 pl-2 pr-1 search-sale">
+                                        <select class="w-100 small-size" name="max_price">
+                                            <option value="">حداکثر قیمت</option>
+                                            <option value="50000000">50 میلیون تومان</option>
+                                            <option value="100000000">100 میلیون تومان</option>
+                                            <option value="150000000">150 میلیون تومان</option>
+                                            <option value="200000000">200 میلیون تومان</option>
+                                            <option value="250000000">250 میلیون تومان</option>
+                                            <option value="300000000">300 میلیون تومان</option>
+                                            <option value="350000000">350 میلیون تومان</option>
+                                            <option value="400000000">400 میلیون تومان</option>
+                                            <option value="450000000">450 میلیون تومان</option>
+                                            <option value="500000000">500 میلیون تومان</option>
+                                            <option value="550000000">550 میلیون تومان</option>
+                                            <option value="600000000">600 میلیون تومان</option>
+                                            <option value="650000000">650 میلیون تومان</option>
+                                            <option value="700000000">700 میلیون تومان</option>
+                                            <option value="750000000">750 میلیون تومان</option>
+                                            <option value="800000000">800 میلیون تومان</option>
+                                            <option value="850000000">850 میلیون تومان</option>
+                                            <option value="900000000">900 میلیون تومان</option>
+                                            <option value="950000000">950 میلیون تومان</option>
+                                            <option value="1000000000">1 میلیارد تومان</option>
+                                            <option value="1200000000">1.2 میلیارد تومان</option>
+                                            <option value="1400000000">1.4 میلیارد تومان</option>
+                                            <option value="1600000000">1.6 میلیارد تومان</option>
+                                            <option value="1800000000">1.8 میلیارد تومان</option>
+                                            <option value="2000000000">2 میلیارد تومان</option>
+                                            <option value="2500000000">2.5 میلیارد تومان</option>
+                                            <option value="3000000000">3 میلیارد تومان</option>
+                                            <option value="3500000000">3.5 میلیارد تومان</option>
+                                            <option value="4000000000">4 میلیارد تومان</option>
+                                            <option value="4500000000">4.5 میلیارد تومان</option>
+                                            <option value="5000000000">5 میلیارد تومان</option>
+                                            <option value="6000000000">6 میلیارد تومان</option>
+                                            <option value="7000000000">7 میلیارد تومان</option>
+                                            <option value="8000000000">8 میلیارد تومان</option>
+                                            <option value="9000000000">9 میلیارد تومان</option>
+                                            <option value="10000000000">10 میلیارد تومان</option>
+                                            <option value="20000000000">20 میلیارد تومان</option>
+                                            <option value="30000000000">30 میلیارد تومان</option>
+                                            <option value="40000000000">40 میلیارد تومان</option>
+                                            <option value="50000000000">50 میلیارد تومان</option>
+                                            <option value="100000000000">100 میلیارد تومان</option>
+                                            <option value="150000000000">150 میلیارد تومان</option>
+                                            <option value="200000000000">200 میلیارد تومان</option>
+                                            <option value="300000000000">300 میلیارد تومان</option>
+                                            <option value="400000000000">400 میلیارد تومان</option>
+                                            <option value="500000000000">500 میلیارد تومان</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6 col-lg-2 my-2 my-lg-1 pr-2 pl-1 search-rent hidden">
+                                        <select class="w-100 small-size" name="min_price">
+                                            <option value="">حداقل ودیعه</option>
+                                            <option value="10000000">10 میلیون تومان</option>
+                                            <option value="20000000">20 میلیون تومان</option>
+                                            <option value="30000000">30 میلیون تومان</option>
+                                            <option value="40000000">40 میلیون تومان</option>
+                                            <option value="50000000">50 میلیون تومان</option>
+                                            <option value="60000000">60 میلیون تومان</option>
+                                            <option value="70000000">70 میلیون تومان</option>
+                                            <option value="80000000">80 میلیون تومان</option>
+                                            <option value="90000000">90 میلیون تومان</option>
+                                            <option value="100000000">100 میلیون تومان</option>
+                                            <option value="120000000">120 میلیون تومان</option>
+                                            <option value="140000000">140 میلیون تومان</option>
+                                            <option value="160000000">160 میلیون تومان</option>
+                                            <option value="180000000">180 میلیون تومان</option>
+                                            <option value="200000000">200 میلیون تومان</option>
+                                            <option value="220000000">220 میلیون تومان</option>
+                                            <option value="240000000">240 میلیون تومان</option>
+                                            <option value="260000000">260 میلیون تومان</option>
+                                            <option value="280000000">280 میلیون تومان</option>
+                                            <option value="300000000">300 میلیون تومان</option>
+                                            <option value="320000000">320 میلیون تومان</option>
+                                            <option value="340000000">340 میلیون تومان</option>
+                                            <option value="360000000">360 میلیون تومان</option>
+                                            <option value="380000000">380 میلیون تومان</option>
+                                            <option value="400000000">400 میلیون تومان</option>
+                                            <option value="420000000">420 میلیون تومان</option>
+                                            <option value="440000000">440 میلیون تومان</option>
+                                            <option value="460000000">460 میلیون تومان</option>
+                                            <option value="480000000">480 میلیون تومان</option>
+                                            <option value="500000000">500 میلیون تومان</option>
+                                            <option value="550000000">550 میلیون تومان</option>
+                                            <option value="600000000">600 میلیون تومان</option>
+                                            <option value="650000000">650 میلیون تومان</option>
+                                            <option value="700000000">700 میلیون تومان</option>
+                                            <option value="750000000">750 میلیون تومان</option>
+                                            <option value="800000000">800 میلیون تومان</option>
+                                            <option value="850000000">850 میلیون تومان</option>
+                                            <option value="900000000">900 میلیون تومان</option>
+                                            <option value="950000000">950 میلیون تومان</option>
+                                            <option value="1000000000">1 میلیارد تومان</option>
+                                            <option value="1500000000">1.5 میلیارد تومان</option>
+                                            <option value="2000000000">2 میلیارد تومان</option>
+                                            <option value="2500000000">2.5 میلیارد تومان</option>
+                                            <option value="3000000000">3 میلیارد تومان</option>
+                                            <option value="3500000000">3.5 میلیارد تومان</option>
+                                            <option value="4000000000">4 میلیارد تومان</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6 col-lg-2 my-2 my-lg-1 pl-2 pr-1 search-rent hidden">
+                                        <select class="w-100 small-size" name="max_price">
+                                            <option value="">حداکثر ودیعه</option>
+                                            <option value="10000000">10 میلیون تومان</option>
+                                            <option value="20000000">20 میلیون تومان</option>
+                                            <option value="30000000">30 میلیون تومان</option>
+                                            <option value="40000000">40 میلیون تومان</option>
+                                            <option value="50000000">50 میلیون تومان</option>
+                                            <option value="60000000">60 میلیون تومان</option>
+                                            <option value="70000000">70 میلیون تومان</option>
+                                            <option value="80000000">80 میلیون تومان</option>
+                                            <option value="90000000">90 میلیون تومان</option>
+                                            <option value="100000000">100 میلیون تومان</option>
+                                            <option value="120000000">120 میلیون تومان</option>
+                                            <option value="140000000">140 میلیون تومان</option>
+                                            <option value="160000000">160 میلیون تومان</option>
+                                            <option value="180000000">180 میلیون تومان</option>
+                                            <option value="200000000">200 میلیون تومان</option>
+                                            <option value="220000000">220 میلیون تومان</option>
+                                            <option value="240000000">240 میلیون تومان</option>
+                                            <option value="260000000">260 میلیون تومان</option>
+                                            <option value="280000000">280 میلیون تومان</option>
+                                            <option value="300000000">300 میلیون تومان</option>
+                                            <option value="320000000">320 میلیون تومان</option>
+                                            <option value="340000000">340 میلیون تومان</option>
+                                            <option value="360000000">360 میلیون تومان</option>
+                                            <option value="380000000">380 میلیون تومان</option>
+                                            <option value="400000000">400 میلیون تومان</option>
+                                            <option value="420000000">420 میلیون تومان</option>
+                                            <option value="440000000">440 میلیون تومان</option>
+                                            <option value="460000000">460 میلیون تومان</option>
+                                            <option value="480000000">480 میلیون تومان</option>
+                                            <option value="500000000">500 میلیون تومان</option>
+                                            <option value="550000000">550 میلیون تومان</option>
+                                            <option value="600000000">600 میلیون تومان</option>
+                                            <option value="650000000">650 میلیون تومان</option>
+                                            <option value="700000000">700 میلیون تومان</option>
+                                            <option value="750000000">750 میلیون تومان</option>
+                                            <option value="800000000">800 میلیون تومان</option>
+                                            <option value="850000000">850 میلیون تومان</option>
+                                            <option value="900000000">900 میلیون تومان</option>
+                                            <option value="950000000">950 میلیون تومان</option>
+                                            <option value="1000000000">1 میلیارد تومان</option>
+                                            <option value="1500000000">1.5 میلیارد تومان</option>
+                                            <option value="2000000000">2 میلیارد تومان</option>
+                                            <option value="2500000000">2.5 میلیارد تومان</option>
+                                            <option value="3000000000">3 میلیارد تومان</option>
+                                            <option value="3500000000">3.5 میلیارد تومان</option>
+                                            <option value="4000000000">4 میلیارد تومان</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6 col-lg-2 my-2 my-lg-1 pr-2 pl-1 search-rent hidden">
+                                        <select class="w-100 small-size" name="min_rent">
+                                            <option value="">حداقل اجاره</option>
+                                            <option value="100000">100 هزار تومان</option>
+                                            <option value="200000">200 هزار تومان</option>
+                                            <option value="300000">300 هزار تومان</option>
+                                            <option value="400000">400 هزار تومان</option>
+                                            <option value="500000">500 هزار تومان</option>
+                                            <option value="600000">600 هزار تومان</option>
+                                            <option value="700000">700 هزار تومان</option>
+                                            <option value="800000">800 هزار تومان</option>
+                                            <option value="900000">900 هزار تومان</option>
+                                            <option value="1000000">1 میلیون تومان</option>
+                                            <option value="1200000">1.2 میلیون تومان</option>
+                                            <option value="1400000">1.4 میلیون تومان</option>
+                                            <option value="1600000">1.6 میلیون تومان</option>
+                                            <option value="1800000">1.8 میلیون تومان</option>
+                                            <option value="2000000">2 میلیون تومان</option>
+                                            <option value="2500000">2.5 میلیون تومان</option>
+                                            <option value="3000000">3 میلیون تومان</option>
+                                            <option value="3500000">3.5 میلیون تومان</option>
+                                            <option value="4000000">4 میلیون تومان</option>
+                                            <option value="4500000">4.5 میلیون تومان</option>
+                                            <option value="5000000">5 میلیون تومان</option>
+                                            <option value="6000000">6 میلیون تومان</option>
+                                            <option value="7000000">7 میلیون تومان</option>
+                                            <option value="8000000">8 میلیون تومان</option>
+                                            <option value="9000000">9 میلیون تومان</option>
+                                            <option value="10000000">10 میلیون تومان</option>
+                                            <option value="11000000">11 میلیون تومان</option>
+                                            <option value="12000000">12 میلیون تومان</option>
+                                            <option value="13000000">13 میلیون تومان</option>
+                                            <option value="14000000">14 میلیون تومان</option>
+                                            <option value="15000000">15 میلیون تومان</option>
+                                            <option value="16000000">16 میلیون تومان</option>
+                                            <option value="17000000">17 میلیون تومان</option>
+                                            <option value="18000000">18 میلیون تومان</option>
+                                            <option value="19000000">19 میلیون تومان</option>
+                                            <option value="20000000">20 میلیون تومان</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6 col-lg-2 my-2 my-lg-1 pl-2 pr-1 search-rent hidden">
+                                        <select class="w-100 small-size" name="max_rent">
+                                            <option value="">حداکثر اجاره</option>
+                                            <option value="100000">100 هزار تومان</option>
+                                            <option value="200000">200 هزار تومان</option>
+                                            <option value="300000">300 هزار تومان</option>
+                                            <option value="400000">400 هزار تومان</option>
+                                            <option value="500000">500 هزار تومان</option>
+                                            <option value="600000">600 هزار تومان</option>
+                                            <option value="700000">700 هزار تومان</option>
+                                            <option value="800000">800 هزار تومان</option>
+                                            <option value="900000">900 هزار تومان</option>
+                                            <option value="1000000">1 میلیون تومان</option>
+                                            <option value="1200000">1.2 میلیون تومان</option>
+                                            <option value="1400000">1.4 میلیون تومان</option>
+                                            <option value="1600000">1.6 میلیون تومان</option>
+                                            <option value="1800000">1.8 میلیون تومان</option>
+                                            <option value="2000000">2 میلیون تومان</option>
+                                            <option value="2500000">2.5 میلیون تومان</option>
+                                            <option value="3000000">3 میلیون تومان</option>
+                                            <option value="3500000">3.5 میلیون تومان</option>
+                                            <option value="4000000">4 میلیون تومان</option>
+                                            <option value="4500000">4.5 میلیون تومان</option>
+                                            <option value="5000000">5 میلیون تومان</option>
+                                            <option value="6000000">6 میلیون تومان</option>
+                                            <option value="7000000">7 میلیون تومان</option>
+                                            <option value="8000000">8 میلیون تومان</option>
+                                            <option value="9000000">9 میلیون تومان</option>
+                                            <option value="10000000">10 میلیون تومان</option>
+                                            <option value="11000000">11 میلیون تومان</option>
+                                            <option value="12000000">12 میلیون تومان</option>
+                                            <option value="13000000">13 میلیون تومان</option>
+                                            <option value="14000000">14 میلیون تومان</option>
+                                            <option value="15000000">15 میلیون تومان</option>
+                                            <option value="16000000">16 میلیون تومان</option>
+                                            <option value="17000000">17 میلیون تومان</option>
+                                            <option value="18000000">18 میلیون تومان</option>
+                                            <option value="19000000">19 میلیون تومان</option>
+                                            <option value="20000000">20 میلیون تومان</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6 col-lg-2 my-2 my-lg-1 pr-2 pl-1">
+                                        <select class="w-100 small-size" name="min_bedroom">
+                                            <option value="">تعداد خواب</option>
+                                            <option value="1">1 خواب</option>
+                                            <option value="2">2 خواب</option>
+                                            <option value="3">3 خواب</option>
+                                            <option value="4">4 خواب</option>                                            
+                                        </select>
+                                    </div>                                   
+                                    <div class="col-6 col-lg-2 my-2 my-lg-1 pr-2 pl-1">
+                                        <select class="w-100 small-size" name="min_size">
+                                            <option value="">حداقل متراژ</option>
+                                            <option value="20">20 متر</option>
+                                            <option value="40">40 متر</option>
+                                            <option value="60">60 متر</option>
+                                            <option value="80">80 متر</option>
+                                            <option value="100">100 متر</option>
+                                            <option value="120">120 متر</option>
+                                            <option value="140">140 متر</option>
+                                            <option value="160">160 متر</option>
+                                            <option value="180">180 متر</option>
+                                            <option value="200">200 متر</option>
+                                            <option value="220">220 متر</option>
+                                            <option value="240">240 متر</option>
+                                            <option value="260">260 متر</option>
+                                            <option value="280">280 متر</option>
+                                            <option value="300">300 متر</option>
+                                            <option value="320">320 متر</option>
+                                            <option value="340">340 متر</option>
+                                            <option value="360">360 متر</option>
+                                            <option value="380">380 متر</option>
+                                            <option value="400">400 متر</option>
+                                            <option value="450">450 متر</option>
+                                            <option value="500">500 متر</option>
+                                            <option value="550">550 متر</option>
+                                            <option value="600">600 متر</option>
+                                            <option value="650">650 متر</option>
+                                            <option value="700">700 متر</option>
+                                            <option value="750">750 متر</option>
+                                            <option value="800">800 متر</option>
+                                            <option value="850">850 متر</option>
+                                            <option value="900">900 متر</option>
+                                            <option value="950">950 متر</option>
+                                            <option value="1000">1000 متر</option>
+                                            <option value="2000">2000 متر</option>
+                                            <option value="3000">3000 متر</option>
+                                            <option value="4000">4000 متر</option>
+                                            <option value="5000">5000 متر</option>
+                                            <option value="6000">6000 متر</option>
+                                            <option value="7000">7000 متر</option>
+                                            <option value="8000">8000 متر</option>
+                                            <option value="9000">9000 متر</option>
+                                            <option value="10000">10000 متر</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6 col-lg-2 my-2 my-lg-1 pl-2 pr-1">
+                                        <select class="w-100 small-size" name="max_size">
+                                            <option value="">حداکثر متراژ</option>
+                                            <option value="20">20 متر</option>
+                                            <option value="40">40 متر</option>
+                                            <option value="60">60 متر</option>
+                                            <option value="80">80 متر</option>
+                                            <option value="100">100 متر</option>
+                                            <option value="120">120 متر</option>
+                                            <option value="140">140 متر</option>
+                                            <option value="160">160 متر</option>
+                                            <option value="180">180 متر</option>
+                                            <option value="200">200 متر</option>
+                                            <option value="220">220 متر</option>
+                                            <option value="240">240 متر</option>
+                                            <option value="260">260 متر</option>
+                                            <option value="280">280 متر</option>
+                                            <option value="300">300 متر</option>
+                                            <option value="320">320 متر</option>
+                                            <option value="340">340 متر</option>
+                                            <option value="360">360 متر</option>
+                                            <option value="380">380 متر</option>
+                                            <option value="400">400 متر</option>
+                                            <option value="450">450 متر</option>
+                                            <option value="500">500 متر</option>
+                                            <option value="550">550 متر</option>
+                                            <option value="600">600 متر</option>
+                                            <option value="650">650 متر</option>
+                                            <option value="700">700 متر</option>
+                                            <option value="750">750 متر</option>
+                                            <option value="800">800 متر</option>
+                                            <option value="850">850 متر</option>
+                                            <option value="900">900 متر</option>
+                                            <option value="950">950 متر</option>
+                                            <option value="1000">1000 متر</option>
+                                            <option value="2000">2000 متر</option>
+                                            <option value="3000">3000 متر</option>
+                                            <option value="4000">4000 متر</option>
+                                            <option value="5000">5000 متر</option>
+                                            <option value="6000">6000 متر</option>
+                                            <option value="7000">7000 متر</option>
+                                            <option value="8000">8000 متر</option>
+                                            <option value="9000">9000 متر</option>
+                                            <option value="10000">10000 متر</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 pt-2 px-2 d-lg-none mb-3 mb-lg-0">
+                                <button class="home-search shabesh-button green w-100 big-size">جستجو</button>
+                            </div>
+                        </div>
+                        <div id="reset-form" class="reset-form">
+                            <span>پاک کردن</span> <i class="sh-remove"></i>
+                        </div>
+                        <div class="more-btn-mobile d-lg-none">
+                            <span>معیار های بیشتر</span> <i class="sh-add"></i>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    @* section 2 *@
+    <section class="w-100 mb-3 mt-4">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="home-divider home-announce-title mb-3">
+                    <span>آپارتمان های پیشنهادی در تهران</span>
+                </h2>
+            </div>
+            <div class="row">
+                @* right tabliq *@
+                <div class="col-12 col-lg-9">
+                    <div class="row">
+                        <div class="col-12 col-md-6 my-2 px-2">
+                            <a href="/Home/Ad_house">
+                                <div class="home-announce-container">
+                                    <picture class="w-100">
+                                        <img class="w-100" src="~/thumbs/cover.jpg"
+                                             srcset="~/thumbs/cover.jpg"
+                                             alt="اپارتمان 150 فول مشاعات در دروس ویو ابدی به قیمت"
+                                             title="اپارتمان 150 فول مشاعات در دروس ویو ابدی به قیمت">
+                                    </picture>
+                                    
+                                    <div class="home-announce-info">
+                                        <span class="home-announce-title"> آپارتمان 205 متری برای فروش در نیاوران ، تهران </span>
+                                        <ul class="home-announce-prop">
+                                            <li>آپارتمان</li>
+                                            <li class="with-icon"><i class="sh-meter"></i> <span>205</span></li>
+                                            <li class="with-icon"><i class="sh-bed2"></i> <span>3</span></li>
+                                            <li class="imp">5,900,000,000 تومان</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6 my-2 px-2">
+                            <a href="/Home/Ad_house">
+                                <div class="home-announce-container">
+                                    <picture class="w-100">
+                                        <img class="w-100" src="~/thumbs/cover.jpg"
+                                             srcset="~/thumbs/cover.jpg"
+                                             alt="اپارتمان 150 فول مشاعات در دروس ویو ابدی به قیمت"
+                                             title="اپارتمان 150 فول مشاعات در دروس ویو ابدی به قیمت">
+                                    </picture>
+
+                                    <div class="home-announce-info">
+                                        <span class="home-announce-title"> آپارتمان 205 متری برای فروش در نیاوران ، تهران </span>
+                                        <ul class="home-announce-prop">
+                                            <li>آپارتمان</li>
+                                            <li class="with-icon"><i class="sh-meter"></i> <span>205</span></li>
+                                            <li class="with-icon"><i class="sh-bed2"></i> <span>3</span></li>
+                                            <li class="imp">5,900,000,000 تومان</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6 my-2 px-2">
+                            <a href="/Home/Ad_house">
+                                <div class="home-announce-container">
+                                    <picture class="w-100">
+                                        <img class="w-100" src="~/thumbs/cover.jpg"
+                                             srcset="~/thumbs/cover.jpg"
+                                             alt="اپارتمان 150 فول مشاعات در دروس ویو ابدی به قیمت"
+                                             title="اپارتمان 150 فول مشاعات در دروس ویو ابدی به قیمت">
+                                    </picture>
+
+                                    <div class="home-announce-info">
+                                        <span class="home-announce-title"> آپارتمان 205 متری برای فروش در نیاوران ، تهران </span>
+                                        <ul class="home-announce-prop">
+                                            <li>آپارتمان</li>
+                                            <li class="with-icon"><i class="sh-meter"></i> <span>205</span></li>
+                                            <li class="with-icon"><i class="sh-bed2"></i> <span>3</span></li>
+                                            <li class="imp">5,900,000,000 تومان</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6 my-2 px-2">
+                            <a href="/Home/Ad_house">
+                                <div class="home-announce-container">
+                                    <picture class="w-100">
+                                        <img class="w-100" src="~/thumbs/cover.jpg"
+                                             srcset="~/thumbs/cover.jpg"
+                                             alt="اپارتمان 150 فول مشاعات در دروس ویو ابدی به قیمت"
+                                             title="اپارتمان 150 فول مشاعات در دروس ویو ابدی به قیمت">
+                                    </picture>
+
+                                    <div class="home-announce-info">
+                                        <span class="home-announce-title"> آپارتمان 205 متری برای فروش در نیاوران ، تهران </span>
+                                        <ul class="home-announce-prop">
+                                            <li>آپارتمان</li>
+                                            <li class="with-icon"><i class="sh-meter"></i> <span>205</span></li>
+                                            <li class="with-icon"><i class="sh-bed2"></i> <span>3</span></li>
+                                            <li class="imp">5,900,000,000 تومان</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                @* left tabliq *@
+                <div class="col-12 col-lg-3 d-none d-md-block">
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-12 my-2 px-2">
+                            <a href="#"
+                               target="_blank">
+                                <div class="home-banner">
+                                    <picture class="w-100">
+                                        <source srcset="~/Images/home/afrodit.jpg" type="image/webp">
+                                        <img class="w-100" src="~/Images/home/afrodit.jpg" alt="آفرودیت پالاس"
+                                             title="آفرودیت پالاس">
+                                    </picture>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-12 my-2 px-2">
+                            <a href="#" target="_blank">
+                                <div class="home-banner">
+                                    <picture class="w-100">
+                                        <source srcset="~/Images/home/mika-375.jpg" type="image/webp">
+                                        <img class="w-100" src="~/Images/home/mika-375.jpg" alt="پروژه پانامرا"
+                                             title="پروژه پانامرا">
+                                    </picture>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-12 my-2 px-2">
+                            <a href="#"
+                               target="_blank">
+                                <div class="home-banner">
+                                    <picture class="w-100">
+                                        <source srcset="~/Images/home/barman1.jpg" type="image/webp">
+                                        <img class="w-100" src="~/Images/home/barman1.jpg" alt="مشاورین املاک بزرگ بارمان"
+                                             title="مشاورین املاک بزرگ بارمان">
+                                    </picture>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @* section 3 *@
+    <section class="homepage-top special-announce">
+        <div class="container pt-5 pb-3">
+            <div class="row">
+                @* right *@
+                <div class="col-lg-8 col-md-12 pl-lg-5">
+                    <div class="row">                        
+                        <div class="col-md-4 col-6 px-2 mb-3">
+                            <div class="inner">
+                                <div class="img-holder">
+                                    <picture class="w-100">
+                                        <source srcset="~/Images/home/blog1.jpg , img/home/blog2.jpg 2x"
+                                                type="image/webp">
+                                        <source srcset="~/Images/home/blog1.jpg , img/home/blog2.jpg 2x"
+                                                type="image/jpg">
+                                        <img class="w-100" src="~/Images/home/blog1.jpg" alt=" بلاگ املاک"
+                                             title=" بلاگ املاک">
+                                    </picture>
+                                </div>
+                                <div class="title medium-sans px-3 pt-3 pb-2"><h3>بلاگ املاک</h3></div>
+                                <div class="sub-title px-3 pb-3">
+                                    <p>
+                                        با بلاگ املاک از آخرین اخبار و مقالات ملک مطلع
+                                        شدید و تصمیم درست بگیرید.
+                                    </p>
+                                </div>
+                                <a href="/Home/Blog" class="sh-link medium-sans px-3 d-block">
+                                    بلاگ املاک <i class="sh-arrowdown"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-6 px-2 mb-3">
+                            <div class="inner">
+                                <div class="img-holder">
+                                    <picture class="w-100">
+                                        <source srcset="~/Images/home/blog1.jpg , img/home/blog2.jpg 2x"
+                                                type="image/webp">
+                                        <source srcset="~/Images/home/blog1.jpg , img/home/blog2.jpg 2x"
+                                                type="image/jpg">
+                                        <img class="w-100" src="~/Images/home/blog1.jpg" alt=" بلاگ املاک"
+                                             title=" بلاگ املاک">
+                                    </picture>
+                                </div>
+                                <div class="title medium-sans px-3 pt-3 pb-2"><h3>بلاگ املاک</h3></div>
+                                <div class="sub-title px-3 pb-3">
+                                    <p>
+                                        با بلاگ املاک از آخرین اخبار و مقالات ملک مطلع
+                                        شدید و تصمیم درست بگیرید.
+                                    </p>
+                                </div>
+                                <a href="/Home/Blog" class="sh-link medium-sans px-3 d-block">
+                                    بلاگ املاک <i class="sh-arrowdown"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-6 px-2 mb-3">
+                            <div class="inner">
+                                <div class="img-holder">
+                                    <picture class="w-100">
+                                        <source srcset="~/Images/home/blog1.jpg , img/home/blog2.jpg 2x"
+                                                type="image/webp">
+                                        <source srcset="~/Images/home/blog1.jpg , img/home/blog2.jpg 2x"
+                                                type="image/jpg">
+                                        <img class="w-100" src="~/Images/home/blog1.jpg" alt=" بلاگ املاک"
+                                             title=" بلاگ املاک">
+                                    </picture>
+                                </div>
+                                <div class="title medium-sans px-3 pt-3 pb-2"><h3>بلاگ املاک</h3></div>
+                                <div class="sub-title px-3 pb-3">
+                                    <p>
+                                        با بلاگ املاک از آخرین اخبار و مقالات ملک مطلع
+                                        شدید و تصمیم درست بگیرید.
+                                    </p>
+                                </div>
+                                <a href="/Home/Blog" class="sh-link medium-sans px-3 d-block">
+                                    بلاگ املاک <i class="sh-arrowdown"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @* send news *@
+                <div class="col-lg-4 col-md-12 px-2">
+                    <div class="inner">
+                        <div class="title medium-sans px-3 py-3"><h4>اولین نفر مطلع شوید !</h4></div>
+                        <div class="sub-title px-3 pb-3 is-alert">
+                            <p>
+                                از آخرین آگهی های درج شده در سایت املاک در
+                                سریعترین زمان مطلع شوید.
+                            </p>
+                        </div>
+                        <div class="w-100 px-3 pb-3">
+                            <button class="shabesh-button green w-100 alert-panel">
+                                به من اطلاع بده <i class="sh-alarm2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+</div>

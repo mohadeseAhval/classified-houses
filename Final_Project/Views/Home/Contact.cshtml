@@ -1,0 +1,151 @@
+﻿@model List<ModelLib.ContactPage>
+@{
+    ViewBag.Title = "Contact";
+}
+@section Head{
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-1.11.3.min.js"></script>   
+}
+<div class="contact-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 ">
+                <div class="contact-title pt-5"><h1>تماس با ما</h1></div>
+                <div class="contact-holder p-4 mt-3 mb-5">
+                    <div class="row">
+                        <div class="col-12 pb-3">
+                            <div class="contact-title"><span>ارسال پیام</span></div>
+                        </div>
+                    </div>
+                    <form>                                            
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="list-name">موضوع درخواست :*</div>
+                                </div>
+                                <div class="col-7">
+                                    <input class="form-control" id="subject" type="text" name="subject" placeholder="موضوع درخواست">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="list-name">متن :*</div>
+                                </div>
+                                <div class="col-7">
+                                    <textarea name="text" id="text"
+                                              data-errormessage-value-missing="متن پیام را وارد کنید ."
+                                              class="form-control" placeholder="متن"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="contact-title"><span>مشخصات شما</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="list-name">نام و نام خانوادگی :*</div>
+                                </div>
+                                <div class="col-7">
+                                    <input id="userName" type="text" name="userName"
+                                           data-errormessage-value-missing="نام را وارد کنید ."
+                                           required class="form-control"
+                                           placeholder="نام و نام خانوادگی ">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="list-name">ایمیل  :*</div>
+                                </div>
+                                <div class="col-7">
+                                    <input class="form-control" id="email" type="email" name="email"
+                                           placeholder="ایمیل">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="list-name">شماره موبایل :*</div>
+                                </div>
+                                <div class="col-7">
+                                    <input class="form-control" id="tell" type="text" name="tell"
+                                           placeholder="شماره موبایل">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5"></div>
+                            <div class="col-7">                                                               
+                                <button id="btnS" name="btnS" class="shabesh-button red px-5"> ارسال</button>
+                            </div>
+                        </div>
+                        @Html.Partial("_pContactUs", Model)
+                        @*<div class="row mt-4">
+                            <div class="col-5">
+                                <div class="list-name">شماره تماس :</div>
+                            </div>
+                            <div class="col-7"><span class="content"> 021-46019066</span></div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-5">
+                                <div class="list-name">ساعات کاری :</div>
+                            </div>
+                            <div class="col-7">
+                                <span class="content">شنبه تا چهار شنبه ۹ تا ۶ بعد از ظهر</span>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-5">
+                                <div class="list-name">آدرس :</div>
+                            </div>
+                            <div class="col-7">
+                                <span class="content"> اتوبان ستاری ، بالاتر از کورش ، نبش شقایق دهم ، پلاک ۱۶ ، واحد ۲ </span>
+                            </div>
+                        </div>*@
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function() {
+        var contact = {};
+        $("#btnS").click(function () {
+            contact.subject = $("#subject").val();
+            contact.text = $("#text").val();
+            contact.userName = $("#userName").val();
+            contact.email = $("#email").val();
+            contact.tell = $("#tell").val();
+            //console.log(contact);
+
+
+           $("section#page").slideUp("slow")
+            $.ajax({
+                url: "/Home/AddContact",
+                method: "POST",
+                data: contact,
+                success: function () {
+                    $("section#page").slideDown("slow");
+                    $(":input").val("");
+                },
+                error: function() { alert("NOK"); }
+            });
+
+
+        });
+
+    });
+
+</script>
+

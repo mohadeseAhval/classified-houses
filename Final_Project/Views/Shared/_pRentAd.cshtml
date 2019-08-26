@@ -1,0 +1,100 @@
+﻿@using ModelLib.Enums;
+@model List<ModelLib.Advertising>
+@foreach (var item in Model)
+{
+    <div id="@item.id" class="main_box single_announce pl-lg-5 list-view col-12">
+        <a href="/Advertising/Details_Buy/@item.id">
+            <div class="announce-inner clearfix rent-class">
+                <div class="row">
+                    <div class="announce_images col-5 isgold px-0">
+                        <div class="slider">
+                            <div class="swiper-container-announce small-arrows">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide ">
+                                        <picture>
+                                            <img class="w-100"
+                                                 src="@Href(item.imageUrl)"
+                                                 alt="@item.title"
+                                                 title="@item.title">
+                                        </picture>
+                                    </div>
+                                </div>
+                                <div class="swiper-pagination-single-announce text-center"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="announce_info col-7 px-4">
+                        <div class="mt-3 announce_price for-rent">
+                            <span class="rent pb-2 w-100 price pl-3">قیمت : @item.Price<span>تومان</span></span>
+                        </div>
+                        <h2 class="announce-desc medium-sans pb-2">
+                            @if (item.typeOfAd == TypeAd.Buy)
+                            {
+                                <span>خرید</span>
+                            }
+                            else
+                            {
+                                <span>رهن و اجاره</span>
+                            } در  @item.City_table.title
+                        </h2>
+                        <div class="announce_attrs">
+                            <div class="w-100 info-info py-2">
+                                <ul class="clearfix">
+                                    <li> @item.area متر</li>
+                                    <li>
+                                        @if (item.numberOfRooms == numberOfRooms.zero)
+                                        {
+                                            <span>0</span>
+                                        }
+                                        else if (item.numberOfRooms == numberOfRooms.one)
+                                        {
+                                            <span>1</span>
+                                        }
+                                        else if (item.numberOfRooms == numberOfRooms.tow)
+                                        {
+                                            <span>2</span>
+                                        }
+                                        else if (item.numberOfRooms == numberOfRooms.tree)
+                                        {
+                                            <span>3</span>
+                                        }
+                                        else if (item.numberOfRooms == numberOfRooms.four)
+                                        {
+                                            <span>4</span>
+                                        }
+                                        else
+                                        {
+                                            <span>5</span>
+                                        } خواب
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="announce-title sub-title clearfix">
+                            <div class="title">
+                                <h3 class="medium-sans">
+                                    @item.title
+                                </h3>
+                            </div>
+                            <p class="description-announce">
+                                @item.description.Substring(0, 50) ...
+                                @**** گروه مشاورین املاک اطلس هوم
+                                    ارایه می کند ***170 متر 3 خواب خوش نقشه و نورگیر عالیلوکیشن بی
+                                    نظیرلابیلابی من...*@
+                            </p>
+                        </div>
+                        <div class="date-holder">
+                            <span class="date">تاریخ انتشار: @item.qdate</span>
+                        </div>
+                        <div class="call-sec">
+                            <div class="text-right contacts pt-1 pb-3 clearfix">
+                                <div class="call-btn clearfix float-right w-100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+}

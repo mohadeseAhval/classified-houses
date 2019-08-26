@@ -1,0 +1,1094 @@
+﻿@using ModelLib.Enums;
+@model ModelLib.Advertising
+@{
+    ViewBag.Title = "Ad_house";
+}
+
+<div class="main clearfix background_gray announce-page" id="announce-view" data-id="492268" data-type="web">
+    <div class="announce-sub-menu">
+        <div class="container pt-2">
+            <div class="row">
+                <div class="col-12 col-md-10 col-lg-11">
+                    <div class="single-bread-crumb py-0 search-result-page">
+                        <div class="w-100 pb-2">
+                            <div class="row">
+                                <ol class="breadcrumb py-1 col-auto pr-lg-0 pl-0" itemscope
+                                    itemtype="http://schema.org/BreadcrumbList">
+                                    <li class="breadcrumb-item" itemprop="itemListElement"
+                                        >
+                                        <a href="/"
+                                           class=""><span itemprop="name">صفحه اصلی</span></a>
+                                        <meta itemprop="position" content="1" />
+                                        </li>
+                                    <li class="breadcrumb-item" itemprop="itemListElement"
+                                        >
+                                        <a href="/Home/Buy"
+                                           class=""><span itemprop="name">خرید</span></a>
+                                        <meta itemprop="position" content="2" />
+                                        </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container clearfix">
+        <div class="row announce-part" id="#announce-view">
+            <div class="main_content background-white col-xl-9 col-lg-8 col-12 pr-lg-0">
+                <div class="gallery">
+                    <div class="col-12 clearfix px-lg-0 pt-1 pb-2 px-0">
+                        <div class="announce-title-single float-right w-100">
+                            <h1>
+                           @Model.title
+                            </h1>                            
+                        </div>
+                    </div>
+                    <div class="photos col-12 px-0">                       
+                        <div class="swiper-container-announce big-arrows">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <a href="@Href(Model.imageUrl)"
+                                       data-lightbox="gallery-img">
+                                        <picture>
+                                            <img class="w-100"
+                                                 src="@Href(Model.imageUrl)"
+                                                 alt="@Model.title" title="@Model.title">
+                                        </picture>
+                                    </a>
+                                </div>                                                             
+                            </div>
+                            <div class="swiper-pagination-single-announce text-center"></div>
+                            </div>
+                    </div>
+                    <div class="other-propertoes">
+                        <div class="w-100">
+                            <div class="description row clearfix pt-4">
+                                <div class="description col-md-12 col-12 clearfix">
+                                    <div class="w-100"><span class="title">مشخصات</span></div>
+                                    <div class="w-100">
+                                        <div class="col-md-12 spec clearfix">
+                                            <span>قیمت</span> <span class="bold"> @Model.Price<span>تومان</span> </span>
+                                        </div>
+                                        <div class="col-md-12 spec clearfix">
+                                            <span> نوع ملک </span> <span class="bold">
+                                            @if (Model.propertyType == PropertyType.apartment)
+                                            {
+                                                <span>آپارتمان</span>
+                                            }
+                                            else if (Model.propertyType == PropertyType.Official)
+                                            {
+                                                <span>اداری</span>
+                                            }
+                                            else
+                                            {
+                                                <span>ویلایی</span>
+                                            }
+                                            </span>
+                                        </div>
+                                        <div class="col-md-12 spec clearfix">
+                                            <span> متراژ </span> <span class="bold"> @Model.area </span>
+                                        </div>
+                                        <div class="col-md-12 spec clearfix">
+                                            <span> تعداد خواب </span> <span class="bold">
+                                            @if (Model.numberOfRooms == numberOfRooms.zero)
+                                            {
+                                                <span>0</span>
+                                            }
+                                            else if (Model.numberOfRooms == numberOfRooms.one)
+                                            {
+                                                <span>1</span>
+                                            }
+                                            else if (Model.numberOfRooms == numberOfRooms.tow)
+                                            {
+                                                <span>2</span>
+                                            }
+                                            else if (Model.numberOfRooms == numberOfRooms.tree)
+                                            {
+                                                <span>3</span>
+                                            }
+                                            else if (Model.numberOfRooms == numberOfRooms.four)
+                                            {
+                                                <span>4</span>
+                                            }
+                                            else
+                                            {
+                                                <span>5</span>
+                                            }
+                                            </span>
+                                        </div>
+                                        <div class="col-md-12 spec clearfix">
+                                            <span> طبقه </span> <span class="bold"> 
+                                                                    @if (Model.floor == floor.zero)
+                                                                    {
+                                                                        <span>0</span>
+                                                                    }
+                                                                    else if (Model.floor == floor.one)
+                                                                    {
+                                                                        <span>1</span>
+                                                                    }
+                                                                    else if (Model.floor == floor.tow)
+                                                                    {
+                                                                        <span>2</span>
+                                                                    }
+                                                                    else if (Model.floor == floor.tree)
+                                                                    {
+                                                                        <span>3</span>
+                                                                    }
+                                                                    else if (Model.floor == floor.four)
+                                                                    {
+                                                                        <span>4</span>
+                                                                    }
+                                                                    else if (Model.floor == floor.five)
+                                                                    {
+                                                                        <span>5</span>
+                                                                    }
+                                                                    else if (Model.floor == floor.six)
+                                                                    {
+                                                                        <span>6</span>
+                                                                    }
+                                                                    else if (Model.floor == floor.seven)
+                                                                    {
+                                                                        <span>7</span>
+                                                                    }
+                                                                    else if (Model.floor == floor.eight)
+                                                                    {
+                                                                        <span>8</span>
+                                                                    }
+                                                                    else if (Model.floor == floor.nine)
+                                                                    {
+                                                                        <span>9</span>
+                                                                    }
+                                                                    else if (Model.floor == floor.ten)
+                                                                    {
+                                                                        <span>10</span>
+                                                                    }
+                                                                    else if (Model.floor == floor.eleven)
+                                                                    {
+                                                                        <span>11</span>
+                                                                    }
+                                                                    else if (Model.floor == floor.twelve)
+                                                                    {
+                                                                        <span>12</span>
+                                                                    }
+                                                                    else if (Model.floor == floor.thirteen)
+                                                                    {
+                                                                        <span>13</span>
+                                                                    }
+                                                                    else if (Model.floor == floor.fourteen)
+                                                                    {
+                                                                        <span>14</span>
+                                                                    }
+                                                                    else if (Model.floor == floor.fifteen)
+                                                                    {
+                                                                        <span>15</span>
+                                                                    }
+                                                                    else if (Model.floor == floor.sixteen)
+                                                                    {
+                                                                        <span>16</span>
+                                                                    }
+                                                                    else if (Model.floor == floor.seventeen)
+                                                                    {
+                                                                        <span>17</span>
+                                                                    }
+                                                                    else if (Model.floor == floor.eighteen)
+                                                                    {
+                                                                        <span>18</span>
+                                                                    }
+                                                                    else if (Model.floor == floor.ninteen)
+                                                                    {
+                                                                        <span>19</span>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <span>20</span>
+                                                                    }
+                                             </span>
+                                        </div>
+                                        <div class="col-md-12 spec clearfix">
+                                            <span> تعداد طبقات </span> <span class="bold">
+                                                                           @if (Model.numberOfFloors == numberOfFloors.zero)
+                                                                           {
+                                                                               <span>0</span>
+                                                                           }
+                                                                           else if (Model.numberOfFloors == numberOfFloors.one)
+                                                                           {
+                                                                               <span>1</span>
+                                                                           }
+                                                                           else if (Model.numberOfFloors == numberOfFloors.tow)
+                                                                           {
+                                                                               <span>2</span>
+                                                                           }
+                                                                           else if (Model.numberOfFloors == numberOfFloors.tree)
+                                                                           {
+                                                                               <span>3</span>
+                                                                           }
+                                                                           else if (Model.numberOfFloors == numberOfFloors.four)
+                                                                           {
+                                                                               <span>4</span>
+                                                                           }
+                                                                           else if (Model.numberOfFloors == numberOfFloors.five)
+                                                                           {
+                                                                               <span>5</span>
+                                                                           }
+                                                                           else if (Model.numberOfFloors == numberOfFloors.six)
+                                                                           {
+                                                                               <span>6</span>
+                                                                           }
+                                                                           else if (Model.numberOfFloors == numberOfFloors.seven)
+                                                                           {
+                                                                               <span>7</span>
+                                                                           }
+                                                                           else if (Model.numberOfFloors == numberOfFloors.eight)
+                                                                           {
+                                                                               <span>8</span>
+                                                                           }
+                                                                           else if (Model.numberOfFloors == numberOfFloors.nine)
+                                                                           {
+                                                                               <span>9</span>
+                                                                           }
+                                                                           else if (Model.numberOfFloors == numberOfFloors.ten)
+                                                                           {
+                                                                               <span>10</span>
+                                                                           }
+                                                                           else if (Model.numberOfFloors == numberOfFloors.eleven)
+                                                                           {
+                                                                               <span>11</span>
+                                                                           }
+                                                                           else if (Model.numberOfFloors == numberOfFloors.twelve)
+                                                                           {
+                                                                               <span>12</span>
+                                                                           }
+                                                                           else if (Model.numberOfFloors == numberOfFloors.thirteen)
+                                                                           {
+                                                                               <span>13</span>
+                                                                           }
+                                                                           else if (Model.numberOfFloors == numberOfFloors.fourteen)
+                                                                           {
+                                                                               <span>14</span>
+                                                                           }
+                                                                           else if (Model.numberOfFloors == numberOfFloors.fifteen)
+                                                                           {
+                                                                               <span>15</span>
+                                                                           }
+                                                                           else if (Model.numberOfFloors == numberOfFloors.sixteen)
+                                                                           {
+                                                                               <span>16</span>
+                                                                           }
+                                                                           else if (Model.numberOfFloors == numberOfFloors.seventeen)
+                                                                           {
+                                                                               <span>17</span>
+                                                                           }
+                                                                           else if (Model.numberOfFloors == numberOfFloors.eighteen)
+                                                                           {
+                                                                               <span>18</span>
+                                                                           }
+                                                                           else if (Model.numberOfFloors == numberOfFloors.ninteen)
+                                                                           {
+                                                                               <span>19</span>
+                                                                           }
+                                                                           else
+                                                                           {
+                                                                               <span>20</span>
+                                                                           }
+                                            </span>
+                                        </div>
+                                        <div class="col-md-12 spec clearfix">
+                                            <span> سال ساخت </span> <span class="bold">
+                                                                        @if (Model.productionYear == productionYear.zero)
+                                                                        {
+                                                                            <span>1398</span>
+                                                                        }
+                                                                        else if (Model.productionYear == productionYear.one)
+                                                                        {
+                                                                            <span>1397</span>
+                                                                        }
+                                                                        else if (Model.productionYear == productionYear.tow)
+                                                                        {
+                                                                            <span>1396</span>
+                                                                        }
+                                                                        else if (Model.productionYear == productionYear.tree)
+                                                                        {
+                                                                            <span>1395</span>
+                                                                        }
+                                                                        else if (Model.productionYear == productionYear.four)
+                                                                        {
+                                                                            <span>1394</span>
+                                                                        }
+                                                                        else if (Model.productionYear == productionYear.five)
+                                                                        {
+                                                                            <span>1393</span>
+                                                                        }
+                                                                        else if (Model.productionYear == productionYear.six)
+                                                                        {
+                                                                            <span>1392</span>
+                                                                        }
+                                                                        else if (Model.productionYear == productionYear.seven)
+                                                                        {
+                                                                            <span>1391</span>
+                                                                        }
+                                                                        else if (Model.productionYear == productionYear.eight)
+                                                                        {
+                                                                            <span>1390</span>
+                                                                        }
+                                                                        else if (Model.productionYear == productionYear.nine)
+                                                                        {
+                                                                            <span>1389</span>
+                                                                        }
+                                                                        else if (Model.productionYear == productionYear.ten)
+                                                                        {
+                                                                            <span>1388</span>
+                                                                        }
+                                                                        else if (Model.productionYear == productionYear.eleven)
+                                                                        {
+                                                                            <span>1387</span>
+                                                                        }
+                                                                        else if (Model.productionYear == productionYear.twelve)
+                                                                        {
+                                                                            <span>1386</span>
+                                                                        }
+                                                                        else if (Model.productionYear == productionYear.thirteen)
+                                                                        {
+                                                                            <span>1385</span>
+                                                                        }
+                                                                        else if (Model.productionYear == productionYear.fourteen)
+                                                                        {
+                                                                            <span>1384</span>
+                                                                        }
+                                                                        else if (Model.productionYear == productionYear.fifteen)
+                                                                        {
+                                                                            <span>1383</span>
+                                                                        }
+                                                                        else if (Model.productionYear == productionYear.sixteen)
+                                                                        {
+                                                                            <span>1382</span>
+                                                                        }
+                                                                        else if (Model.productionYear == productionYear.seventeen)
+                                                                        {
+                                                                            <span>1381</span>
+                                                                        }
+                                                                        else if (Model.productionYear == productionYear.eighteen)
+                                                                        {
+                                                                            <span>1380</span>
+                                                                        }
+                                                                        else if (Model.productionYear == productionYear.ninteen)
+                                                                        {
+                                                                            <span>1379</span>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <span>1378</span>
+                                                                        }
+                                            </span>
+                                        </div>
+                                        <div class="col-md-12 spec clearfix">
+                                            <span> کد آگهی </span> <span class="bold">@Model.id</span>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 middle-desc py-5">
+                                <div class="row">
+                                    <div class="col-12 float-right">@Model.address</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <span class="announce-description" itemprop="description">
+                                    @Model.description
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 middle-desc py-5">
+                                <div class="row">
+                                    <div class="col-12 float-right">شماره تماس:@Model.tell</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 py-3 text-left">
+                                <div class="w-100 report-btn-holder">
+                                    <span class="pb-2 d-inline-block">این آگهی مشکلی دارد ؟</span>
+                                    <button type="button" class="report-btn bordered-btn mr-auto"
+                                            data-toggle="modal" data-target="#report-announce">
+                                        <i class="sh-warning"></i> گزارش خطا
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="announce-information information announce-form col-xl-3 col-lg-4 col-12 pl-lg-0">
+                <div class="row">
+                    <div class="col-12 py-4">
+                        <div class="row">
+                            <div class="col-6 pl-1">
+                                <a class="bordered-btn px-2 announce-information-responsive-fix text-center"
+                                   href="../../print/492268/%d9%81%d8%b1%d9%88%d8%b4-%d8%ae%d8%a7%d9%86%d9%87-%d8%a2%d9%be%d8%a7%d8%b1%d8%aa%d9%85%d8%a7%d9%86-%d8%af%d8%b1-%d8%b4%d9%87%d8%b1%da%a9-%d8%ba%d8%b1%d8%a8-%d8%aa%d9%87%d8%b1%d8%a7%d9%86.html"
+                                   rel="nofollow">
+                                    <div class="position-relative text-center">
+                                        <span class="mr-2"> چاپ </span> <i class="sh-print "></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-6 pr-1">
+                                <div class="announce-id py-2 text-left"> کد آگهی : <span>@Model.id</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact_info">
+                    <div class="info">
+                        <div class="left-box contact-box clearfix ">                            
+                            <div class="w-100 pt-4">
+                                <div class="call-row text-center pt-2"><span class="norm">منتشر کننده </span></div>
+                                <div class="call-row text-center pt-2">
+                                    <span class="bold" itemprop="name">@Model.nameOfRegistrant</span>
+                                </div>                                                               
+                                <div class="call-row have-border py-4">
+                                    <div class="text-center price-info">
+                                        قیمت : @Model.Price<span>تومان</span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact_info">
+                    <button class="favorite w-100 announce-information-responsive-fix bordered-btn px-2 text-center"
+                            data-post-id="492268" data-type="button">
+                        ذخیره <i class="sh-heart1"></i>
+                    </button>
+                </div>
+                <div class="contact_info mt-3 text-center social-share">
+                    <div class="title medium-sans p-3"><span> این آگهی را به اشتراک بگذارید </span></div>
+                    <div class="socials-icon mx-auto text-center">
+                        <ul>
+                            <li class="d-inline-block my-3">
+                                <a target="_blank" class="telegram-link"
+                                   href="https://telegram.me/share/url?url=https://shabesh.com/announce/492268/%d9%81%d8%b1%d9%88%d8%b4-%d8%ae%d8%a7%d9%86%d9%87-%d8%a2%d9%be%d8%a7%d8%b1%d8%aa%d9%85%d8%a7%d9%86-%d8%af%d8%b1-%d8%b4%d9%87%d8%b1%da%a9-%d8%ba%d8%b1%d8%a8-%d8%aa%d9%87%d8%b1%d8%a7%d9%86&amp;text=%d8%a2%d9%be%d8%a7%d8%b1%d8%aa%d9%85%d8%a7%d9%86%20%db%b1%db%b6%db%b0%20%d9%85%d8%aa%d8%b1%db%8c%20%d8%b3%d9%88%d9%be%d8%b1%20%d9%84%d9%88%da%a9%d8%b3"
+                                   rel="nofollow">
+                                    <div class="circle telegram">
+                                        <picture>
+                                            <img src="~/Images/icon.jpg" alt="telegram" title="telegram">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="d-inline-block my-3 mr-2">
+                                <a target="_blank" class="linkdin-link"
+                                   href="http://www.linkedin.com/shareArticle?url=https://shabesh.com/announce/492268/%d9%81%d8%b1%d9%88%d8%b4-%d8%ae%d8%a7%d9%86%d9%87-%d8%a2%d9%be%d8%a7%d8%b1%d8%aa%d9%85%d8%a7%d9%86-%d8%af%d8%b1-%d8%b4%d9%87%d8%b1%da%a9-%d8%ba%d8%b1%d8%a8-%d8%aa%d9%87%d8%b1%d8%a7%d9%86&amp;title=%d8%a2%d9%be%d8%a7%d8%b1%d8%aa%d9%85%d8%a7%d9%86%20%db%b1%db%b6%db%b0%20%d9%85%d8%aa%d8%b1%db%8c%20%d8%b3%d9%88%d9%be%d8%b1%20%d9%84%d9%88%da%a9%d8%b3&amp;summary=%e2%99%a6%d8%a2%d9%be%d8%a7%d8%b1%d8%aa%d9%85%d8%a7%d9%86%20%db%b1%db%b6%db%b0%20%d9%85%d8%aa%d8%b1%db%8c%20%d8%af%d8%b1%20%d8%b3%d8%a7%d8%ae%d8%aa%d9%85%d8%a7%d9%86%db%8c%20%d8%a8%d8%a7%20%d8%b7%d8%a8%d9%82%d8%a7%d8%aa%20%d8%aa%da%a9%20%d9%88%d8%a7%d8%ad%d8%af%db%8c%20%d9%88%d8%a7%d9%82%d8%b9%20%d8%af%d8%b1%20%d8%a8%d9%87%d8%aa%d8%b1%db%8c%d9%86%20%d9%81%d8%b1%d8%b9%db%8c%e2%99%a6%d8%b3%d9%87%20%d8%ae%d9%88%d8%a7%d8%a8%20(%db%8c%da%a9%20%d9%85%d8%b3%d8%aa%d8%b1)%20%e2%99%a6%d8%b3%d8%a7%d9%84%d9%86%20%d9%be%d8%b1%d8%af%d9%87%20%d8%ae%d9%88%d8%b1%20%d8%b1%d9%88%20%d8%a8%d9%87%20%d8%a2%d9%81%d8%aa%d8%a7%d8%a8%e2%99%a6%d8%a7%d9%85%da%a9%d8%a7%d9%86%d8%a7%d8%aa%20%da%a9%d8%a7%d9%85%d9%84%20%e2%99%a6%d9%85%d8%aa%d8%b1%db%8c%d8%a7%d9%84%20%d8%b3%d9%88%d9%be%d8%b1%20%d9%84%d9%88%da%a9%d8%b3%20%d9%88%20%d9%84%d8%a7%da%a9%da%86%d8%b1%db%8c%e2%99%a6%d9%85%d8%b4%d8%a7%d8%b9%d8%a7%d8%aa%20%d8%a8%db%8c%20%d9%86%d8%b8%db%8c%d8%b1%20%e2%99%a6%d9%81%d9%88%d9%82%20%d8%a7%d9%84%d8%b9%d8%a7%d8%af%d9%87%20%d8%ae%d9%88%d8%b4%20%d9%86%d9%82%d8%b4%d9%87%20%da%a9%d8%a7%d8%b1%db%8c%20%d8%a7%d8%b2%20%d8%b7%d8%b1%d8%a7%d8%ad%20%d8%a8%d9%87%20%d9%86%d8%a7%d9%85%e2%99%a6%d8%b3%d8%a7%d8%b2%d9%87%20%d8%a7%db%8c%20%d8%a8%d8%b1%d9%86%d8%af%20%da%a9%d8%a7%d8%b1%db%8c%20%d8%a7%d8%b2%20%d8%b3%d8%a7%d8%b2%d9%86%d8%af%d9%87%20%d8%a8%d9%87%20%d9%86%d8%a7%d9%85%20%e2%99%a3%d8%b7%d8%a8%d9%82%d9%87%20%d9%be%d9%86%d8%ac%d9%85%20%d9%85%d8%aa%d8%b1%db%8c%20%d9%81%d9%82%d8%b7%2033/000/000%20%d8%aa%d9%88%d9%85%d8%a7%d9%86%20..................%d8%ad%d8%b3%db%8c%d9%86%20%d9%85%db%8c%d8%b1%d8%b2%d8%a7%db%8c%db%8c............................"
+                                   rel="nofollow">
+                                    <div class="circle linkdin">
+                                        <picture>
+                                            
+                                            <img src="~/Images/icon.jpg" alt="linkdin" title="linkdin">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="d-inline-block my-3 mr-2">
+                                <a target="_blank" class="whatsapp-link"
+                                   href="whatsapp://send?text=آپارتمان ۱۶۰ متری سوپر لوکس:https://shabesh.com/announce/492268/فروش-خانه-آپارتمان-در-شهرک-غرب-تهران"
+                                   rel="nofollow">
+                                    <div class="circle whatsapp">
+                                        <picture>
+                                            
+                                            <img src="~/Images/icon.jpg" alt="whatsapp" title="whatsapp">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="d-inline-block my-3 mr-2">
+                                <a target="_blank" class="mailto"
+                                   href="mailto:?subject=آپارتمان ۱۶۰ متری سوپر لوکس&body=https://shabesh.com/announce/492268/فروش-خانه-آپارتمان-در-شهرک-غرب-تهران"
+                                   rel="nofollow">
+                                    <div class="circle mailto">
+                                        <picture>
+                                            
+                                            <img src="~/Images/icon.jpg" alt="mail" title="mail">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="more-announce">
+        <div class="container px-lg-0">
+            <div class="other-head"><h2>آگهی های مشابه</h2></div>
+            <div class="more-announces py-4 modern_list">
+                <div class="swiper-container-more-announce">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="main_box single_announce grid-view">
+                                <a href="#">
+                                    <div class="announce-inner clearfix w-100 sale-class">
+                                        <div class="row px-3">
+                                            <div class="announce_images col-12 px-0">
+                                                <div class="slider ">
+                                                    <picture>
+                                                        <img class="w-100"
+                                                             src="~/thumbs/cover.jpg"
+                                                             alt="سرمایه گذاری عالی... 100متر قدرالسهم - image 8"
+                                                             title="سرمایه گذاری عالی... 100متر قدرالسهم - image 8">
+                                                    </picture>
+                                                    <div class="image-count">
+                                                        <i class="sh-camera"></i> <span>1</span>
+                                                    </div>                                                  
+                                                </div>
+                                            </div>
+                                            <div class="announce_info col-12">
+                                                <h2 class="announce-desc medium-sans pb-2">
+                                                    آپارتمان 155 متری برای فروش
+                                                    در شهرک غرب ، تهران
+                                                </h2>
+                                                <div class="announce-title sub-title clearfix">
+                                                    <div class="title">
+                                                        <h3 class="medium-sans">
+                                                            سرمایه گذاری عالی...
+                                                            100متر قدرالسهم
+                                                        </h3>
+                                                    </div>
+                                                    <p class="description-announce">
+                                                        ۸واحدی امکانات کامل. 100متر
+                                                        قدرالسهم نقشه عالی و دوبلکس. واقع درپیروزان شمالی فاز۲متری
+                                                        25000000
+                                                    </p>
+                                                </div>
+                                                <div class="announce_attrs">
+                                                    <div class="w-100 info-info py-2">
+                                                        <ul class="clearfix">
+                                                            <li> 155 متر</li>
+                                                            <li> 3 خواب</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="date-holder pb-2">
+                                                    <span class="date"> تاریخ انتشار: 2 هفته پیش </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="main_box single_announce grid-view">
+                                <a href="#">
+                                    <div class="announce-inner clearfix w-100 sale-class">
+                                        <div class="row px-3">
+                                            <div class="announce_images col-12 px-0">
+                                                <div class="slider ">
+                                                    <picture>
+                                                        <img class="w-100"
+                                                             src="~/thumbs/cover.jpg"
+                                                             alt="سرمایه گذاری عالی... 100متر قدرالسهم - image 8"
+                                                             title="سرمایه گذاری عالی... 100متر قدرالسهم - image 8">
+                                                    </picture>
+                                                    <div class="image-count">
+                                                        <i class="sh-camera"></i> <span>1</span>
+                                                    </div>
+                                                    <div class="fav-and-socials">
+                                                        <button type="button" class="favorite" data-post-id="752364"
+                                                                data-type="button">
+                                                            <i class="sh-heart1"></i>
+                                                        </button>
+                                                        <button type="button" data-toggle="modal"
+                                                                data-target=".mobile-social-modal"
+                                                                class="share-announce"
+                                                                data-title="سرمایه گذاری عالی... 100متر قدرالسهم">
+                                                            <i class="sh-share1"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="announce_info col-12">
+                                                <h2 class="announce-desc medium-sans pb-2">
+                                                    آپارتمان 155 متری برای فروش
+                                                    در شهرک غرب ، تهران
+                                                </h2>
+                                                <div class="announce-title sub-title clearfix">
+                                                    <div class="title">
+                                                        <h3 class="medium-sans">
+                                                            سرمایه گذاری عالی...
+                                                            100متر قدرالسهم
+                                                        </h3>
+                                                    </div>
+                                                    <p class="description-announce">
+                                                        ۸واحدی امکانات کامل. 100متر
+                                                        قدرالسهم نقشه عالی و دوبلکس. واقع درپیروزان شمالی فاز۲متری
+                                                        25000000
+                                                    </p>
+                                                </div>
+                                                <div class="announce_attrs">
+                                                    <div class="w-100 info-info py-2">
+                                                        <ul class="clearfix">
+                                                            <li> 155 متر</li>
+                                                            <li> 3 خواب</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="date-holder pb-2">
+                                                    <span class="date"> تاریخ انتشار: 2 هفته پیش </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="main_box single_announce grid-view">
+                                <a href="#">
+                                    <div class="announce-inner clearfix w-100 sale-class">
+                                        <div class="row px-3">
+                                            <div class="announce_images col-12 px-0">
+                                                <div class="slider ">
+                                                    <picture>
+                                                        <img class="w-100"
+                                                             src="~/thumbs/cover.jpg"
+                                                             alt="سرمایه گذاری عالی... 100متر قدرالسهم - image 8"
+                                                             title="سرمایه گذاری عالی... 100متر قدرالسهم - image 8">
+                                                    </picture>
+                                                    <div class="image-count">
+                                                        <i class="sh-camera"></i> <span>1</span>
+                                                    </div>
+                                                    <div class="fav-and-socials">
+                                                        <button type="button" class="favorite" data-post-id="752364"
+                                                                data-type="button">
+                                                            <i class="sh-heart1"></i>
+                                                        </button>
+                                                        <button type="button" data-toggle="modal"
+                                                                data-target=".mobile-social-modal"
+                                                                class="share-announce"
+                                                                data-title="سرمایه گذاری عالی... 100متر قدرالسهم">
+                                                            <i class="sh-share1"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="announce_info col-12">
+                                                <h2 class="announce-desc medium-sans pb-2">
+                                                    آپارتمان 155 متری برای فروش
+                                                    در شهرک غرب ، تهران
+                                                </h2>
+                                                <div class="announce-title sub-title clearfix">
+                                                    <div class="title">
+                                                        <h3 class="medium-sans">
+                                                            سرمایه گذاری عالی...
+                                                            100متر قدرالسهم
+                                                        </h3>
+                                                    </div>
+                                                    <p class="description-announce">
+                                                        ۸واحدی امکانات کامل. 100متر
+                                                        قدرالسهم نقشه عالی و دوبلکس. واقع درپیروزان شمالی فاز۲متری
+                                                        25000000
+                                                    </p>
+                                                </div>
+                                                <div class="announce_attrs">
+                                                    <div class="w-100 info-info py-2">
+                                                        <ul class="clearfix">
+                                                            <li> 155 متر</li>
+                                                            <li> 3 خواب</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="date-holder pb-2">
+                                                    <span class="date"> تاریخ انتشار: 2 هفته پیش </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="main_box single_announce grid-view">
+                                <a href="#">
+                                    <div class="announce-inner clearfix w-100 sale-class">
+                                        <div class="row px-3">
+                                            <div class="announce_images col-12 px-0">
+                                                <div class="slider ">
+                                                    <picture>
+                                                        <img class="w-100"
+                                                             src="~/thumbs/cover.jpg"
+                                                             alt="سرمایه گذاری عالی... 100متر قدرالسهم - image 8"
+                                                             title="سرمایه گذاری عالی... 100متر قدرالسهم - image 8">
+                                                    </picture>
+                                                    <div class="image-count">
+                                                        <i class="sh-camera"></i> <span>1</span>
+                                                    </div>
+                                                    <div class="fav-and-socials">
+                                                        <button type="button" class="favorite" data-post-id="752364"
+                                                                data-type="button">
+                                                            <i class="sh-heart1"></i>
+                                                        </button>
+                                                        <button type="button" data-toggle="modal"
+                                                                data-target=".mobile-social-modal"
+                                                                class="share-announce"
+                                                                data-title="سرمایه گذاری عالی... 100متر قدرالسهم">
+                                                            <i class="sh-share1"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="announce_info col-12">
+                                                <h2 class="announce-desc medium-sans pb-2">
+                                                    آپارتمان 155 متری برای فروش
+                                                    در شهرک غرب ، تهران
+                                                </h2>
+                                                <div class="announce-title sub-title clearfix">
+                                                    <div class="title">
+                                                        <h3 class="medium-sans">
+                                                            سرمایه گذاری عالی...
+                                                            100متر قدرالسهم
+                                                        </h3>
+                                                    </div>
+                                                    <p class="description-announce">
+                                                        ۸واحدی امکانات کامل. 100متر
+                                                        قدرالسهم نقشه عالی و دوبلکس. واقع درپیروزان شمالی فاز۲متری
+                                                        25000000
+                                                    </p>
+                                                </div>
+                                                <div class="announce_attrs">
+                                                    <div class="w-100 info-info py-2">
+                                                        <ul class="clearfix">
+                                                            <li> 155 متر</li>
+                                                            <li> 3 خواب</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="date-holder pb-2">
+                                                    <span class="date"> تاریخ انتشار: 2 هفته پیش </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="main_box single_announce grid-view">
+                                <a href="#">
+                                    <div class="announce-inner clearfix w-100 sale-class">
+                                        <div class="row px-3">
+                                            <div class="announce_images col-12 px-0">
+                                                <div class="slider ">
+                                                    <picture>
+                                                        <img class="w-100"
+                                                             src="~/thumbs/cover.jpg"
+                                                             alt="سرمایه گذاری عالی... 100متر قدرالسهم - image 8"
+                                                             title="سرمایه گذاری عالی... 100متر قدرالسهم - image 8">
+                                                    </picture>
+                                                    <div class="image-count">
+                                                        <i class="sh-camera"></i> <span>1</span>
+                                                    </div>
+                                                    <div class="fav-and-socials">
+                                                        <button type="button" class="favorite" data-post-id="752364"
+                                                                data-type="button">
+                                                            <i class="sh-heart1"></i>
+                                                        </button>
+                                                        <button type="button" data-toggle="modal"
+                                                                data-target=".mobile-social-modal"
+                                                                class="share-announce"
+                                                                data-title="سرمایه گذاری عالی... 100متر قدرالسهم">
+                                                            <i class="sh-share1"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="announce_info col-12">
+                                                <h2 class="announce-desc medium-sans pb-2">
+                                                    آپارتمان 155 متری برای فروش
+                                                    در شهرک غرب ، تهران
+                                                </h2>
+                                                <div class="announce-title sub-title clearfix">
+                                                    <div class="title">
+                                                        <h3 class="medium-sans">
+                                                            سرمایه گذاری عالی...
+                                                            100متر قدرالسهم
+                                                        </h3>
+                                                    </div>
+                                                    <p class="description-announce">
+                                                        ۸واحدی امکانات کامل. 100متر
+                                                        قدرالسهم نقشه عالی و دوبلکس. واقع درپیروزان شمالی فاز۲متری
+                                                        25000000
+                                                    </p>
+                                                </div>
+                                                <div class="announce_attrs">
+                                                    <div class="w-100 info-info py-2">
+                                                        <ul class="clearfix">
+                                                            <li> 155 متر</li>
+                                                            <li> 3 خواب</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="date-holder pb-2">
+                                                    <span class="date"> تاریخ انتشار: 2 هفته پیش </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination-more-announce text-center shabesh-color"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade report-modal" id="report-announce" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content mx-auto">
+            <div class="modal-header">
+                <div class="w-100 text-center">
+                    <i class="sh-warning"></i> <h5 class="mt-3">گزارش خطای آگهی</h5>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="auth-form" data-submit="reports">
+                <div class="row login-message hidden mt-2 p-0">
+                    <div class="col-12"><span></span> <i class="sh-quit"></i></div>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="announce_id" value="492268">
+                    <div class="form-group mb-3 py-1">
+                        <input name="mobile" class="form-control w-100 h-100"
+                               placeholder="شماره موبایل" type="text" value="">
+                    </div>
+                    <div class="form-group mb-3 py-1">
+                        <select name="type" class="form-control w-100"
+                                id="inlineFormCustomSelect" required>
+                            <option value=""> نوع خطای آگهی را انتخاب کنید</option>
+                            <option value="1">ملک ناموجود می باشد .</option>
+                            <option value="2">قیمت نادرست است .</option>
+                            <option value="3">کسی پاسخگو نبود .</option>
+                            <option value="4">توضیحات ناقص است .</option>
+                            <option value="5">تصاویر غیر واقعی یا بی کیفیت می باشد .</option>
+                            <option value="6">موقعیت ملک درست نمی باشد .</option>
+                            <option value="7">نوع ملک درست نمی باشد .</option>
+                        </select> <span class="error-input">نوع گزارش را وارد کنید .</span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <textarea name="description" placeholder="متن"
+                                  class="form-control w-100"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer text-center">
+                    <button type="submit" class="btn mx-auto shabesh-button green submit-form w-100">ثبت</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal mobile-social-modal fade" id="social-modal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close call-close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="sh-quit"></i></span>
+                </button>
+                <h5 class="medium-sans mt-4 text-center w-100" id="usertypelabel">این آگهی را به اشتراک بگذارید</h5>
+            </div>
+            <div class="modal-body">
+                <div class="social-share">
+                    <div class="socials-icon mx-auto text-center">
+                        <ul>
+                            <li class="d-inline-block my-3">
+                                <a target="_blank" class="telegram-link"
+                                   href="https://telegram.me/share/url?url=&amp;text="
+                                   rel="nofollow">
+                                    <div class="circle telegram">
+                                        <picture>
+                                            <source srcset="img/icon.webp" type="image/webp">
+                                            <img src="../../img/icon.jpg" alt="telegram" title="telegram">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="d-inline-block my-3 mr-2">
+                                <a target="_blank" class="linkdin-link"
+                                   href="http://www.linkedin.com/shareArticle?url=&amp;title=&amp;summary=&amp;source=https://shabesh.com"
+                                   rel="nofollow">
+                                    <div class="circle linkdin">
+                                        <picture>
+                                            <source srcset="img/icon.webp" type="image/webp">
+                                            <img src="../../img/icon.jpg" alt="linkdin" title="linkdin">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="d-inline-block my-3 mr-2">
+                                <a target="_blank" class="whatsapp-link"
+                                   href="whatsapp://send?text=:" rel="nofollow">
+                                    <div class="circle whatsapp">
+                                        <picture>
+                                            <source srcset="img/icon.webp" type="image/webp">
+                                            <img src="../../img/icon.jpg" alt="whatsapp" title="whatsapp">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="d-inline-block my-3 mr-2">
+                                <a target="_blank" class="mailto"
+                                   href="mailto:?subject=&body=" rel="nofollow">
+                                    <div class="circle mailto">
+                                        <picture>
+                                            <source srcset="img/icon.webp" type="image/webp">
+                                            <img src="../../img/icon.jpg" alt="mail" title="mail">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="email-alert">
+    <div class="modal fade" id="email-alert-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">ایمیل به آگهی دهنده</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="email-modal-result">
+                    <div class="row">
+                        <div class="col-md-4 px-md-3">
+                            <div class="w-100 relative-pos">
+                                <a href="#">
+                                    <picture>
+                                        <source srcset="thumbs/350/0/uploads/Announce/530712/1546688517(1).jpeg/webp"
+                                                type="image/webp">
+                                        <source srcset="thumbs/350/0/uploads/Announce/530712/1546688517(1).jpeg/jpg"
+                                                type="image/jpg">
+                                        <img class="w-100"
+                                             src="../../thumbs/350/0/uploads/Announce/530712/1546688517(1).jpeg/jpg"
+                                             alt=" ۱۸۷ متر _ ۴ ساله _ نقشه استثنایی "
+                                             title=" ۱۸۷ متر _ ۴ ساله _ نقشه استثنایی ">
+                                    </picture>
+                                </a>
+                                <div class="gradient"></div>
+                            </div>
+                            <div class="w-100 mobile-info">
+                                <div class="announce_attrs">
+                                    <a href="../530712/%d9%81%d8%b1%d9%88%d8%b4-%d8%ae%d8%a7%d9%86%d9%87-%d8%a2%d9%be%d8%a7%d8%b1%d8%aa%d9%85%d8%a7%d9%86-%d8%af%d8%b1-%d8%b4%d9%87%d8%b1%da%a9-%d8%ba%d8%b1%d8%a8-%d8%aa%d9%87%d8%b1%d8%a7%d9%86.html">
+                                        <h2 class="announce-desc medium-sans py-1" itemprop="name">
+                                            آپارتمان 187 متری
+                                            برای فروش در شهرک غرب ، تهران
+                                        </h2>
+                                    </a>
+                                    <div class="w-100 info-info py-1">
+                                        <ul class="clearfix">
+                                            <li> 187 متر</li>
+                                            <li> 3 خواب</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="pr-0">
+                                    <div class="announce_price h-100 ">
+                                        <span class="rent pb-2 d-block "> قیمت : تماس بگیرید </span>
+                                    </div>
+                                </div>
+                                <div class="agent-name pt-2"> نام مشاورر :زمانی</div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 pr-md-0">
+                            <div class="w-100 web-view">
+                                <div class="announce_attrs">
+                                    <a href="../530712/%d9%81%d8%b1%d9%88%d8%b4-%d8%ae%d8%a7%d9%86%d9%87-%d8%a2%d9%be%d8%a7%d8%b1%d8%aa%d9%85%d8%a7%d9%86-%d8%af%d8%b1-%d8%b4%d9%87%d8%b1%da%a9-%d8%ba%d8%b1%d8%a8-%d8%aa%d9%87%d8%b1%d8%a7%d9%86.html">
+                                        <h2 class="announce-desc medium-sans py-1" itemprop="name">
+                                            آپارتمان 187 متری
+                                            برای فروش در شهرک غرب ، تهران
+                                        </h2>
+                                    </a>
+                                    <div class="w-100 info-info py-1">
+                                        <ul class="clearfix">
+                                            <li> 187 متر</li>
+                                            <li> 3 خواب</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="pr-0">
+                                    <div class="announce_price h-100 ">
+                                        <span class="rent pb-2 d-block "> قیمت : تماس بگیرید </span>
+                                    </div>
+                                </div>
+                                <div class="agent-name pt-2"> نام مشاورر :<span id="agent-name">زمانی</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <form id="send-mail-to-agents">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-12 order-last order-md-first flex-md-first">
+                                    <div class="form-group mt-3 mb-2">
+                                        <label class="input-titles"> پیام </label>
+                                        <textarea class="form-control" name="message" rows="3">سلام، من آگهی شما را با شماره 530712 در سایت شابش مشاهده کردم . لطفا با من تماس بگیرید. ممنون</textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 pl-md-1 mb-2 mt-3 mt-md-0">
+                                    <label class="input-titles">
+                                        نام و
+                                        نام خانوادگی
+                                    </label> <input type="text" class="form-control" name="name"
+                                                    placeholder=" نام و نام خانوادگی" required> <span class="error-input">لطفا نام خود را وارد کنید</span>
+                                </div>
+                                <div class="col-md-6 pr-md-1 mb-2">
+                                    <label class="input-titles"> ایمیل </label>
+                                    <input type="email" class="form-control" name="email" placeholder="ایمیل"
+                                           required> <span class="error-input">لطفا ایمیل خود را وارد کنید</span>
+                                </div>
+                                <div class="col-12">
+                                    <label class="input-titles"> شماره تماس </label> <input type="text" class="form-control" name="phone" id="recipient-name"
+                                                                                            placeholder=" شماره تماس" required> <span class="error-input">لطفا شماره تلفن خورد را وارد کنید</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 text-left clearfix">
+                            <div class="form-check float-right hidden">
+                                <div class="custom-control custom-checkbox d-inline-block pl-0 pt-2">
+                                    <input type="checkbox" class="custom-control-input" name="similar" id="similar">
+                                    <label class="custom-control-label check-label" for="similar">
+                                        آگهی های مشابه را
+                                        به من ایمیل کنید
+                                    </label>
+                                </div>
+                            </div>
+                            <input type="hidden" name="agent_mail" value=""> <input type="hidden" name="announce_id"
+                                                                                    value="530712"> <input type="hidden" name="announce_link"
+                                                                                                           value="https://shabesh.com/announce/530712/فروش-خانه-آپارتمان-در-شهرک-غرب-تهران">
+                            <button type="submit" class="shabesh-button green float-left d-inline-block ">
+                                ارسال
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+﻿@model ModelLib.Questions
+@{
+    ViewBag.Title = "افزودن/اپدیت";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<section class="container-fluid pl-3 pr-3">
+    <div class="mt-3 ml-0"><h2 class="title-page">افزودن/اپدیت</h2></div>
+    <form action="/Admin/Questions/Operation" method="post" enctype="multipart/form-data" class="mt-3">
+        <input type="hidden" name="id" id="id" value="@Model.id" />
+        <table class="table">
+            <tr>
+                <td>سوال</td>
+                <td>
+                    <input type="text" id="question" name="question" class="form-control" value="@Model.question" />
+                </td>
+            </tr>
+            <tr>
+                <td>جواب</td>
+                <td>
+                    <textarea name="answer" id="answer" class="form-control">@Model.answer</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="ذخیره" class="btn btn-success" />
+                </td>
+                <td>
+                    <input type="reset" value="انصراف" class="btn btn-warning" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</section>

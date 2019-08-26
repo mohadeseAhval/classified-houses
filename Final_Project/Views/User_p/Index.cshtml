@@ -1,0 +1,53 @@
+﻿@model List<ModelLib.Users>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_users.cshtml";
+}
+
+<div class="mt-3 ml-2"><h2 class="title-page"> پروفایل </h2></div>
+<section class="container-fluid pl-3 pr-3">      
+    <form class="ptForm">
+        <table class="table tableUser">            
+                @foreach (var item in Model)
+                {
+                    <tr class="hidden">
+                        <td>###</td>
+                        <td><label>@item.id</label></td>
+                    </tr>
+                    <tr>
+                        <td>نام و نام خانوادگی</td>
+                        <td><label>@item.firstNameAndLastName</label></td>
+                    </tr>
+                    <tr>
+                        <td>تلفن</td>
+                        <td><label>@item.tell</label></td>
+                    </tr>
+                    <tr>
+                        <td>ادرس</td>
+                        <td><label>@item.address</label></td>
+                    </tr>
+                    <tr>
+                        <td>ایمیل</td>
+                        <td><label>@item.email</label></td>
+                    </tr>
+                    <tr>
+                        <td>کد ملی</td>
+                        <td><label>@item.NationalCode</label></td>
+                    </tr>
+                    <tr>
+                        <td>رمز عبور</td>
+                        <td><label>@item.password</label></td>
+                    </tr>
+                    <tr class="hidden">
+                        <td>نقش کاربر</td>
+                        <td><label>@item.role_id</label></td>
+                    </tr>
+                    <tr class="pt-2 pb-2">                                              
+                        <td><a href="/User_p/Operation/@item.id" class="btn-send">ویرایش اطلاعات</a></td>
+                        <td></td> 
+                    </tr>
+                }                    
+        </table>
+</form>
+</section>
+

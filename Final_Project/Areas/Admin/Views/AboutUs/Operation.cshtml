@@ -1,0 +1,69 @@
+﻿@model ModelLib.AboutUs
+@{
+    ViewBag.Title = "افزودن/اپدیت";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<section class="container-fluid pl-3 pr-3">
+    <div class="mt-3 ml-0"><h2 class="title-page">افزودن/اپدیت</h2></div>
+    <form action="/Admin/AboutUs/Operation" method="post" enctype="multipart/form-data" class="mt-3">
+        <input type="hidden" name="id" id="id" value="@Model.id" />        
+        <table class="table">
+            <tr>
+                <td>عنوان اول</td>
+                <td>
+                    <input type="text" id="title1" name="title1" class="form-control" value="@Model.title1" />
+                </td>
+            </tr>
+            <tr>
+                <td>متن اول</td>
+                <td>
+                    <textarea name="text1" id="text1" class="form-control">@Model.text1</textarea>
+                </td>
+            </tr>   
+            <tr>
+                <td>عنوان دوم</td>
+                <td>
+                    <input type="text" id="title2" name="title2" class="form-control" value="@Model.title2" />
+                </td>
+            </tr>
+            <tr>
+                <td>متن دوم</td>
+                <td>
+                    <textarea name="text2" id="text2" class="form-control">@Model.text2</textarea>
+                </td>
+            </tr>   
+            <tr>
+                <td>عنوان سوم</td>
+                <td>
+                    <input type="text" id="title3" name="title3" class="form-control" value="@Model.title3" />
+                </td>
+            </tr>
+            <tr>
+                <td>متن سوم</td>
+                <td>
+                    <textarea name="text3" id="text3" class="form-control">@Model.text3</textarea>
+                </td>
+            </tr>   
+            <tr>
+                <td>عنوان چهارم</td>
+                <td>
+                    <input type="text" id="title4" name="title4" class="form-control" value="@Model.title4" />
+                </td>
+            </tr>
+            <tr>
+                <td>متن چهارم</td>
+                <td>
+                    <textarea name="text4" id="text4" class="form-control">@Model.text4</textarea>
+                </td>
+            </tr>         
+            <tr>
+                <td>
+                    <input type="submit" value="ذخیره" class="btn btn-success" />
+                </td>
+                <td>
+                    <input type="reset" value="انصراف" class="btn btn-warning" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</section>
