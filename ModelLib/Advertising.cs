@@ -126,6 +126,21 @@ namespace ModelLib
                 .ToList();
         }
 
+        /// <summary>
+        /// Return ads with specific condition and type
+        /// </summary>
+        /// <param name="status"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public List<Advertising> Read(Condition status, TypeAd type)
+        {
+            return entity.Advertising
+                .Include(a => a.City_table.Province_table)
+                .Where(a => a.typeOfAd.Equals(type))
+                .Where(a => a.Condition.Equals(status))
+                .ToList();
+        }
+
         public Advertising FindById(int id)
         {
             return entity.Advertising.Include(a => a.City_table.Province_table).SingleOrDefault(a => a.id.Equals(id));
