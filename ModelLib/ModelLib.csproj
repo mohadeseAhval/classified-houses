@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="AboutUs.cs" />
     <Compile Include="Advertising.cs" />
+    <Compile Include="AdvertisingObject.cs" />
     <Compile Include="Bookmark.cs" />
     <Compile Include="City.cs" />
     <Compile Include="Class1.cs" />

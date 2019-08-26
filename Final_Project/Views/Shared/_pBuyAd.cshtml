@@ -35,7 +35,18 @@
                             else
                             {
                                 <span>رهن و اجاره</span>
-                            } در  @item.City_table.title
+                            } @if (item.propertyType == PropertyType.apartment)
+                            {
+                                <span>آپارتمان</span>
+                            }
+                            else if (item.propertyType == PropertyType.Official)
+                            {
+                                <span>اداری</span>
+                            }
+                            else
+                            {
+                                <span>ویلایی</span>
+                            }  در  @item.City_table.title
                         </h2>
                         <div class="announce_attrs">
                             <div class="w-100 info-info py-2">

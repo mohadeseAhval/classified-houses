@@ -84,6 +84,11 @@ namespace Final_Project.Controllers
 
         //    return View(model: AdvertisingTable.Read(id));
         //}
+        [HttpGet]
+        public ActionResult searchAd(string Hey, string Wow)
+        {
+            return View();
+        }
        
     }
 }

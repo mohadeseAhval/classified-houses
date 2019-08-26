@@ -3,7 +3,7 @@
 @foreach (var item in Model)
 {
     <div id="@item.id" class="main_box single_announce pl-lg-5 list-view col-12">
-        <a href="/Advertising/Details_Buy/@item.id">
+        <a href="/Advertising/Details_Rent/@item.id">
             <div class="announce-inner clearfix rent-class">
                 <div class="row">
                     <div class="announce_images col-5 isgold px-0">
@@ -36,6 +36,17 @@
                             else
                             {
                                 <span>رهن و اجاره</span>
+                            }@if (item.propertyType == PropertyType.apartment)
+                            {
+                                <span>آپارتمان</span>
+                            }
+                            else if (item.propertyType == PropertyType.Official)
+                            {
+                                <span>اداری</span>
+                            }
+                            else
+                            {
+                                <span>ویلایی</span>
                             } در  @item.City_table.title
                         </h2>
                         <div class="announce_attrs">

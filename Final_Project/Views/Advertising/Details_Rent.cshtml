@@ -14,15 +14,20 @@
                         <div class="w-100 pb-2">
                             <div class="row">
                                 <ol class="breadcrumb py-1 col-auto pr-lg-0 pl-0" itemscope
-                                    itemtype="http://schema.org/BreadcrumbList">
+                                    >
                                     <li class="breadcrumb-item" itemprop="itemListElement">
                                         <a href="/"
                                            class=""><span itemprop="name">صفحه اصلی</span></a>
                                         <meta itemprop="position" content="1" />
                                     </li>
                                     <li class="breadcrumb-item" itemprop="itemListElement">
-                                        <a href="/Home/Buy"
-                                           class=""><span itemprop="name">خرید</span></a>
+                                        <a href="/Advertising/Rent"
+                                           class=""><span itemprop="name">رهن واجاره</span></a>
+                                        <meta itemprop="position" content="2" />
+                                    </li>
+                                    <li class="breadcrumb-item" itemprop="itemListElement">
+                                        <a href="/Advertising/Details_Rent/@Model.id"
+                                           class=""><span itemprop="name">@Model.title</span></a>
                                         <meta itemprop="position" content="2" />
                                     </li>
                                 </ol>
@@ -68,7 +73,10 @@
                                     <div class="w-100"><span class="title">مشخصات</span></div>
                                     <div class="w-100">
                                         <div class="col-md-12 spec clearfix">
-                                            <span>قیمت</span> <span class="bold"> @Model.Price<span>تومان</span> </span>
+                                            <span>رهن</span> <span class="bold"> @Model.rent<span>تومان</span> </span>
+                                        </div>
+                                        <div class="col-md-12 spec clearfix">
+                                            <span>اجاره</span> <span class="bold"> @Model.mortgage<span>تومان</span> </span>
                                         </div>
                                         <div class="col-md-12 spec clearfix">
                                             <span> نوع ملک </span> <span class="bold">

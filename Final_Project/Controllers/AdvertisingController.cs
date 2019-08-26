@@ -14,9 +14,11 @@ namespace Final_Project.Controllers
         // GET: Advertising
         public ActionResult Buy()
         {
-            var adbuy = AdvertisingTable.Read(Condition.Ctrue, TypeAd.Buy);
+            var ads = AdvertisingTable.Read(Condition.Ctrue, TypeAd.Buy);
             //var ads = AdvertisingTable.Read(Condition.Ctrue);
-            return View(adbuy);
+            var area = AdvertisingTable.GetBuyAdArea();
+            var price = AdvertisingTable.GetBuyAdPric();
+            return View(new AdvertisingObject { area_o = area, ads_o = ads, price_o = price });
         }
         public ActionResult Details_Buy(int id)
         {
@@ -24,9 +26,11 @@ namespace Final_Project.Controllers
         }
         public ActionResult Rent()
         {
-            var adRent = AdvertisingTable.Read(Condition.Ctrue, TypeAd.Rent);
+            var ads = AdvertisingTable.Read(Condition.Ctrue, TypeAd.Rent);
             //var ads = AdvertisingTable.Read(Condition.Ctrue);
-            return View(adRent);
+            var area = AdvertisingTable.GetRentAdArea();
+            var price = AdvertisingTable.GetRentAdPric();
+            return View(new AdvertisingObject { area_o = area, ads_o = ads, price_o = price });
         }
         public ActionResult Details_Rent(int id)
         {

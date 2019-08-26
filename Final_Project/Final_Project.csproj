@@ -653,6 +653,9 @@
     <Content Include="Views\Advertising\Rent.cshtml" />
     <Content Include="Views\Advertising\Details_Rent.cshtml" />
     <Content Include="Views\Shared\_pRentAd.cshtml" />
+    <Content Include="Views\Shared\_areaAd.cshtml" />
+    <Content Include="Views\Shared\_ptypofB.cshtml" />
+    <Content Include="Views\Shared\_ptypofR.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

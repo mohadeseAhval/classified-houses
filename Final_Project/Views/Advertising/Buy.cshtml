@@ -1,4 +1,5 @@
-﻿@model List<ModelLib.Advertising>
+﻿@using ModelLib;
+@model AdvertisingObject
 @{
     ViewBag.Title = "Buy";
 }
@@ -69,7 +70,7 @@
                     <div class="searched-announce result-announces">
                         <div id="placeholder-result" class="items pt-4 row px-3 pl-lg-0 modern_list">
 
-                            @Html.Partial("_pBuyAd", Model)
+                            @Html.Partial("_pBuyAd", (List<ModelLib.Advertising>)Model.ads_o)
                         </div>
                         <div class="paginate-holder text-center">
                             <ul class="pagination linear-paginate">
@@ -114,57 +115,15 @@
                     <div class="inner w-100 bg-white px-3 px-sm-0">
 
                         <div class="w-100 link-box">
-                            <div class="title medium-sans mt-4 mb-3">نوع های دیگر</div>
+                            <div class="title medium-sans mt-4 mb-3">قیمت های دیگر</div>
                             <ul>
-                                <li class="pb-3">
-                                    <a href="/Home/Rent">
-                                        رهن و اجاره
-                                    </a>
-                                </li>
-                                <li class="pb-3">
-                                    <a href="/Home/Rent">
-                                        رهن و اجاره
-                                    </a>
-                                </li>
-                                <li class="pb-3">
-                                    <a href="/Home/Rent">
-                                        رهن و اجاره
-                                    </a>
-                                </li>
-                                <li class="pb-3">
-                                    <a href="/Home/Rent">
-                                        رهن و اجاره
-                                    </a>
-                                </li>
+                              @Html.Partial("_ptypofB", (List<ModelLib.Advertising>)Model.price_o)  
+                               
                             </ul>
                             <div class="title medium-sans mt-4 mb-3">متراژ های دیگر</div>
                             <ul>
-                                <li class="pb-3">
-                                    <a href="/Home/Buy">
-                                        خرید
-                                    </a>
-                                </li>
-                                <li class="pb-3">
-                                    <a href="/Home/Buy">
-                                        خرید
-                                    </a>
-                                </li>
-                                <li class="pb-3">
-                                    <a href="/Home/Buy">
-                                        خرید
-                                    </a>
-                                </li>
-                                <li class="pb-3">
-                                    <a href="/Home/Buy">
-                                        خرید
-                                    </a>
-                                </li>
-                                <li class="pb-3">
-                                    <a href="/Home/Buy">
-                                        خرید
-                                    </a>
-                                </li>
-                            </ul>
+                                @Html.Partial("_areaAd", (List<ModelLib.Advertising>)Model.area_o)
+                            </ul>                               
                         </div>
                     </div>
                 </div>

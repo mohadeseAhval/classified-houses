@@ -234,5 +234,30 @@ namespace ModelLib
             try { entity.SaveChanges(); return "done"; }
             catch { return "error"; }
         }
+        public List<Advertising> GetBuyAdArea()
+        {
+            return entity.Advertising.OrderByDescending(n => n.area).Take(8)
+                .Where(a => a.typeOfAd == ModelLib.Enums.TypeAd.Buy)                
+                .ToList();
+        }
+        public List<Advertising> GetBuyAdPric()
+        {
+            return entity.Advertising.OrderBy(n => n.Price).Take(8)
+                .Where(a => a.typeOfAd == ModelLib.Enums.TypeAd.Buy)
+                .ToList();
+        }
+        public List<Advertising> GetRentAdArea()
+        {
+            return entity.Advertising.OrderByDescending(n => n.area).Take(8)
+                .Where(a => a.typeOfAd == ModelLib.Enums.TypeAd.Rent)
+                .ToList();
+        }
+        public List<Advertising> GetRentAdPric()
+        {
+            return entity.Advertising.OrderBy(n => n.Price).Take(8)
+                .Where(a => a.typeOfAd == ModelLib.Enums.TypeAd.Rent)
+                .ToList();
+        }
+
     }
 }
