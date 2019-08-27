@@ -7,13 +7,13 @@ using System.Web.Mvc;
 
 namespace Final_Project.Areas.Admin.Controllers
 {
-    public class RoleController : Controller
+    public class RoleController : BaseAdminController
     {
         Role RoleTable = new Role();
         // GET: Admin/Role
         public ActionResult Index()
         {
-            ViewBag.userName = Session["USER"].ToString();
+            ViewBag.userName = User.Identity.Name;
             return View(model: RoleTable.Read());
         }
         [HttpGet]

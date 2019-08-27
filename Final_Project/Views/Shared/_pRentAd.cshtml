@@ -89,7 +89,23 @@
                                 </h3>
                             </div>
                             <p class="description-announce">
-                                @item.description.Substring(0, 50) ...
+                                @if (item.description != null)
+                                {
+                                    if (item.description.Length > 100)
+                                    {
+                                        <span>
+                                            @item.description.Substring(0, 100) ...
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span>@item.description</span>
+                                    }
+                                }
+                                else
+                                {
+                                    <span>بدون توضیحات</span>
+                                }
                                 @**** گروه مشاورین املاک اطلس هوم
                                     ارایه می کند ***170 متر 3 خواب خوش نقشه و نورگیر عالیلوکیشن بی
                                     نظیرلابیلابی من...*@

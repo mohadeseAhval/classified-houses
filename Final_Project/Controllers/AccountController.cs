@@ -66,5 +66,12 @@ namespace Final_Project.Controllers
             result.Data = Usertable.Create(record);
             return result;
         }
+        public ActionResult logout()
+        {
+            //Session["USER"] = null;
+            //Session.Abandon();
+            FormsAuthentication.SignOut();
+            return Redirect("~/Account/Login");
+        }
     }
 }

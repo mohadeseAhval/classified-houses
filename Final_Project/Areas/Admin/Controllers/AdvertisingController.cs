@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace Final_Project.Areas.Admin.Controllers
 {
-    public class AdvertisingController : Controller
+    public class AdvertisingController : BaseAdminController
     {
         Advertising AdvertisingTable = new Advertising();
         City _cityRepository = new City();
@@ -16,13 +16,14 @@ namespace Final_Project.Areas.Admin.Controllers
         // GET: Admin/Advertising
         public ActionResult Index()        
         {
-            ViewBag.userName = Session["USER"].ToString();
+            ViewBag.userName = User.Identity.Name;
             return View(model: AdvertisingTable.Read());
         }
 
         [HttpGet]
         public ActionResult Cities(int id)
         {
+
             ProvincesTb provience = _provienceRepository.Read(id);
 
             if (provience == null)
@@ -39,7 +40,9 @@ namespace Final_Project.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Operation(int? id)
         {
+            ViewBag.userName = User.Identity.Name;
             ViewBag.Proviences = _provienceRepository.Read();
+            #region
             if (id != null)
             {
                 var ad = AdvertisingTable.FindById(id.Value);
@@ -77,20 +80,24 @@ namespace Final_Project.Areas.Admin.Controllers
                 //Create Mode
                 return View(model: new Advertising());
             }
+            #endregion
         }
         [HttpPost]
         public ActionResult Operation(Advertising inputs, string oldUrl)
         {
-            inputs.nameOfRegistrant = Session["USER"].ToString();
+            ViewBag.userName = User.Identity.Name;
+            //inputs.nameOfRegistrant = Session["USER"].ToString();
             String id = Session["userid"].ToString();
-            inputs.User_id = int.Parse(id);
+            
             inputs.date = DateTime.Now;
             PersianCalendar pc = new PersianCalendar();
             inputs.qdate = pc.GetYear(DateTime.Now) + "/" + pc.GetMonth(DateTime.Now) + "/" + pc.GetDayOfMonth(DateTime.Now);
+            #region
             if (inputs.id == 0)
             {
                 //Create Mode
-                #region Create Advertising              
+                #region Create Advertising 
+                inputs.CreatedBy_id = int.Parse(id);
                 var image = Request.Files[0];
                 string url = "~/Images/ImageAd/" + DateTime.Now.Millisecond + image.FileName;
                 if (image.FileName != "")
@@ -110,7 +117,8 @@ namespace Final_Project.Areas.Admin.Controllers
             else
             {
                 //Update Mode
-                #region Update Advertising                                          
+                #region Update Advertising  
+                inputs.UpdatedBy_id = int.Parse(id);
                 var image = Request.Files[0];
                 string url = "~/Images/ImageAd/" + DateTime.Now.Millisecond + image.FileName;
                 if (image.FileName != "")
@@ -132,6 +140,7 @@ namespace Final_Project.Areas.Admin.Controllers
                 AdvertisingTable.Update(inputs);
                 #endregion
             }
+            #endregion
             return Redirect("/Admin/Advertising");
         }
 

@@ -7,13 +7,13 @@ using System.Web.Mvc;
 
 namespace Final_Project.Areas.Admin.Controllers
 {
-    public class ContactUsController : Controller
+    public class ContactUsController : BaseAdminController
     {
         ContactUs ContactUsTable = new ContactUs();
         // GET: Admin/ContactUs
         public ActionResult Index()
         {
-            //ViewBag.userName = Session["USER"].ToString();
+            ViewBag.userName = User.Identity.Name;
             return View(model: ContactUsTable.Read());
         }
         [HttpGet]

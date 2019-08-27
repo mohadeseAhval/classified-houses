@@ -6,14 +6,12 @@ using System.Web.Mvc;
 
 namespace Final_Project.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseAdminController
     {
-        [Authorize]
-        // GET: Admin/Home
+        // GET: Admin/Home baqie hame bashan
         public ActionResult Index()
         {
-            ViewBag.userName = Session["USER"].ToString();
-
+            ViewBag.userName = User.Identity.Name;
             return View();
         }
     }

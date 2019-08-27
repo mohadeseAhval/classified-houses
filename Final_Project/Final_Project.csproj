@@ -451,10 +451,6 @@
     <Content Include="Areas\Admin\Views\ContactPage\Operation.cshtml" />
     <Content Include="Areas\Admin\Views\Questions\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Questions\Operation.cshtml" />
-    <Content Include="Areas\Admin\Views\MenuOne\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\MenuOne\Operation.cshtml" />
-    <Content Include="Areas\Admin\Views\MenuTow\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\MenuTow\Operation.cshtml" />
     <Content Include="Areas\Admin\Views\ProvincesTb\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ProvincesTb\Operation.cshtml" />
     <Content Include="Areas\Admin\Views\City\Index.cshtml" />
@@ -592,13 +588,12 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AboutUsController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdvertisingController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\BookmarkController.cs" />
     <Compile Include="Areas\Admin\Controllers\CityController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactPageController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactUsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Admin\Controllers\MenuOneController.cs" />
-    <Compile Include="Areas\Admin\Controllers\MenuTowController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProvincesTbController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuestionsController.cs" />
@@ -656,6 +651,7 @@
     <Content Include="Views\Shared\_areaAd.cshtml" />
     <Content Include="Views\Shared\_ptypofB.cshtml" />
     <Content Include="Views\Shared\_ptypofR.cshtml" />
+    <Content Include="Views\Shared\_pSwiper.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -666,6 +662,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\BaseAdmin\" />
     <Folder Include="Areas\Admin\Views\Bookmark\" />
     <Folder Include="Images\2x\" />
     <Folder Include="Images\Admin\" />

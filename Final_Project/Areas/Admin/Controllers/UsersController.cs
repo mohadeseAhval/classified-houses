@@ -7,18 +7,19 @@ using System.Web.Mvc;
 
 namespace Final_Project.Areas.Admin.Controllers
 {
-    public class UsersController : Controller
+    public class UsersController : BaseAdminController
     {
         Users UserTable = new Users();
         // GET: Admin/Users
         public ActionResult Index()
         {
-            ViewBag.userName = Session["USER"].ToString();
+            ViewBag.userName = User.Identity.Name;
             return View(model: UserTable.Read());
         }
         [HttpGet]
         public ActionResult Operation(int? Id)
         {
+            ViewBag.userName = User.Identity.Name;
             if (Id != null)
             {
                 //Update Mode
@@ -33,6 +34,7 @@ namespace Final_Project.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Operation(Users inputs)
         {
+            ViewBag.userName = User.Identity.Name;
             if (inputs.id == 0)
             {
                 //Create Mode

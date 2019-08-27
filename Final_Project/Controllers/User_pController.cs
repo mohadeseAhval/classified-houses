@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Final_Project.Controllers
 {
+    [Authorize]
     public class User_pController : Controller
     {
         Users UserTable = new Users();
@@ -14,7 +15,8 @@ namespace Final_Project.Controllers
         // GET: User_p
         public ActionResult Index()
         {
-            ViewBag.userName = Session["USER"].ToString();
+
+            ViewBag.userName = User.Identity.Name;
             String id = Session["userid"].ToString();
             ViewBag.userid = int.Parse(id);           
             return View(model: UserTable.FindByUserId(int.Parse(id))); 
@@ -23,7 +25,8 @@ namespace Final_Project.Controllers
         [HttpGet]
         public ActionResult Operation(int? Id)
         {
-            ViewBag.userName = Session["USER"].ToString();
+
+            ViewBag.userName = User.Identity.Name;
             if (Id != 0)
             {
                 ViewBag.userid = Id;
@@ -39,7 +42,8 @@ namespace Final_Project.Controllers
         [HttpPost]
         public ActionResult Operation(Users inputs)
         {
-            ViewBag.userName = Session["USER"].ToString();
+
+            ViewBag.userName = User.Identity.Name;
             String sessionUserId = Session["userid"].ToString();
             int loggedInUserId = int.Parse(sessionUserId);
 

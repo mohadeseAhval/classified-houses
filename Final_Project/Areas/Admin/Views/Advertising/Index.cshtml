@@ -1,5 +1,5 @@
 ﻿@using ModelLib.Enums;
-@model List<ModelLib.Advertising>
+@model List<ModelLib.AdViewModel>
 @{
     ViewBag.Title = "صفحه مدریت آگهی ها";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -27,7 +27,7 @@
             <th>توضیحات</th>
             <th>شماره تماس</th>
             <th>نام ثبت کننده آگهی</th>
-            <th>یوزرایدی</th>
+            <th>نام ویرایش کننده آگهی</th>
             <th>تاریخ</th>
             <th>تاریخ سیستمی</th> 
             <th>استان</th>           
@@ -343,11 +343,21 @@
                 <td>@item.address</td>
                 <td><textarea class="teOne">@item.description</textarea></td>
                 <td>@item.tell</td>
-                <td>@item.nameOfRegistrant</td>
-                <td>@item.User_id</td>
+                <td>
+                    @if (item.CreatedBy != null)
+                    {
+                        <span>@item.CreatedBy.firstNameAndLastName</span>
+                    }
+                </td>
+                <td>
+                    @if (item.UpdatedBy != null)
+                    {
+                        <span>@item.UpdatedBy.firstNameAndLastName</span>
+                    }
+                </td>
                 <td>@item.qdate</td>
                 <td><label class="lblTow">@item.date</label></td>        
-                <td>@item.City_table.Province_table.title</td>       
+                <td>@item.Provience.title</td>       
                 <td>@item.City_table.title</td>                                              
                 <td>
                     @if (item.propertyType == PropertyType.apartment)

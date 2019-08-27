@@ -24,7 +24,7 @@ namespace ModelLib
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Bookmark> Bookmark { get; set; }
         public virtual DbSet<Users> Users { get; set; }
-        public virtual DbSet<Advertising> Advertising { get; set; }
+        public virtual DbSet<Advertising> Ads { get; set; }
        public virtual DbSet<Rules> Rules { get; set; }
         //public virtual DbSet<NewsObject> NewsObject { get; set; }
 

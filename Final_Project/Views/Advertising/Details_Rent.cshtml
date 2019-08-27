@@ -1,5 +1,5 @@
 ﻿@using ModelLib.Enums;
-@model ModelLib.Advertising
+@model ModelLib.AdViewModel
 @{
     ViewBag.Title = "Details_Buy";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -446,7 +446,7 @@
                             <div class="w-100 pt-4">
                                 <div class="call-row text-center pt-2"><span class="norm">منتشر کننده </span></div>
                                 <div class="call-row text-center pt-2">
-                                    <span class="bold" itemprop="name">@Model.nameOfRegistrant</span>
+                                    <span class="bold" itemprop="name">@Model.CreatedBy.firstNameAndLastName</span>
                                 </div>
                                 <div class="call-row have-border py-4">
                                     <div class="text-center price-info">

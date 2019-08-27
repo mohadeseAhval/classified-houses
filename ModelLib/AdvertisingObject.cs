@@ -11,5 +11,6 @@ namespace ModelLib
         public List<ModelLib.Advertising> area_o { get; set; }
         public List<ModelLib.Advertising> ads_o { get; set; }
         public List<ModelLib.Advertising> price_o { get; set; }
+        public AdViewModel ad_o { get; set; }
     }
 }

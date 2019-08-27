@@ -8,8 +8,10 @@ using System.Web.Mvc;
 
 namespace Final_Project.Controllers
 {
+    [Authorize]
     public class Advertising_pController : Controller
     {
+
         Advertising AdvertisingTable = new Advertising();
         City _cityRepository = new City();
         ProvincesTb _provienceRepository = new ProvincesTb();
@@ -17,7 +19,7 @@ namespace Final_Project.Controllers
         // GET: Advertising_p
         public ActionResult Index()
         {
-            
+            ViewBag.userName = User.Identity.Name;
             String id = Session["userid"].ToString();
             return View(model: AdvertisingTable.Read(int.Parse(id)));
         }
@@ -40,7 +42,8 @@ namespace Final_Project.Controllers
         }
         [HttpGet]
         public ActionResult Operation(int? id)
-        {
+        {            
+            ViewBag.userName = User.Identity.Name;
             ViewBag.Proviences = _provienceRepository.Read();
             if (id != null)
             {
@@ -86,16 +89,20 @@ namespace Final_Project.Controllers
         [HttpPost]
         public ActionResult Operation(Advertising inputs, string oldUrl)
         {
-            inputs.nameOfRegistrant = Session["USER"].ToString();
+
+            ViewBag.userName = User.Identity.Name;
+            //inputs.nameOfRegistrant = Session["USER"].ToString();
             String id = Session["userid"].ToString();
-            inputs.User_id = int.Parse(id);
+
+            
             inputs.date = DateTime.Now;
             PersianCalendar pc = new PersianCalendar();
             inputs.qdate = pc.GetYear(DateTime.Now) + "/" + pc.GetMonth(DateTime.Now) + "/" + pc.GetDayOfMonth(DateTime.Now);
             if (inputs.id == 0)
             {
                 //Create Mode
-                #region Create Advertising              
+                #region Create Advertising 
+                inputs.CreatedBy_id = int.Parse(id);
                 var image = Request.Files[0];
                 string url = "~/Images/ImageAd/" + DateTime.Now.Millisecond + image.FileName;
                 if (image.FileName != "")
@@ -115,7 +122,8 @@ namespace Final_Project.Controllers
             else
             {
                 //Update Mode
-                #region Update Advertising                                          
+                #region Update Advertising 
+                inputs.UpdatedBy_id = int.Parse(id);
                 var image = Request.Files[0];
                 string url = "~/Images/ImageAd/" + DateTime.Now.Millisecond + image.FileName;
                 if (image.FileName != "")

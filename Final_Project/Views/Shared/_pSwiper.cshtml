@@ -1,0 +1,102 @@
+﻿@using ModelLib.Enums;
+@model List<ModelLib.Advertising>
+ @foreach (var item in Model)
+ {
+    <div class="swiper-slide swiper-slide-next" style="width: 370px; margin-left: 15px;"> <div class="main_box single_announce grid-view"> 
+        <a href="/Advertising/Details_Buy/@item.id"> 
+        <div class="announce-inner clearfix w-100 sale-class"> 
+            <div class="row px-3"> 
+            <div class="announce_images col-12 px-0"> 
+                <div class="slider "> 
+                <picture> 
+                   <img class="w-100" src="@Href(item.imageUrl)"  alt="@item.title" title="@item.title"> 
+                    </picture>                 
+                </div> 
+                </div> 
+            <div class="announce_info col-12"> 
+                <div class="mt-3 announce_price for-sell "> 
+                <span class="rent pb-2 "> @item.Price<span>تومان</span> 
+                    </span> 
+                </div> 
+                <h2 class="announce-desc medium-sans pb-2">  
+                    @if (item.propertyType == PropertyType.apartment)
+                    {
+                        <span>آپارتمان</span>
+                    }
+                    else if (item.propertyType == PropertyType.Official)
+                    {
+                        <span>اداری</span>
+                    }
+                    else
+                    {
+                        <span>ویلایی</span>
+                    } @item.area , @item.City_table.title
+                 </h2> 
+                <div class="announce-title sub-title clearfix"> 
+                <div class="title"> 
+                    <h3 class="medium-sans"> @item.title </h3> 
+                    </div> 
+                <p class="description-announce">
+                    @if (item.description != null)
+                    {
+                        if (item.description.Length > 100)
+                        {
+                            <span>
+                                @item.description.Substring(0, 100) ...
+                            </span>
+                        }
+                        else
+                        {
+                            <span>@item.description</span>
+                        }
+                    }
+                    else
+                    {
+                        <span>بدون توضیحات</span>
+                    }
+                </p>
+                 </div> 
+                <div class="announce_attrs"> 
+                <div class="w-100 info-info py-2"> 
+                    <ul class="clearfix"> 
+                    <li> @item.area متر </li> 
+                    <li> @if (item.numberOfRooms == numberOfRooms.zero)
+                    {
+                        <span>0</span>
+                    }
+                    else if (item.numberOfRooms == numberOfRooms.one)
+                    {
+                        <span>1</span>
+                    }
+                    else if (item.numberOfRooms == numberOfRooms.tow)
+                    {
+                        <span>2</span>
+                    }
+                    else if (item.numberOfRooms == numberOfRooms.tree)
+                    {
+                        <span>3</span>
+                    }
+                    else if (item.numberOfRooms == numberOfRooms.four)
+                    {
+                        <span>4</span>
+                    }
+                    else
+                    {
+                        <span>5</span>
+                    } خواب </li> 
+                    </ul> 
+                    </div> 
+                </div> 
+                <div class="date-holder pb-2"> 
+                <span class="date"> تاریخ انتشار: @item.qdate </span> 
+                </div> <div class="call-sec">
+                 <div class="text-right contacts pt-2 pb-3 clearfix">                              
+                </div> 
+                </div> 
+                </div> 
+            </div> 
+            </div> 
+        </a>
+        </div> 
+    </div>
+ }

@@ -8,18 +8,19 @@ using System.Web.Mvc;
 
 namespace Final_Project.Areas.Admin.Controllers
 {
-    public class NewsController : Controller
+    public class NewsController : BaseAdminController
     {
         News NewsTable = new News();
         // GET: Admin/News
         public ActionResult Index()
         {
-            ViewBag.userName = Session["USER"].ToString();
+            ViewBag.userName = User.Identity.Name;
             return View(model: NewsTable.Read());
         }
         [HttpGet]
         public ActionResult Operation(int? id)
         {
+            ViewBag.userName = User.Identity.Name;
             if (id != null)
             {
                 //Update Mode
@@ -34,6 +35,7 @@ namespace Final_Project.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Operation(News inputs, string oldUrl)
         {
+            ViewBag.userName = User.Identity.Name;
             inputs.author = Session["USER"].ToString();
             String id = Session["userid"].ToString();
             inputs.User_id = int.Parse(id);

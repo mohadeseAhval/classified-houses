@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace Final_Project.Areas.Admin.Controllers
 {
-    public class CityController : Controller
+    public class CityController : BaseAdminController
     {
         //ProvincesTb ProvincesTable = new ProvincesTb();
         EF_DataBase db = new EF_DataBase();
@@ -15,12 +15,13 @@ namespace Final_Project.Areas.Admin.Controllers
         // GET: Admin/City
         public ActionResult Index()
         {
-          
+            ViewBag.userName = User.Identity.Name;
             return View(model: CityTable.Read());
         }
         [HttpGet]
         public ActionResult Operation(int? id)
         {
+            ViewBag.userName = User.Identity.Name;
             if (id != null)
             {
                 //Update Mode
@@ -36,6 +37,7 @@ namespace Final_Project.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Operation(City inputs)
         {
+            ViewBag.userName = User.Identity.Name;
             if (inputs.id == 0)
             {
                 //Create Mode

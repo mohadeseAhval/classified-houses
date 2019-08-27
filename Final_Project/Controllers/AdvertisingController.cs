@@ -22,7 +22,10 @@ namespace Final_Project.Controllers
         }
         public ActionResult Details_Buy(int id)
         {
-            return View(AdvertisingTable.FindById(id));
+            var ad = AdvertisingTable.FindById(id);
+            var similarAds = AdvertisingTable.GetSimilarAds(ad);
+            var adWithCreator = AdvertisingTable.FindByIdWithCreator(id);
+            return View(new AdvertisingObject { ad_o = adWithCreator, ads_o = similarAds});
         }
         public ActionResult Rent()
         {
@@ -34,7 +37,7 @@ namespace Final_Project.Controllers
         }
         public ActionResult Details_Rent(int id)
         {
-            return View(AdvertisingTable.FindById(id));
+            return View(AdvertisingTable.FindByIdWithCreator(id));
         }
 
     }
