@@ -615,6 +615,7 @@
     <Content Include="Views\Shared\_ptypofB.cshtml" />
     <Content Include="Views\Shared\_ptypofR.cshtml" />
     <Content Include="Views\Shared\_pSwiper.cshtml" />
+    <Content Include="Views\Home\searchAd.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

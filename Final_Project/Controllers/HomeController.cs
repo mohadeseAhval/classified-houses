@@ -12,7 +12,6 @@ namespace Final_Project.Controllers
     {
         ContactUs ContactUs_Tb = new ContactUs();
         ContactPage ContactPage_Tb = new ContactPage();
-        //Advertising AdvertisingTable = new Advertising();
         Questions Questions_Tb = new Questions();
         AboutUs AboutUs_Tb = new AboutUs();
         Rules Rules_Tb = new Rules();
@@ -45,8 +44,8 @@ namespace Final_Project.Controllers
             return View(model: ContactPage_Tb.Read());
         }
 
-        [HttpPost]
         // uni
+        [HttpPost]
         public JsonResult AddContact(ContactUs record)
         {
             JsonResult result = new JsonResult();
@@ -70,30 +69,23 @@ namespace Final_Project.Controllers
         {
             return View(model: Rules_Tb.Read());
         }
-        //public ActionResult Buy()
-        //{
-           
-        //    return View(model: ads);
-        //}
-        //public ActionResult Rent()
-        //{
-        //    var ads = AdvertisingTable.Read(Condition.Ctrue);
-        //    return View();
-        //}
+
         public ActionResult News()
         {
             return View();
         }
-        //public ActionResult Ad_house(int id)
-        //{
 
-        //    return View(model: AdvertisingTable.Read(id));
-        //}
         [HttpGet]
-        public ActionResult searchAd(TypeAd sales_type, string needle, PropertyType type, long min_price, long max_price, numberOfRooms min_bedroom, int min_size, int max_size)
+        public ActionResult searchAd(TypeAd? sales_type, string needle, PropertyType? type, long? min_price, long? max_price, numberOfRooms? min_bedroom, int? min_size, int? max_size)
         {
-            _adsRepository.Read(Condition.Ctrue, needle, sales_type, type, min_price, max_price, min_bedroom, null, min_size, max_size);
-            return View();
+            var resolvedSalesType = TypeAd.Buy;
+            if (sales_type != null)
+            {
+                resolvedSalesType = (TypeAd)sales_type;
+            }
+            var ads = _adsRepository.Read(Condition.Ctrue, needle, resolvedSalesType, type, min_price, max_price, min_bedroom, null, min_size, max_size);
+
+            return View(ads);
         }
        
     }
