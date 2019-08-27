@@ -29,21 +29,13 @@
                                                 <div class="result-box multiple p-0 col-auto"></div>
                                                 <div class="col searchform pr-lg-0">
                                                     <i class="sh-location"></i>
-                                                    <input id="searchtext" name="location"
-                                                           class="big-size form-control searchtext search-location form-input float-right with-icon"
-                                                           type="text" autocomplete="off"
-                                                           placeholder="استان ، شهر یا محله"> <input type="hidden"
-                                                                                                     id="location_ids"
-                                                                                                     name="location_ids"
-                                                                                                     class="area-input"
-                                                                                                     value="" />
+                                                    @Html.TextBox("needle", "", new { @placeholder = "استان ، شهر یا عنوان آگهی", @class = "big -size form-control searchtext search-location form-input float-right with-icon" })
                                                 </div>
-                                                <div class="search-box"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-3 col-xl-2 pr-lg-0 pt-3 pt-lg-0 d-none d-lg-block">
-                                        <button class="home-search shabesh-button main-search-btn w-100 green big-size">
+                                        <button type="submit" class="home-search shabesh-button main-search-btn w-100 green big-size">
                                             جستجو
                                         </button>
                                     </div>
@@ -58,9 +50,9 @@
                                             <option value="">نوع ملک</option>
                                             <option value="apartment">آپارتمان</option>
                                             <option value="administrative">اداری</option>                                            
-                                            <option value="villa">ویلا</option>                                            
+                                            <option value="villa">ویلا</option>
                                         </select>
-                                    </div>                                    
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-9 ">

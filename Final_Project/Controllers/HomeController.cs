@@ -16,32 +16,34 @@ namespace Final_Project.Controllers
         Questions Questions_Tb = new Questions();
         AboutUs AboutUs_Tb = new AboutUs();
         Rules Rules_Tb = new Rules();
+        
         // GET: Home
         public ActionResult Index()
         {
-            
-
-            return View();
-             
-           
+            return View();  
         }
+
         public ActionResult About()
         {
             return View(model: AboutUs_Tb.Read());
         }
+
         public ActionResult Advertising()
         {
             return View();
-        }              
+        }
+
         public ActionResult Blog()
         {
             return View();
         }
+
         [HttpGet]
         public ActionResult Contact()
         {
             return View(model: ContactPage_Tb.Read());
         }
+
         [HttpPost]
         // uni
         public JsonResult AddContact(ContactUs record)
@@ -51,7 +53,8 @@ namespace Final_Project.Controllers
             result.Data = ContactUs.Create(record);           
 
             return result;
-        }      
+        }
+
         public ActionResult Faq()
         {
             return View(model: Questions_Tb.Read());
@@ -61,6 +64,7 @@ namespace Final_Project.Controllers
         {
             return View();
         }
+
         public ActionResult Terms()
         {
             return View(model: Rules_Tb.Read());
