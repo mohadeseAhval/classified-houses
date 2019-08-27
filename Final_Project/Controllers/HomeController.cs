@@ -16,6 +16,7 @@ namespace Final_Project.Controllers
         Questions Questions_Tb = new Questions();
         AboutUs AboutUs_Tb = new AboutUs();
         Rules Rules_Tb = new Rules();
+        Advertising _adsRepository = new Advertising();
         
         // GET: Home
         public ActionResult Index()
@@ -89,8 +90,9 @@ namespace Final_Project.Controllers
         //    return View(model: AdvertisingTable.Read(id));
         //}
         [HttpGet]
-        public ActionResult searchAd(string Hey, string Wow)
+        public ActionResult searchAd(TypeAd sales_type, string needle, PropertyType type, long min_price, long max_price, numberOfRooms min_bedroom, int min_size, int max_size)
         {
+            _adsRepository.Read(Condition.Ctrue, needle, sales_type, type, min_price, max_price, min_bedroom, null, min_size, max_size);
             return View();
         }
        

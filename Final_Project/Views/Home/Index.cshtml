@@ -17,8 +17,8 @@
                         <div class="row">
                             <div class="col-12 col-lg-3 my-2 px-2">
                                 <select class="big-size w-100" name="sales_type">
-                                    <option value="sale">خرید</option>
-                                    <option value="rent">رهن و اجاره</option>
+                                    <option value="0">خرید</option>
+                                    <option value="1">رهن و اجاره</option>
                                 </select>
                             </div>
                             <div class="col-12 col-lg-9 my-2 px-2">
@@ -48,9 +48,9 @@
                                     <div class="col-12 my-2 my-lg-1 ">
                                         <select class="w-100 small-size" name="type">
                                             <option value="">نوع ملک</option>
-                                            <option value="apartment">آپارتمان</option>
-                                            <option value="administrative">اداری</option>                                            
-                                            <option value="villa">ویلا</option>
+                                            <option value="0">آپارتمان</option>
+                                            <option value="1">اداری</option>                                            
+                                            <option value="2">ویلا</option>
                                         </select>
                                     </div>
                                 </div>
@@ -159,197 +159,15 @@
                                             <option value="500000000000">500 میلیارد تومان</option>
                                         </select>
                                     </div>
-                                    <div class="col-6 col-lg-2 my-2 my-lg-1 pr-2 pl-1 search-rent hidden">
-                                        <select class="w-100 small-size" name="min_price">
-                                            <option value="">حداقل ودیعه</option>
-                                            <option value="10000000">10 میلیون تومان</option>
-                                            <option value="20000000">20 میلیون تومان</option>
-                                            <option value="30000000">30 میلیون تومان</option>
-                                            <option value="40000000">40 میلیون تومان</option>
-                                            <option value="50000000">50 میلیون تومان</option>
-                                            <option value="60000000">60 میلیون تومان</option>
-                                            <option value="70000000">70 میلیون تومان</option>
-                                            <option value="80000000">80 میلیون تومان</option>
-                                            <option value="90000000">90 میلیون تومان</option>
-                                            <option value="100000000">100 میلیون تومان</option>
-                                            <option value="120000000">120 میلیون تومان</option>
-                                            <option value="140000000">140 میلیون تومان</option>
-                                            <option value="160000000">160 میلیون تومان</option>
-                                            <option value="180000000">180 میلیون تومان</option>
-                                            <option value="200000000">200 میلیون تومان</option>
-                                            <option value="220000000">220 میلیون تومان</option>
-                                            <option value="240000000">240 میلیون تومان</option>
-                                            <option value="260000000">260 میلیون تومان</option>
-                                            <option value="280000000">280 میلیون تومان</option>
-                                            <option value="300000000">300 میلیون تومان</option>
-                                            <option value="320000000">320 میلیون تومان</option>
-                                            <option value="340000000">340 میلیون تومان</option>
-                                            <option value="360000000">360 میلیون تومان</option>
-                                            <option value="380000000">380 میلیون تومان</option>
-                                            <option value="400000000">400 میلیون تومان</option>
-                                            <option value="420000000">420 میلیون تومان</option>
-                                            <option value="440000000">440 میلیون تومان</option>
-                                            <option value="460000000">460 میلیون تومان</option>
-                                            <option value="480000000">480 میلیون تومان</option>
-                                            <option value="500000000">500 میلیون تومان</option>
-                                            <option value="550000000">550 میلیون تومان</option>
-                                            <option value="600000000">600 میلیون تومان</option>
-                                            <option value="650000000">650 میلیون تومان</option>
-                                            <option value="700000000">700 میلیون تومان</option>
-                                            <option value="750000000">750 میلیون تومان</option>
-                                            <option value="800000000">800 میلیون تومان</option>
-                                            <option value="850000000">850 میلیون تومان</option>
-                                            <option value="900000000">900 میلیون تومان</option>
-                                            <option value="950000000">950 میلیون تومان</option>
-                                            <option value="1000000000">1 میلیارد تومان</option>
-                                            <option value="1500000000">1.5 میلیارد تومان</option>
-                                            <option value="2000000000">2 میلیارد تومان</option>
-                                            <option value="2500000000">2.5 میلیارد تومان</option>
-                                            <option value="3000000000">3 میلیارد تومان</option>
-                                            <option value="3500000000">3.5 میلیارد تومان</option>
-                                            <option value="4000000000">4 میلیارد تومان</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-6 col-lg-2 my-2 my-lg-1 pl-2 pr-1 search-rent hidden">
-                                        <select class="w-100 small-size" name="max_price">
-                                            <option value="">حداکثر ودیعه</option>
-                                            <option value="10000000">10 میلیون تومان</option>
-                                            <option value="20000000">20 میلیون تومان</option>
-                                            <option value="30000000">30 میلیون تومان</option>
-                                            <option value="40000000">40 میلیون تومان</option>
-                                            <option value="50000000">50 میلیون تومان</option>
-                                            <option value="60000000">60 میلیون تومان</option>
-                                            <option value="70000000">70 میلیون تومان</option>
-                                            <option value="80000000">80 میلیون تومان</option>
-                                            <option value="90000000">90 میلیون تومان</option>
-                                            <option value="100000000">100 میلیون تومان</option>
-                                            <option value="120000000">120 میلیون تومان</option>
-                                            <option value="140000000">140 میلیون تومان</option>
-                                            <option value="160000000">160 میلیون تومان</option>
-                                            <option value="180000000">180 میلیون تومان</option>
-                                            <option value="200000000">200 میلیون تومان</option>
-                                            <option value="220000000">220 میلیون تومان</option>
-                                            <option value="240000000">240 میلیون تومان</option>
-                                            <option value="260000000">260 میلیون تومان</option>
-                                            <option value="280000000">280 میلیون تومان</option>
-                                            <option value="300000000">300 میلیون تومان</option>
-                                            <option value="320000000">320 میلیون تومان</option>
-                                            <option value="340000000">340 میلیون تومان</option>
-                                            <option value="360000000">360 میلیون تومان</option>
-                                            <option value="380000000">380 میلیون تومان</option>
-                                            <option value="400000000">400 میلیون تومان</option>
-                                            <option value="420000000">420 میلیون تومان</option>
-                                            <option value="440000000">440 میلیون تومان</option>
-                                            <option value="460000000">460 میلیون تومان</option>
-                                            <option value="480000000">480 میلیون تومان</option>
-                                            <option value="500000000">500 میلیون تومان</option>
-                                            <option value="550000000">550 میلیون تومان</option>
-                                            <option value="600000000">600 میلیون تومان</option>
-                                            <option value="650000000">650 میلیون تومان</option>
-                                            <option value="700000000">700 میلیون تومان</option>
-                                            <option value="750000000">750 میلیون تومان</option>
-                                            <option value="800000000">800 میلیون تومان</option>
-                                            <option value="850000000">850 میلیون تومان</option>
-                                            <option value="900000000">900 میلیون تومان</option>
-                                            <option value="950000000">950 میلیون تومان</option>
-                                            <option value="1000000000">1 میلیارد تومان</option>
-                                            <option value="1500000000">1.5 میلیارد تومان</option>
-                                            <option value="2000000000">2 میلیارد تومان</option>
-                                            <option value="2500000000">2.5 میلیارد تومان</option>
-                                            <option value="3000000000">3 میلیارد تومان</option>
-                                            <option value="3500000000">3.5 میلیارد تومان</option>
-                                            <option value="4000000000">4 میلیارد تومان</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-6 col-lg-2 my-2 my-lg-1 pr-2 pl-1 search-rent hidden">
-                                        <select class="w-100 small-size" name="min_rent">
-                                            <option value="">حداقل اجاره</option>
-                                            <option value="100000">100 هزار تومان</option>
-                                            <option value="200000">200 هزار تومان</option>
-                                            <option value="300000">300 هزار تومان</option>
-                                            <option value="400000">400 هزار تومان</option>
-                                            <option value="500000">500 هزار تومان</option>
-                                            <option value="600000">600 هزار تومان</option>
-                                            <option value="700000">700 هزار تومان</option>
-                                            <option value="800000">800 هزار تومان</option>
-                                            <option value="900000">900 هزار تومان</option>
-                                            <option value="1000000">1 میلیون تومان</option>
-                                            <option value="1200000">1.2 میلیون تومان</option>
-                                            <option value="1400000">1.4 میلیون تومان</option>
-                                            <option value="1600000">1.6 میلیون تومان</option>
-                                            <option value="1800000">1.8 میلیون تومان</option>
-                                            <option value="2000000">2 میلیون تومان</option>
-                                            <option value="2500000">2.5 میلیون تومان</option>
-                                            <option value="3000000">3 میلیون تومان</option>
-                                            <option value="3500000">3.5 میلیون تومان</option>
-                                            <option value="4000000">4 میلیون تومان</option>
-                                            <option value="4500000">4.5 میلیون تومان</option>
-                                            <option value="5000000">5 میلیون تومان</option>
-                                            <option value="6000000">6 میلیون تومان</option>
-                                            <option value="7000000">7 میلیون تومان</option>
-                                            <option value="8000000">8 میلیون تومان</option>
-                                            <option value="9000000">9 میلیون تومان</option>
-                                            <option value="10000000">10 میلیون تومان</option>
-                                            <option value="11000000">11 میلیون تومان</option>
-                                            <option value="12000000">12 میلیون تومان</option>
-                                            <option value="13000000">13 میلیون تومان</option>
-                                            <option value="14000000">14 میلیون تومان</option>
-                                            <option value="15000000">15 میلیون تومان</option>
-                                            <option value="16000000">16 میلیون تومان</option>
-                                            <option value="17000000">17 میلیون تومان</option>
-                                            <option value="18000000">18 میلیون تومان</option>
-                                            <option value="19000000">19 میلیون تومان</option>
-                                            <option value="20000000">20 میلیون تومان</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-6 col-lg-2 my-2 my-lg-1 pl-2 pr-1 search-rent hidden">
-                                        <select class="w-100 small-size" name="max_rent">
-                                            <option value="">حداکثر اجاره</option>
-                                            <option value="100000">100 هزار تومان</option>
-                                            <option value="200000">200 هزار تومان</option>
-                                            <option value="300000">300 هزار تومان</option>
-                                            <option value="400000">400 هزار تومان</option>
-                                            <option value="500000">500 هزار تومان</option>
-                                            <option value="600000">600 هزار تومان</option>
-                                            <option value="700000">700 هزار تومان</option>
-                                            <option value="800000">800 هزار تومان</option>
-                                            <option value="900000">900 هزار تومان</option>
-                                            <option value="1000000">1 میلیون تومان</option>
-                                            <option value="1200000">1.2 میلیون تومان</option>
-                                            <option value="1400000">1.4 میلیون تومان</option>
-                                            <option value="1600000">1.6 میلیون تومان</option>
-                                            <option value="1800000">1.8 میلیون تومان</option>
-                                            <option value="2000000">2 میلیون تومان</option>
-                                            <option value="2500000">2.5 میلیون تومان</option>
-                                            <option value="3000000">3 میلیون تومان</option>
-                                            <option value="3500000">3.5 میلیون تومان</option>
-                                            <option value="4000000">4 میلیون تومان</option>
-                                            <option value="4500000">4.5 میلیون تومان</option>
-                                            <option value="5000000">5 میلیون تومان</option>
-                                            <option value="6000000">6 میلیون تومان</option>
-                                            <option value="7000000">7 میلیون تومان</option>
-                                            <option value="8000000">8 میلیون تومان</option>
-                                            <option value="9000000">9 میلیون تومان</option>
-                                            <option value="10000000">10 میلیون تومان</option>
-                                            <option value="11000000">11 میلیون تومان</option>
-                                            <option value="12000000">12 میلیون تومان</option>
-                                            <option value="13000000">13 میلیون تومان</option>
-                                            <option value="14000000">14 میلیون تومان</option>
-                                            <option value="15000000">15 میلیون تومان</option>
-                                            <option value="16000000">16 میلیون تومان</option>
-                                            <option value="17000000">17 میلیون تومان</option>
-                                            <option value="18000000">18 میلیون تومان</option>
-                                            <option value="19000000">19 میلیون تومان</option>
-                                            <option value="20000000">20 میلیون تومان</option>
-                                        </select>
-                                    </div>
                                     <div class="col-6 col-lg-2 my-2 my-lg-1 pr-2 pl-1">
                                         <select class="w-100 small-size" name="min_bedroom">
                                             <option value="">تعداد خواب</option>
+                                            <option value="0">0 خواب</option>
                                             <option value="1">1 خواب</option>
                                             <option value="2">2 خواب</option>
                                             <option value="3">3 خواب</option>
                                             <option value="4">4 خواب</option>                                            
+                                            <option value="5">5 خواب</option>  
                                         </select>
                                     </div>                                   
                                     <div class="col-6 col-lg-2 my-2 my-lg-1 pr-2 pl-1">
