@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using X.PagedList.Mvc;
+using X.PagedList;
 
 namespace Final_Project.Controllers
 {
@@ -76,16 +78,26 @@ namespace Final_Project.Controllers
         }
 
         [HttpGet]
-        public ActionResult searchAd(TypeAd? sales_type, string needle, PropertyType? type, long? min_price, long? max_price, numberOfRooms? min_bedroom, int? min_size, int? max_size)
+        public ActionResult searchAd(TypeAd? sales_type, string needle, PropertyType? type, long? min_price, long? max_price, numberOfRooms? min_bedroom, int? min_size, int? max_size, int? page)
         {
+            ViewBag.sales_type = sales_type;
+            ViewBag.needle = needle;
+            ViewBag.type = type;
+            ViewBag.min_price = min_price;
+            ViewBag.max_price = max_price;
+            ViewBag.min_bedroom = min_bedroom;
+            ViewBag.min_size = min_size;
+            ViewBag.max_size = max_size;           
+
             var resolvedSalesType = TypeAd.Buy;
             if (sales_type != null)
             {
                 resolvedSalesType = (TypeAd)sales_type;
             }
             var ads = _adsRepository.Read(Condition.Ctrue, needle, resolvedSalesType, type, min_price, max_price, min_bedroom, null, min_size, max_size);
-
-            return View(ads);
+            var pageNumber = page ?? 1;
+            var onePageOfAds = ads.ToPagedList(pageNumber, 2);
+            return View(onePageOfAds);
         }
        
     }

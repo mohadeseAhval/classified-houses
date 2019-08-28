@@ -1,5 +1,7 @@
 ﻿@using ModelLib.Enums;
-@model List<ModelLib.Advertising>
+@using X.PagedList.Mvc;
+@using X.PagedList;
+@model IPagedList<ModelLib.Advertising>
 @foreach (var item in Model)
 {
     <div id="@item.id" class="main_box single_announce pl-lg-5 list-view col-12">

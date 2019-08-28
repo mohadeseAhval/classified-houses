@@ -1,4 +1,6 @@
 ﻿@using ModelLib;
+@using X.PagedList.Mvc;
+@using X.PagedList;
 @model AdvertisingObject
 @{
     ViewBag.Title = "Rent";
@@ -70,45 +72,10 @@
                     </div>
                     <div class="searched-announce result-announces">
                         <div id="placeholder-result" class="items pt-4 row px-3 pl-lg-0 modern_list">
-                            @Html.Partial("_pRentAd", (List<ModelLib.Advertising>)Model.ads_o)                          
+                            @Html.Partial("_pRentAd",Model.pagedAds_o)                          
                         </div>
-                        <div class="paginate-holder text-center">
-                            <ul class="pagination linear-paginate">
-                                <li class="active "><a href="#" class="live-paginate"> 1 </a></li>
-                                <li class=" ">
-                                    <a href="%d8%a2%d8%ac%d9%88%d8%af%d8%a7%d9%86%db%8c%d9%87-%d8%aa%d9%87%d8%b1%d8%a7%d9%86/2.html"
-                                       class="live-paginate">2</a>
-                                </li>
-                                <li class=" ">
-                                    <a href="%d8%a2%d8%ac%d9%88%d8%af%d8%a7%d9%86%db%8c%d9%87-%d8%aa%d9%87%d8%b1%d8%a7%d9%86/3.html"
-                                       class="live-paginate">3</a>
-                                </li>
-                                <li class=" d-none d-md-inline-block">
-                                    <a href="%d8%a2%d8%ac%d9%88%d8%af%d8%a7%d9%86%db%8c%d9%87-%d8%aa%d9%87%d8%b1%d8%a7%d9%86/4.html"
-                                       class="live-paginate">4</a>
-                                </li>
-                                <li class=" d-none d-md-inline-block">
-                                    <a href="%d8%a2%d8%ac%d9%88%d8%af%d8%a7%d9%86%db%8c%d9%87-%d8%aa%d9%87%d8%b1%d8%a7%d9%86/5.html"
-                                       class="live-paginate">5</a>
-                                </li>
-                                <li class=" d-none d-md-inline-block">
-                                    <a href="%d8%a2%d8%ac%d9%88%d8%af%d8%a7%d9%86%db%8c%d9%87-%d8%aa%d9%87%d8%b1%d8%a7%d9%86/6.html"
-                                       class="live-paginate">6</a>
-                                </li>
-                                <li class=" d-none d-md-inline-block">
-                                    <a href="%d8%a2%d8%ac%d9%88%d8%af%d8%a7%d9%86%db%8c%d9%87-%d8%aa%d9%87%d8%b1%d8%a7%d9%86/7.html"
-                                       class="live-paginate">7</a>
-                                </li>
-                                <li class="page-text">
-                                    <a href="%d8%a2%d8%ac%d9%88%d8%af%d8%a7%d9%86%db%8c%d9%87-%d8%aa%d9%87%d8%b1%d8%a7%d9%86/2.html"
-                                       aria-label="Next" class="next-n live-paginate">
-                                        <span aria-hidden="true">
-                                            <i class="sh-narrow"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                        @Html.PagedListPager((IPagedList)Model.pagedAds_o, page => Url.Action("Rent", new { page }))
+                        @*PAGINATION GOES HERE*@
                     </div>
                 </div>
                 <div class="col-lg-3 left-side mt-3 mt-lg-0">

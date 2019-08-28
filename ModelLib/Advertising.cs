@@ -195,13 +195,14 @@ namespace ModelLib
         /// <param name="status"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public List<Advertising> Read(Condition status, TypeAd type)
+        public IQueryable<Advertising> Read(Condition status, TypeAd type)
         {
             return entity.Ads
                 .Include(a => a.City_table.Province_table)
-                .Where(a => a.typeOfAd==type)
-                .Where(a => a.Condition == status)
-                .ToList();
+                .OrderByDescending(a => a.date)
+                .Where(a => a.typeOfAd == type)
+                .Where(a => a.Condition == status);
+                 
         }
 
         /// <summary>
@@ -218,15 +219,17 @@ namespace ModelLib
         /// <param name="minArea">کمترین متراژ</param>
         /// <param name="maxArea">بیشترین متراژ</param>
         /// <returns>لیستی از آگهی ها</returns>
-        public List<Advertising> Read(Condition status, string needle, TypeAd typeAd, PropertyType? type, long? minPrice, long? maxPrice, numberOfRooms? roomCount, numberOfFloors? floorsCount, int? minArea, int? maxArea)
+        public IQueryable<Advertising> Read(Condition status, string needle, TypeAd typeAd, PropertyType? type, long? minPrice, long? maxPrice, numberOfRooms? roomCount, numberOfFloors? floorsCount, int? minArea, int? maxArea)
         {
             var query = entity.Ads
+                .Include(a => a.City_table.Province_table)
+                .OrderByDescending(a => a.date)
                 .Where(a => a.Condition == status)
                 .Where(a => a.typeOfAd == typeAd);
 
             if (needle != null)
             {
-                query.Where(a =>
+                query = query.Where(a =>
                     a.City_table.title.Contains(needle) ||
                     a.City_table.Province_table.title.Contains(needle) ||
                     a.title.Contains(needle)
@@ -235,40 +238,40 @@ namespace ModelLib
 
             if (type != null)
             {
-                query.Where(a => a.propertyType == type);
+                query = query.Where(a => a.propertyType == type);
             }
 
             if (minPrice != null)
             {
-                query.Where(a => a.Price >= minPrice);
+                query = query.Where(a => a.Price >= minPrice);
             }
 
             if (maxPrice != null)
             {
-                query.Where(a => a.Price <= maxPrice);
+                query = query.Where(a => a.Price <= maxPrice);
             }
 
             if (roomCount != null)
             {
-                query.Where(a => a.numberOfRooms == roomCount);
+                query = query.Where(a => a.numberOfRooms == roomCount);
             }
 
             if (floorsCount != null)
             {
-                query.Where(a => a.numberOfFloors == floorsCount);
+                query = query.Where(a => a.numberOfFloors == floorsCount);
             }
 
             if (minArea != null)
             {
-                query.Where(a => a.area >= minArea);
+                query = query.Where(a => a.area >= minArea);
             }
 
             if (maxArea != null)
             {
-                query.Where(a => a.area <= maxArea);
+                query = query.Where(a => a.area <= maxArea);
             }
 
-            return query.ToList();
+            return query;
         }
 
         public Advertising FindById(int id)
