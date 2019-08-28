@@ -274,6 +274,18 @@ namespace ModelLib
             return query;
         }
 
+        public List<AdViewModel> GetBookmarderAds(int userId)
+        {
+            return SelectAdsWithCreator(
+                entity.Bookmark
+                    .Where(b => b.Users_id.Equals(userId))
+                    .Include(b => b.Advertising_table)
+                    .Include(b => b.Advertising_table.City_table)
+                    .Select(b => b.Advertising_table)
+                )
+                .ToList();
+        }
+
         public Advertising FindById(int id)
         {
             return entity.Ads.Include(a => a.City_table.Province_table)

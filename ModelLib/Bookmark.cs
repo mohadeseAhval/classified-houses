@@ -11,7 +11,8 @@ namespace ModelLib
    public partial class Bookmark
     {
         public int id { get; set; }
-        public string date { get; set; }
+        public string qdate { get; set; }
+        public DateTime date { get; set; }
         [ForeignKey("Advertising_table")]
         public int Ad_id { get; set; }
         public Advertising Advertising_table { get; set; }
@@ -21,7 +22,7 @@ namespace ModelLib
         public Users Users_table { get; set; }
     }
 
-    //CRAD
+    //CRUD
     public partial class Bookmark
     {
         EF_DataBase entity = new EF_DataBase();
@@ -44,13 +45,11 @@ namespace ModelLib
             return entity.Bookmark.Find(id);
         }
 
-        public string Update(Bookmark newRecord)
+        public Bookmark FindByUserIdAndAdId(int userId, int adId)
         {
-            //link oldrecord = entity.link.Find(newRecord.id);
-            entity.Bookmark.Attach(newRecord);
-            entity.Entry(newRecord).State = EntityState.Modified;
-            try { entity.SaveChanges(); return "done"; }
-            catch { return "error"; }
+            return entity.Bookmark
+                .Where(b => b.Users_id.Equals(userId) && b.Ad_id.Equals(adId))
+                .SingleOrDefault();
         }
 
         public string Delete(int id)

@@ -457,10 +457,14 @@
                         </div>
                     </div>
                     <div class="contact_info">
-                        <button class="favorite w-100 announce-information-responsive-fix bordered-btn px-2 text-center"
-                                data-post-id="492268" data-type="button">
-                            ذخیره <i class="sh-heart1"></i>
-                        </button>
+                        <form action="@Url.Action("AddToBookmark", "Advertising")" method="post" enctype="multipart/form-data" class="mt-3">
+                            <input type="hidden" id="adId" name="adId" class="form-control" value="@Model.ad_o.id" />
+                            <input type="hidden" id="actionName" name="actionName" class="form-control" value="Details_Buy" />
+                            <button class="favorite w-100 announce-information-responsive-fix bordered-btn px-2 text-center"
+                                    data-post-id="492268" data-type="button" type="submit">
+                                ذخیره <i class="sh-heart1"></i>
+                            </button>
+                        </form>
                     </div>
                     <div class="contact_info mt-3 text-center social-share">
                         <div class="title medium-sans p-3"><span> این آگهی را به اشتراک بگذارید </span></div>

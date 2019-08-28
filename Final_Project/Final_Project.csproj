@@ -584,6 +584,7 @@
     <Compile Include="Controllers\AdvertisingController.cs" />
     <Compile Include="Controllers\Advertising_pController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\BookmarkAdsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PanelUserController.cs" />
     <Compile Include="Controllers\User_pController.cs" />
@@ -631,6 +632,7 @@
     <Content Include="Views\Shared\_pSwiper.cshtml" />
     <Content Include="Views\Home\searchAd.cshtml" />
     <Content Include="Views\Shared\_pSearchAd.cshtml" />
+    <Content Include="Views\BookmarkAds\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
