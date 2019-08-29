@@ -135,7 +135,9 @@ namespace Final_Project.Controllers
             var ads = _adsRepository.Read(Condition.Ctrue, needle, resolvedSalesType, type, min_price, max_price, min_bedroom, null, min_size, max_size);
             var pageNumber = page ?? 1;
             var onePageOfAds = ads.ToPagedList(pageNumber, 2);
-            return View(onePageOfAds);
+            var area = _adsRepository.Get8AdAreaByTypeAd(resolvedSalesType);
+            var price = _adsRepository.Get8AdPriceByTypeAd(resolvedSalesType);
+            return View(new AdvertisingObject { area_o = area, pagedAds_o = onePageOfAds, price_o = price });
         }
        
     }

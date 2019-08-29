@@ -328,35 +328,21 @@ namespace ModelLib
             try { entity.SaveChanges(); return "done"; }
             catch { return "error"; }
         }
-        public List<Advertising> GetBuyAdArea()
+        public List<Advertising> Get8AdAreaByTypeAd(TypeAd type)
         {
             return entity.Ads.OrderBy(n => n.area).Take(8)
                 .Include(a => a.City_table)
-                .Where(a => a.typeOfAd == ModelLib.Enums.TypeAd.Buy)                
+                .Where(a => a.typeOfAd == type)
                 .ToList();
         }
-        public List<Advertising> GetRentAdArea()
-        {
-            return entity.Ads.OrderBy(n => n.area).Take(8)
-                .Include(a => a.City_table)
-                .Where(a => a.typeOfAd == ModelLib.Enums.TypeAd.Rent)
-                .ToList();
-        }
-        public List<Advertising> GetBuyAdPric()
+        public List<Advertising> Get8AdPriceByTypeAd(TypeAd type)
         {
             return entity.Ads.OrderBy(n => n.Price).Take(8)
                 .Include(a => a.City_table)
-                .Where(a => a.typeOfAd == ModelLib.Enums.TypeAd.Buy)
+                .Where(a => a.typeOfAd == type)
                 .ToList();
         }
-       
-        public List<Advertising> GetRentAdPric()
-        {
-            return entity.Ads.OrderBy(n => n.Price).Take(8)
-                .Include(a => a.City_table)
-                .Where(a => a.typeOfAd == ModelLib.Enums.TypeAd.Rent)
-                .ToList();
-        }
+              
         public List<Advertising> GetSimilarAds(Advertising ad)
         {
             return entity.Ads.OrderByDescending(n=>n.date).Take(10)

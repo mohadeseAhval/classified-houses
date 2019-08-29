@@ -3,7 +3,7 @@
 @using X.PagedList;
 @model AdvertisingObject
 @{
-    ViewBag.Title = "Rent";
+    ViewBag.Title = "رهن و اجاره";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -45,7 +45,7 @@
                         <div class="w-100 link-box">
                             <div class="title medium-sans mt-4 mb-3">قیمت های دیگر</div>
                             <ul>
-                              @Html.Partial("_ptypofR", (List<ModelLib.Advertising>)Model.price_o)
+                              @Html.Partial("_ptypof", (List<ModelLib.Advertising>)Model.price_o)  
                             </ul>
                             <div class="title medium-sans mt-4 mb-3">متراژ های دیگر</div>
                             <ul>

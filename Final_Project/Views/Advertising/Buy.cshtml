@@ -5,7 +5,7 @@
 @using System.Collections.Generic;
 @model AdvertisingObject
 @{
-    ViewBag.Title = "Buy";
+    ViewBag.Title = "خرید";
 }
 
 <div class="main clearfix searching">
@@ -46,7 +46,7 @@
                         <div class="w-100 link-box">
                             <div class="title medium-sans mt-4 mb-3">قیمت های دیگر</div>
                             <ul>
-                              @Html.Partial("_ptypofB", (List<ModelLib.Advertising>)Model.price_o)  
+                              @Html.Partial("_ptypof", (List<ModelLib.Advertising>)Model.price_o)  
                                
                             </ul>
                             <div class="title medium-sans mt-4 mb-3">متراژ های دیگر</div>

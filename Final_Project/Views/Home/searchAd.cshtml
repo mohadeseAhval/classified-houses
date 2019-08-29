@@ -1,9 +1,9 @@
 ﻿@using ModelLib
 @using X.PagedList.Mvc;
 @using X.PagedList;
-@model IPagedList<Advertising>
+@model AdvertisingObject
 @{
-    ViewBag.Title = "searchAd";
+    ViewBag.Title = ViewBag.FormAdTitle;
 }
 
 <div class="main clearfix searching">
@@ -19,8 +19,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-4 pl-lg-2 pl-1">
-                    @* etela bede *@
+                <div class="col-lg-3 col-4 pl-lg-2 pl-1">                 
                 </div>
             </div>
         </div>
@@ -34,10 +33,10 @@
                     <div class="searched-announce result-announces">
                         <div id="placeholder-result" class="items pt-4 row px-3 pl-lg-0 modern_list">
 
-                            @Html.Partial("_pSearchAd", Model)
+                            @Html.Partial("_pSearchAd", Model.pagedAds_o)
                         </div>
                         <div class="paginate-holder text-center">
-                            @Html.PagedListPager((IPagedList)Model, page => Url.Action("searchAd", new { page, sales_type = ViewBag.sales_type, needle= ViewBag.needle,type=ViewBag.type,min_price=ViewBag.min_price, max_price=ViewBag.max_price, min_bedroom=ViewBag.min_bedroom, min_size=ViewBag.min_size, max_size=ViewBag.max_size })) 
+                            @Html.PagedListPager((IPagedList)Model.pagedAds_o, page => Url.Action("searchAd", new { page, sales_type = ViewBag.sales_type, needle= ViewBag.needle,type=ViewBag.type,min_price=ViewBag.min_price, max_price=ViewBag.max_price, min_bedroom=ViewBag.min_bedroom, min_size=ViewBag.min_size, max_size=ViewBag.max_size })) 
                                                                                                                                             
                         </div>
                     </div>
@@ -48,12 +47,12 @@
                         <div class="w-100 link-box">
                             <div class="title medium-sans mt-4 mb-3">قیمت های دیگر</div>
                             <ul>
-                                @*@Html.Partial("_ptypofB", (List<ModelLib.Advertising>)Model.price_o)*@
+                               @Html.Partial("_ptypof", (List<ModelLib.Advertising>)Model.price_o)
 
                             </ul>
                             <div class="title medium-sans mt-4 mb-3">متراژ های دیگر</div>
                             <ul>
-                                @*@Html.Partial("_areaAd", (List<ModelLib.Advertising>)Model.area_o)*@
+                                @Html.Partial("_areaAd", (List<ModelLib.Advertising>)Model.area_o)
                             </ul>
                         </div>
                     </div>

@@ -624,8 +624,7 @@
     <Content Include="Views\Advertising\Details.cshtml" />
     <Content Include="Views\Advertising\Rent.cshtml" />
     <Content Include="Views\Shared\_areaAd.cshtml" />
-    <Content Include="Views\Shared\_ptypofB.cshtml" />
-    <Content Include="Views\Shared\_ptypofR.cshtml" />
+    <Content Include="Views\Shared\_ptypof.cshtml" />
     <Content Include="Views\Shared\_pSwiper.cshtml" />
     <Content Include="Views\Home\searchAd.cshtml" />
     <Content Include="Views\Shared\_pSearchAd.cshtml" />

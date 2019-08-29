@@ -47,8 +47,8 @@ namespace Final_Project.Controllers
             var ads = AdvertisingTable.Read(Condition.Ctrue, TypeAd.Buy);            
             var pageNumber = page ?? 1;
             var onePageOfAds = ads.ToPagedList(pageNumber, 2);
-            var area = AdvertisingTable.GetBuyAdArea();
-            var price = AdvertisingTable.GetBuyAdPric();
+            var area = AdvertisingTable.Get8AdAreaByTypeAd(TypeAd.Buy);
+            var price = AdvertisingTable.Get8AdPriceByTypeAd(TypeAd.Buy);
             return View(new AdvertisingObject { area_o = area, pagedAds_o = onePageOfAds, price_o = price });
         }
        
@@ -61,8 +61,8 @@ namespace Final_Project.Controllers
             var ads = AdvertisingTable.Read(Condition.Ctrue, TypeAd.Rent);
             var pageNumber = page ?? 1;
             var onePageOfAds = ads.ToPagedList(pageNumber, 2);
-            var area = AdvertisingTable.GetRentAdArea();
-            var price = AdvertisingTable.GetRentAdPric();
+            var area = AdvertisingTable.Get8AdAreaByTypeAd(TypeAd.Rent);
+            var price = AdvertisingTable.Get8AdPriceByTypeAd(TypeAd.Rent);
             return View(new AdvertisingObject { area_o = area, pagedAds_o = onePageOfAds, price_o = price });
         }
         public ActionResult Details(int id)
