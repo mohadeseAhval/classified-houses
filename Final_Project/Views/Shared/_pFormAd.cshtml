@@ -1,0 +1,25 @@
+﻿@model string
+<div class="tab">
+    <form class="filter_form_down clearfix" id="toolbar-form">
+        <div class="row">
+            <div class="text-right col-xl-5 col-lg-4 right-tolls-part py-2 align-self-center">
+                <span class="announce-number">
+                    <h1 class="px-2 px-sm-0">
+                        @Model
+                    </h1>
+                </span>
+            </div>
+            <div class="col-xl-7 col-lg-8 left-tolls-part">
+                <div class="tab-part view-port-2">
+                    <i class="sh-list2"></i> <span class="pr-2 medium-sans">گالری</span>
+                </div>
+                <div class="tab-part view-port-1 active">
+                    <i class="sh-list"></i> <span class="pr-2 medium-sans">لیست</span>
+                </div>
+
+            </div>
+        </div>
+        <input type="hidden" id="result-count" class="col-12-7 result_count text-center"
+               data-total="151">
+    </form>
+</div>

@@ -512,69 +512,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="feedback animated bounceIn right">
-            <picture class="feedback-button">
-                <source srcset="~/Images/home/mixed.png" type="image/png">
-                <img src="~/Images/home/mixed.png" width="58" class="feedback-button open" alt="نظر سنجی املاک"
-                     title="نظر سنجی املاک">
-            </picture>
-            <picture class="feedback-button ">
-                <source srcset="~/Images/home/mixed.png" type="image/png">
-                <img src="~/Images/home/mixed.png" class="closed" alt="بستن" title="بستن">
-            </picture>
-            <div class="tanx-box"> از اینکه ما رو در راستای ارائه خدمات بهتر یاری میکنید سپاسگزاریم</div>
-            <div class="answer-box animated bounceIn">
-                <span class="feedback-text">نظرتون را در رابطه با استفاده از املاک با ما در میان بگذارید</span>
-                <div class="row images">
-                    <div class="col-4 select-feedback perfect" data-type="2">
-                        <picture>
-                            <source srcset="~/Images/home/mixed.png" type="image/png">
-                            <img src="~/Images/home/mixed.png" alt="راضی هستم" title="راضی هستم">
-                        </picture>
-                        <span>راضی هستم</span>
-                    </div>
-                    <div class="col-4 select-feedback average" data-type="1">
-                        <picture>
-                            <source srcset="~/Images/home/mixed.png" type="image/png">
-                            <img src="~/Images/home/mixed.png" alt="بد نبود" title="بد نبود">
-                        </picture>
-                        <span>بد نبود</span>
-                    </div>
-                    <div class="col-4 select-feedback not-good" data-type="0">
-                        <picture>
-                            <source srcset="~/Images/home/mixed.png" type="image/png">
-                            <img src="~/Images/home/mixed.png" alt="راضی نیستم" title="راضی نیستم">
-                        </picture>
-                        <span>راضی نیستم</span>
-                    </div>
-                </div>
-                <form class="auth-form feedback-form" data-submit="feedbacks">
-                    <input type="hidden" name="route"
-                           value="home"> <input type="hidden"
-                                                name="type"
-                                                id="feedbackType"
-                                                value="">
-                    <div class="row feedback-desc mb-2">
-                        <div class="col-12"><input name="mobile" placeholder="شماره تماس شما (اختیاری)"></div>
-                    </div>
-                    <div class="row feedback-desc">
-                        <div class="col-12">
-                            <textarea name="description"
-                                      placeholder="تجربه خود را با ما در میان بگذارید ."></textarea>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <button class="btn submit-form">ارسال</button>
-                        </div>
-                    </div>
-                    <div class="row login-message p-0">
-                        <div class="col-12 p-0"><span></span> <i class="sh-quit"></i></div>
-                    </div>
-                </form>
-            </div>
-        </div>
+        </div>       
     </div>
     <script>
  var locations = [];
@@ -582,6 +520,7 @@ var member = JSON.parse('{}');
 var base_url = "index.html";</script>
     <script defer src="~/Scripts/base40.js"></script>
     @*<script defer src="~/Scripts/app40.js"></script>*@
+    @RenderSection("script", false);
    
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85204224-1"></script>
     <script>

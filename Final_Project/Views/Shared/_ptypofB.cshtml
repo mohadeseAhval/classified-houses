@@ -2,20 +2,22 @@
 @model List<ModelLib.Advertising>
 @foreach (var item in Model)
 {
-    <li class="pb-3">
-        <a href="/Advertising/Details_Rent/@item.id">
-            خرید @if (item.propertyType == PropertyType.apartment)
-            {
-                <span>آپارتمان</span>
-            }
-            else if (item.propertyType == PropertyType.Official)
-            {
-                <span>اداری</span>
-            }
-            else
-            {
-                <span>ویلایی</span>
-            } @item.Price تومان
-        </a>
-    </li>
+        <li class="pb-3">
+            <a href="/Advertising/Details_Rent/@item.id">
+
+                خرید @if (item.propertyType == PropertyType.apartment)
+                {
+                    <span>آپارتمان</span>
+                }
+                else if (item.propertyType == PropertyType.Official)
+                {
+                    <span>اداری</span>
+                }
+                else
+                {
+                    <span>ویلایی</span>
+                } @item.Price تومان در @item.City_table.title
+
+            </a>
+        </li>
 }

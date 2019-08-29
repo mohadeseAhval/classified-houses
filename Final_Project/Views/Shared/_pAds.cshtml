@@ -5,7 +5,7 @@
 @foreach (var item in Model)
 {
     <div id="@item.id" class="main_box single_announce pl-lg-5 list-view col-12">
-        <a href="/Advertising/Details_Buy/@item.id">
+        <a href="/Advertising/Details/@item.id">
             <div class="announce-inner clearfix rent-class">
                 <div class="row">
                     <div class="announce_images col-5 isgold px-0">
@@ -26,9 +26,20 @@
                         </div>
                     </div>
                     <div class="announce_info col-7 px-4">
-                        <div class="mt-3 announce_price for-rent">
-                            <span class="rent pb-2 w-100 price pl-3">قیمت : @item.Price<span>تومان</span></span>
-                        </div>
+                        @if (item.typeOfAd == ModelLib.Enums.TypeAd.Buy)
+                        {
+                            <div class="mt-3 announce_price for-rent">
+                                <span class="rent pb-2 w-100 price pl-3">قیمت : @item.Price<span>تومان</span></span>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="mt-3 announce_price for-rent">
+                                <span class="rent pb-2 w-100 price pl-3">رهن : @item.rent<span>تومان</span></span>
+                                <span class="rent pb-2 w-100 price pl-3">اجاره : @item.mortgage<span>تومان</span></span>
+                            </div>
+
+                        }
                         <h2 class="announce-desc medium-sans pb-2">
                             @if (item.typeOfAd == TypeAd.Buy)
                             {

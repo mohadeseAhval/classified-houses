@@ -15,32 +15,12 @@
                     <div class="single-bread-crumb py-0 search-result-page">
                         <div class="w-100 pb-2">
                             <div class="row">
-                                <ol class="breadcrumb py-1 col-auto pr-lg-0 pl-0" itemscope
-                                    >
-                                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
-                                        itemtype="">
-                                        <a href="/"
-                                           class=""><span itemprop="name">صفحه اصلی</span></a>
-                                        <meta itemprop="position" content="1" />
-                                        <meta itemprop="item"
-                                              content="" />
-                                    </li>
-                                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
-                                        itemtype="">
-                                        <a href="/Advertising/Rent" class="">
-                                            <span itemprop="name">رهن و اجاره</span>
-                                        </a>
-                                        <meta itemprop="position" content="2" />
-                                        <meta itemprop="item"
-                                              content="" />
-                                    </li>
-                                </ol>
+                               @Html.Partial("_pBreadcrumb", (List<Breadcrumb>)ViewBag.Breadcrumb)
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-4 pl-lg-2 pl-1">
-                    @* etela bede *@
+                <div class="col-lg-3 col-4 pl-lg-2 pl-1">                  
                 </div>
             </div>
         </div>
@@ -50,32 +30,13 @@
         <div id="request-result" class="container px-0">
             <div class="row">
                 <div class="col-lg-9">
-                    <div class="tab">
-                        <form class="filter_form_down clearfix" id="toolbar-form">
-                            <div class="row">
-                                <div class="text-right col-xl-5 col-lg-4 right-tolls-part py-2 align-self-center">
-                                    <span class="announce-number"><h1 class="px-2 px-sm-0">رهن و اجاره ملک</h1></span>
-                                </div>
-                                <div class="col-xl-7 col-lg-8 left-tolls-part">
-                                    <div class="tab-part view-port-2">
-                                        <i class="sh-list2"></i> <span class="pr-2 medium-sans">گالری</span>
-                                    </div>
-                                    <div class="tab-part view-port-1 active">
-                                        <i class="sh-list"></i> <span class="pr-2 medium-sans">لیست</span>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <input type="hidden" id="result-count" class="col-12-7 result_count text-center"
-                                   data-total="151">
-                        </form>
-                    </div>
+                    @Html.Partial("_pFormAd", "رهن و اجاره ملک")
                     <div class="searched-announce result-announces">
                         <div id="placeholder-result" class="items pt-4 row px-3 pl-lg-0 modern_list">
-                            @Html.Partial("_pRentAd",Model.pagedAds_o)                          
+                            @Html.Partial("_pAds", Model.pagedAds_o)                          
                         </div>
                         @Html.PagedListPager((IPagedList)Model.pagedAds_o, page => Url.Action("Rent", new { page }))
-                        @*PAGINATION GOES HERE*@
+                       
                     </div>
                 </div>
                 <div class="col-lg-3 left-side mt-3 mt-lg-0">
@@ -304,3 +265,6 @@
     </div>
 </div>
 
+@section script{
+    <script defer src="~/Scripts/app40.js"></script>
+}

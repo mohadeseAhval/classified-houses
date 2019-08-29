@@ -27,11 +27,21 @@ namespace Final_Project.Controllers
 
         public ActionResult About()
         {
+            // Breadcrumb
+            ViewBag.Breadcrumb = new List<Breadcrumb> {
+                new Breadcrumb { Title = "صفحه اصلی", Url = "/", Position = 1 },
+                new Breadcrumb { Title = "درباره ما", Url = Url.Action(nameof(About), "Home"), Position = 2 }
+            };
             return View(model: AboutUs_Tb.Read());
         }
 
         public ActionResult Advertising()
         {
+            // Breadcrumb
+            ViewBag.Breadcrumb = new List<Breadcrumb> {
+                new Breadcrumb { Title = "صفحه اصلی", Url = "/", Position = 1 },
+                new Breadcrumb { Title = "تبلیغات در املاک", Url = Url.Action(nameof(Advertising), "Home"), Position = 2 }
+            };
             return View();
         }
 
@@ -43,6 +53,11 @@ namespace Final_Project.Controllers
         [HttpGet]
         public ActionResult Contact()
         {
+            // Breadcrumb
+            ViewBag.Breadcrumb = new List<Breadcrumb> {
+                new Breadcrumb { Title = "صفحه اصلی", Url = "/", Position = 1 },
+                new Breadcrumb { Title = "تماس با ما", Url = Url.Action(nameof(Contact), "Home"), Position = 2 }
+            };
             return View(model: ContactPage_Tb.Read());
         }
 
@@ -59,16 +74,30 @@ namespace Final_Project.Controllers
 
         public ActionResult Faq()
         {
+            // Breadcrumb
+            ViewBag.Breadcrumb = new List<Breadcrumb> {
+                new Breadcrumb { Title = "صفحه اصلی", Url = "/", Position = 1 },
+                new Breadcrumb { Title = "سوالات متداول", Url = Url.Action(nameof(Faq), "Home"), Position = 2 }
+            };
             return View(model: Questions_Tb.Read());
         }
 
         public ActionResult Landing()
-        {
+        { // Breadcrumb
+            ViewBag.Breadcrumb = new List<Breadcrumb> {
+                new Breadcrumb { Title = "صفحه اصلی", Url = "/", Position = 1 },
+                new Breadcrumb { Title = "همکاری", Url = Url.Action(nameof(Landing), "Home"), Position = 2 }
+            };
             return View();
         }
 
         public ActionResult Terms()
         {
+            // Breadcrumb
+            ViewBag.Breadcrumb = new List<Breadcrumb> {
+                new Breadcrumb { Title = "صفحه اصلی", Url = "/", Position = 1 },
+                new Breadcrumb { Title = "ضوابط و قوانین", Url = Url.Action(nameof(Terms), "Home"), Position = 2 }
+            };
             return View(model: Rules_Tb.Read());
         }
 
@@ -87,7 +116,16 @@ namespace Final_Project.Controllers
             ViewBag.max_price = max_price;
             ViewBag.min_bedroom = min_bedroom;
             ViewBag.min_size = min_size;
-            ViewBag.max_size = max_size;           
+            ViewBag.max_size = max_size;
+
+            ViewBag.FormAdTitle = sales_type == TypeAd.Buy ? "خرید" : "رهن و اجاره";
+
+            // Breadcrumb
+            ViewBag.Breadcrumb = new List<Breadcrumb> {
+                new Breadcrumb { Title = "صفحه اصلی", Url = "/", Position = 1 },
+                new Breadcrumb { Title = "جستجو", Url = Url.Action(nameof(searchAd), "Home",new { sales_type = ViewBag.sales_type, needle= ViewBag.needle,type=ViewBag.type,min_price=ViewBag.min_price, max_price=ViewBag.max_price, min_bedroom=ViewBag.min_bedroom, min_size=ViewBag.min_size, max_size=ViewBag.max_size }), Position = 2 },
+                new Breadcrumb { Title = ViewBag.FormAdTitle,  Url = null, Position = 3 }
+            };
 
             var resolvedSalesType = TypeAd.Buy;
             if (sales_type != null)

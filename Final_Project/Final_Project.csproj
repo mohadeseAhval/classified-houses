@@ -603,7 +603,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Home\Ad_house.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_Layout_users.cshtml" />
     <Content Include="Views\PanelUser\UserPanel.cshtml" />
@@ -620,12 +619,10 @@
     <Content Include="Views\Shared\_pBlogSlider.cshtml" />
     <Content Include="Views\Shared\_pVisitc.cshtml" />
     <Content Include="Views\Shared\_pDatepost.cshtml" />
-    <Content Include="Views\Shared\_pBuyAd.cshtml" />
+    <Content Include="Views\Shared\_pAds.cshtml" />
     <Content Include="Views\Advertising\Buy.cshtml" />
-    <Content Include="Views\Advertising\Details_Buy.cshtml" />
+    <Content Include="Views\Advertising\Details.cshtml" />
     <Content Include="Views\Advertising\Rent.cshtml" />
-    <Content Include="Views\Advertising\Details_Rent.cshtml" />
-    <Content Include="Views\Shared\_pRentAd.cshtml" />
     <Content Include="Views\Shared\_areaAd.cshtml" />
     <Content Include="Views\Shared\_ptypofB.cshtml" />
     <Content Include="Views\Shared\_ptypofR.cshtml" />
@@ -633,6 +630,8 @@
     <Content Include="Views\Home\searchAd.cshtml" />
     <Content Include="Views\Shared\_pSearchAd.cshtml" />
     <Content Include="Views\BookmarkAds\Index.cshtml" />
+    <Content Include="Views\Shared\_pFormAd.cshtml" />
+    <Content Include="Views\Shared\_pBreadcrumb.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

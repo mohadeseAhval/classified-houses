@@ -330,25 +330,30 @@ namespace ModelLib
         }
         public List<Advertising> GetBuyAdArea()
         {
-            return entity.Ads.OrderByDescending(n => n.area).Take(8)
+            return entity.Ads.OrderBy(n => n.area).Take(8)
+                .Include(a => a.City_table)
                 .Where(a => a.typeOfAd == ModelLib.Enums.TypeAd.Buy)                
+                .ToList();
+        }
+        public List<Advertising> GetRentAdArea()
+        {
+            return entity.Ads.OrderBy(n => n.area).Take(8)
+                .Include(a => a.City_table)
+                .Where(a => a.typeOfAd == ModelLib.Enums.TypeAd.Rent)
                 .ToList();
         }
         public List<Advertising> GetBuyAdPric()
         {
             return entity.Ads.OrderBy(n => n.Price).Take(8)
+                .Include(a => a.City_table)
                 .Where(a => a.typeOfAd == ModelLib.Enums.TypeAd.Buy)
                 .ToList();
         }
-        public List<Advertising> GetRentAdArea()
-        {
-            return entity.Ads.OrderByDescending(n => n.area).Take(8)
-                .Where(a => a.typeOfAd == ModelLib.Enums.TypeAd.Rent)
-                .ToList();
-        }
+       
         public List<Advertising> GetRentAdPric()
         {
             return entity.Ads.OrderBy(n => n.Price).Take(8)
+                .Include(a => a.City_table)
                 .Where(a => a.typeOfAd == ModelLib.Enums.TypeAd.Rent)
                 .ToList();
         }

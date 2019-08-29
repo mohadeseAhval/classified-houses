@@ -3,18 +3,20 @@
 
     @foreach (var item in Model)
     {
-        <a href="/Blog/Details/@item.id">
-            <div class="swiper-slide short-list">
-                <div class="list1-image ">
-                    <picture class="w-100">
-                        <img class="w-100" src="@Href(item.imageUrl)"                            
-                             alt="@item.title"
-                             title="@item.title">
-                    </picture>
+        <div class="swiper-slide short-list">
+            <a href="/Blog/Details/@item.id">
+                <div class="swiper-slide short-list">
+                    <div class="list1-image ">
+                        <picture class="w-100">
+                            <img class="w-100" src="@Href(item.imageUrl)"
+                                 alt="@item.title"
+                                 title="@item.title">
+                        </picture>
+                    </div>
+                    <div class="list1-content">
+                        <span class="list1-title">@item.title</span> <span class="blue-link">ادامه مطلب ></span>
+                    </div>
                 </div>
-                <div class="list1-content">
-                    <span class="list1-title">@item.title</span> <span class="blue-link">ادامه مطلب ></span>
-                </div>
+            </a>
             </div>
-        </a>
-    }
+}

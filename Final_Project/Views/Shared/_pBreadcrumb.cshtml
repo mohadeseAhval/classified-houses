@@ -1,0 +1,22 @@
+﻿@model List<ModelLib.Breadcrumb>
+<ol class="breadcrumb py-1 col-auto pr-lg-0 pl-0" itemscope>
+    @foreach (var item in Model)
+    {
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="">
+            @if (item.Url != null)
+            {
+                <a href="@item.Url" class="">
+                    <span itemprop="name">@item.Title</span>
+                </a>
+            }
+            else
+            {
+                <span class="">
+                    <span itemprop="name">@item.Title</span>
+                </span>
+            }
+            <meta itemprop="position" content="@item.Position" />
+            <meta itemprop="item" content="" />
+        </li>
+    }
+</ol>

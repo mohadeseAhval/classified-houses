@@ -36,24 +36,28 @@ namespace Final_Project.Controllers
             return RedirectToAction(actionName, new { id = adId });
         }
 
+       
+
         public ActionResult Buy(int? page)
         {
-            var ads = AdvertisingTable.Read(Condition.Ctrue, TypeAd.Buy);
+            ViewBag.Breadcrumb = new List<Breadcrumb> {
+                new Breadcrumb { Title = "صفحه اصلی", Url = "/", Position = 1 },
+                new Breadcrumb { Title = "خرید", Url = Url.Action(nameof(Buy), "Advertising"), Position = 2 }
+            };
+            var ads = AdvertisingTable.Read(Condition.Ctrue, TypeAd.Buy);            
             var pageNumber = page ?? 1;
             var onePageOfAds = ads.ToPagedList(pageNumber, 2);
             var area = AdvertisingTable.GetBuyAdArea();
             var price = AdvertisingTable.GetBuyAdPric();
             return View(new AdvertisingObject { area_o = area, pagedAds_o = onePageOfAds, price_o = price });
         }
-        public ActionResult Details_Buy(int id)
-        {
-            var ad = AdvertisingTable.FindById(id);
-            var similarAds = AdvertisingTable.GetSimilarAds(ad);
-            var adWithCreator = AdvertisingTable.FindByIdWithCreator(id);
-            return View(new AdvertisingObject { ad_o = adWithCreator, ads_o = similarAds});
-        }
+       
         public ActionResult Rent(int? page)
         {
+            ViewBag.Breadcrumb = new List<Breadcrumb> {
+                new Breadcrumb { Title = "صفحه اصلی", Url = "/", Position = 1 },
+                new Breadcrumb { Title = "رهن و اجاره", Url = Url.Action(nameof(Rent), "Advertising"), Position = 2 }
+            };
             var ads = AdvertisingTable.Read(Condition.Ctrue, TypeAd.Rent);
             var pageNumber = page ?? 1;
             var onePageOfAds = ads.ToPagedList(pageNumber, 2);
@@ -61,9 +65,24 @@ namespace Final_Project.Controllers
             var price = AdvertisingTable.GetRentAdPric();
             return View(new AdvertisingObject { area_o = area, pagedAds_o = onePageOfAds, price_o = price });
         }
-        public ActionResult Details_Rent(int id)
+        public ActionResult Details(int id)
         {
-            return View(AdvertisingTable.FindByIdWithCreator(id));
+           
+
+            var ad = AdvertisingTable.FindById(id);
+            var similarAds = AdvertisingTable.GetSimilarAds(ad);
+            var adWithCreator = AdvertisingTable.FindByIdWithCreator(id);
+
+            ViewBag.FormAdTitle = ad.typeOfAd  == TypeAd.Buy ? "خرید" : "رهن و اجاره";
+           
+            // Breadcrumb
+            ViewBag.Breadcrumb = new List<Breadcrumb> {
+                new Breadcrumb { Title = "صفحه اصلی", Url = "/", Position = 1 },
+                new Breadcrumb {  Title = ViewBag.FormAdTitle, Url = Url.Action(ad.typeOfAd.ToString(), "Advertising"), Position = 2 },
+                new Breadcrumb { Title = ad.title, Url = null, Position = 3 },
+                
+            };
+            return View(new AdvertisingObject { ad_o = adWithCreator, ads_o = similarAds });
         }
 
     }

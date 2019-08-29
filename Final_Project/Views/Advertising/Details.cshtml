@@ -2,7 +2,7 @@
 @using ModelLib;
 @model AdvertisingObject
     @{
-        ViewBag.Title = "Details_Buy";
+        ViewBag.Title = "Details";
         Layout = "~/Views/Shared/_Layout.cshtml";
     }
 
@@ -14,7 +14,8 @@
                         <div class="single-bread-crumb py-0 search-result-page">
                             <div class="w-100 pb-2">
                                 <div class="row">
-                                    <ol class="breadcrumb py-1 col-auto pr-lg-0 pl-0" itemscope
+                                    @Html.Partial("_pBreadcrumb", (List<Breadcrumb>)ViewBag.Breadcrumb)
+                                    @*<ol class="breadcrumb py-1 col-auto pr-lg-0 pl-0" itemscope
                                        >
                                         <li class="breadcrumb-item" itemprop="itemListElement">
                                             <a href="/"
@@ -31,7 +32,7 @@
                                                class=""><span itemprop="name">@Model.ad_o.title</span></a>
                                             <meta itemprop="position" content="3" />
                                         </li>
-                                    </ol>
+                                    </ol>*@
                                 </div>
                             </div>
                         </div>
@@ -73,9 +74,22 @@
                                     <div class="description col-md-12 col-12 clearfix">
                                         <div class="w-100"><span class="title">مشخصات</span></div>
                                         <div class="w-100">
-                                            <div class="col-md-12 spec clearfix">
-                                                <span>قیمت</span> <span class="bold"> @Model.ad_o.Price<span>تومان</span> </span>
-                                            </div>
+                                            @if (Model.ad_o.typeOfAd == ModelLib.Enums.TypeAd.Buy)
+                                            {
+                                                <div class="col-md-12 spec clearfix">
+                                                    <span>قیمت</span> <span class="bold"> @Model.ad_o.Price<span>تومان</span> </span>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="col-md-12 spec clearfix">
+                                                    <span>رهن</span> <span class="bold"> @Model.ad_o.rent<span>تومان</span> </span>
+                                                </div>
+                                                <div class="col-md-12 spec clearfix">
+                                                    <span>اجاره</span> <span class="bold"> @Model.ad_o.mortgage<span>تومان</span> </span>
+                                                </div>
+                                            }
+                                            
                                             <div class="col-md-12 spec clearfix">
                                                 <span> نوع ملک </span> <span class="bold">
                                                     @if (Model.ad_o.propertyType == PropertyType.apartment)
@@ -447,9 +461,22 @@
                                         <span class="bold" itemprop="name">@Model.ad_o.CreatedBy.firstNameAndLastName</span>
                                     </div>
                                     <div class="call-row have-border py-4">
-                                        <div class="text-center price-info">
-                                            قیمت : @Model.ad_o.Price<span>تومان</span>
-                                        </div>
+                                        @if (Model.ad_o.typeOfAd == ModelLib.Enums.TypeAd.Buy)
+                                        {
+                                            <div class="text-center price-info">
+                                                قیمت : @Model.ad_o.Price<span>تومان</span>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="text-center price-info">
+                                                رهن : @Model.ad_o.rent<span>تومان</span>
+                                            </div>
+                                            <div class="text-center price-info">
+                                                اجاره : @Model.ad_o.mortgage<span>تومان</span>
+                                            </div>
+                                        }
+                                       
                                     </div>
 
                                 </div>

@@ -1,4 +1,5 @@
-﻿@model List<ModelLib.ContactPage>
+﻿@using ModelLib
+@model List<ModelLib.ContactPage>
 @{
     ViewBag.Title = "Contact";
 }
@@ -6,6 +7,26 @@
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/jquery-1.11.3.min.js"></script>   
 }
+<div class="main clearfix searching">
+    <div class="w-100 bg-white">
+        <div class="container pt-2">
+            <div class="row">
+                <div class="col-lg-6 col-8 pr-lg-3 pr-1">
+                    <div class="single-bread-crumb py-0 search-result-page">
+                        <div class="w-100 pb-2">
+                            <div class="row">
+                                @Html.Partial("_pBreadcrumb", (List<Breadcrumb>)ViewBag.Breadcrumb)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-4 pl-lg-2 pl-1">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 <div class="contact-page">
     <div class="container">
         <div class="row">
@@ -17,9 +38,7 @@
                             <div class="contact-title"><span>ارسال پیام</span></div>
                         </div>
                     </div>
-                    @*@using (Html.BeginForm())
-                    {
-                        @Html.ValidationSummary()*@
+                 
                     <form>                                            
                         <div class="form-group">
                             <div class="row">
@@ -91,31 +110,8 @@
                                 <button id="btnS" name="btnS" class="shabesh-button red px-5"> ارسال</button>
                             </div>
                         </div>
-                        @Html.Partial("_pContactUs", Model)
-                        @*<div class="row mt-4">
-                            <div class="col-5">
-                                <div class="list-name">شماره تماس :</div>
-                            </div>
-                            <div class="col-7"><span class="content"> 021-46019066</span></div>
-                        </div>
-                        <div class="row mt-4">
-                            <div class="col-5">
-                                <div class="list-name">ساعات کاری :</div>
-                            </div>
-                            <div class="col-7">
-                                <span class="content">شنبه تا چهار شنبه ۹ تا ۶ بعد از ظهر</span>
-                            </div>
-                        </div>
-                        <div class="row mt-4">
-                            <div class="col-5">
-                                <div class="list-name">آدرس :</div>
-                            </div>
-                            <div class="col-7">
-                                <span class="content"> اتوبان ستاری ، بالاتر از کورش ، نبش شقایق دهم ، پلاک ۱۶ ، واحد ۲ </span>
-                            </div>
-                        </div>*@
-                    </form>
-                    @*}*@
+                        @Html.Partial("_pContactUs", Model)                       
+                    </form>                   
                 </div>
             </div>
         </div>
