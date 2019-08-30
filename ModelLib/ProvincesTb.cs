@@ -10,7 +10,8 @@ namespace ModelLib
   public partial class ProvincesTb
     {
         public int id { get; set; }
-        [MaxLength(20)]
+        [Required(ErrorMessage = " نام استان را وارد کنید")]
+        [MaxLength(20, ErrorMessage = "طول عنوان بیشتر از 100 کاراکتر است")]
         public string title { get; set; }
 
         [NotMapped]

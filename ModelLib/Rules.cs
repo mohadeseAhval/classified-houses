@@ -11,8 +11,10 @@ namespace ModelLib
    public partial class Rules
     {
         public int id { get; set; }
-        [MaxLength(300)]
+        [Required(ErrorMessage = " عنوان را وارد کنید")]
+        [MaxLength(100, ErrorMessage = "طول عنوان بیشتر از 100 کاراکتر است")]
         public string title { get; set; }
+        [Required(ErrorMessage = " توضیحات را وارد کنید")]
         public string desc { get; set; }
     }
     //CRUD

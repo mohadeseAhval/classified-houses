@@ -11,8 +11,10 @@ namespace ModelLib
    public partial class Questions
     {
         public int id { get; set; }
-        [MaxLength(300)]
+        [Required(ErrorMessage = " عنوان سوال را وارد کنید")]
+        [MaxLength(300, ErrorMessage = "طول عنوان بیشتر از 300 کاراکتر است")]        
         public string question { get; set; }
+        [Required(ErrorMessage = " پاسخ سوال را وارد کنید")]
         public string answer { get; set; }
     }
 

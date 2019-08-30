@@ -17,7 +17,8 @@ namespace ModelLib
         public int Province_id { get; set; }
         public ProvincesTb Province_table { get; set; }
         public string Province_name { get; set; }
-        [MaxLength(20)]
+        [Required(ErrorMessage = " عنوان را وارد کنید")]
+        [MaxLength(20, ErrorMessage = "طول شهر بیشتر از 20 کاراکتر است")]
         public string title { get; set; }
         public IList<Advertising> Ads { get; set; }
 
@@ -26,7 +27,7 @@ namespace ModelLib
 
     }
 
-    //CRAD
+    //CRUD
     public partial class City
     {
         EF_DataBase entity = new EF_DataBase();
@@ -34,7 +35,6 @@ namespace ModelLib
 
         public string Create(City newRecord)
         {
-
             entity.City.Add(newRecord);
             try { entity.SaveChanges(); return "done"; }
             catch { return "error"; }

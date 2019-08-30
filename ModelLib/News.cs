@@ -13,17 +13,22 @@ namespace ModelLib
    public partial class News
     {
         public int id { get; set; }
-        [MaxLength(100,ErrorMessage ="نباید از 100 کاراکتر بیشتر باشد")]
-        public string title { get; set; }        
+        [Required(ErrorMessage = " عنوان را وارد کنید")]
+        [MaxLength(100, ErrorMessage = "طول عنوان بیشتر از 100 کاراکتر است")]      
+        public string title { get; set; }
+        [Required(ErrorMessage = " توضیحات را وارد کنید")]
         public string desc { get; set; }        
         public string qdate { get; set; }
         public DateTime date { get; set; }
         public string keyword { get; set; }
-        public int visitCount { get; set; }       
+        public int visitCount { get; set; }
+        [Required(ErrorMessage = " عکس را وارد کنید")]
         public string imageUrl { get; set; }
         public string author { get; set; }   
         public int User_id { get; set; }
+        [Required(ErrorMessage = " نوع خبر را وارد کنید")]
         public TypeNews type { get; set; }
+        [Required(ErrorMessage = " جایگاه خبر را وارد کنید")]
         public CatNews cat { get; set; }
     }
 

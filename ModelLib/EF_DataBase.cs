@@ -8,7 +8,7 @@ namespace ModelLib
     public partial class EF_DataBase : DbContext
     {
         public EF_DataBase()
-            : base("name=EF_DataBase")
+            : base("name=EF_DataBase1")
         {
         }
 
@@ -19,18 +19,13 @@ namespace ModelLib
         public virtual DbSet<AboutUs> AboutUs { get; set; }
         public virtual DbSet<ContactPage> ContactPage { get; set; }
         public virtual DbSet<ContactUs> ContactUs { get; set; }
-        public virtual DbSet<MenuOne> MenuOne { get; set; }
-        public virtual DbSet<MenuTow> MenuTow { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Bookmark> Bookmark { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Advertising> Ads { get; set; }
-       public virtual DbSet<Rules> Rules { get; set; }
-        //public virtual DbSet<NewsObject> NewsObject { get; set; }
-
+        public virtual DbSet<Rules> Rules { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }
-
     }
 }

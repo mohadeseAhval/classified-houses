@@ -107,9 +107,6 @@
     <Compile Include="Enums\RoleType.cs" />
     <Compile Include="Enums\TypeAd.cs" />
     <Compile Include="Enums\TypeNews.cs" />
-    <Compile Include="MenuOne.cs" />
-    <Compile Include="MenuTow.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="News.cs" />
     <Compile Include="NewsObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,8 +117,12 @@
     <Compile Include="Users.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

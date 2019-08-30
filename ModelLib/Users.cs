@@ -13,27 +13,28 @@ namespace ModelLib
    public partial class Users
     {
         public int id { get; set; }
-        [Required(ErrorMessage = "این فیلد نباید خالی باشد")]
-        [MaxLength(50,ErrorMessage ="نباید بیشتر از 50 کاراکتر باشد")]
+        [Required(ErrorMessage = " نام و نام خانوادگی را وارد کنید")]
+        [MaxLength(20, ErrorMessage = "طول نام بیشتر از 20 کاراکتر است")]
         public string firstNameAndLastName { get; set; }
-        [Required(ErrorMessage = "این فیلد نباید خالی باشد")]
+        [Required(ErrorMessage = "شماره تماس را وارد کنید")]
+        [MaxLength(11, ErrorMessage = "طول متن بیشتر از 11 کاراکتر است")]
         public string tell { get; set; }
-        [Required(ErrorMessage = "این فیلد نباید خالی باشد")]
-        [MaxLength(100, ErrorMessage = "نباید بیشتر از 100 کاراکتر باشد")]
+        [Required(ErrorMessage = " آدرس را وارد کنید")]
+        [MaxLength(100, ErrorMessage = "طول آدرس بیشتر از 100 کاراکتر است")]
         public string address { get; set; }
-        [Required(ErrorMessage = "این فیلد نباید خالی باشد")]
+        [Required(ErrorMessage = "ایمیل را وارد کنید")]
         public string email { get; set; }
-        [Required(ErrorMessage = "این فیلد نباید خالی باشد")]
+        [Required(ErrorMessage = "کد ملی را وارد کنید")]
         public string NationalCode { get; set; }
-        [Required(ErrorMessage = "این فیلد نباید خالی باشد")]
-        [MaxLength(8, ErrorMessage = "نباید بیشتر از 8 کاراکتر باشد")]
+        [Required(ErrorMessage = "رمز عبور را وارد کنید")]
+        [MinLength(6, ErrorMessage = "طول رمز عبور کمتر از 6 کاراکتر است"), MaxLength(8,ErrorMessage = "طول رمز عبور بیشتر از 8 کاراکتر است")]
         public string password { get; set; }
         [ForeignKey("role_table")]
         public int role_id { get; set; }
         public Role role_table { get; set; }
     }
 
-    //CRAD
+    //CRUD
     public partial class Users
     {
         EF_DataBase entity = new EF_DataBase();

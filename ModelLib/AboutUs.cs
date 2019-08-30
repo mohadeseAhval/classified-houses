@@ -11,21 +11,29 @@ namespace ModelLib
    public partial class AboutUs
     {
         public int id { get; set; }
-        [MaxLength(100)]
+        [Required(ErrorMessage = " عنوان را وارد کنید")]
+        [MaxLength(100, ErrorMessage = "طول عنوان بیشتر از 100 کاراکتر است")]
         public string title1 { get; set; }
+        [Required(ErrorMessage = " متن را وارد کنید")]
         public string text1 { get; set; }
-        [MaxLength(100)]
+        [Required(ErrorMessage = " عنوان را وارد کنید")]
+        [MaxLength(100, ErrorMessage = "طول عنوان بیشتر از 100 کاراکتر است")]
         public string title2 { get; set; }
+        [Required(ErrorMessage = " متن را وارد کنید")]
         public string text2 { get; set; }
-        [MaxLength(100)]
+        [Required(ErrorMessage = " عنوان را وارد کنید")]
+        [MaxLength(100, ErrorMessage = "طول عنوان بیشتر از 100 کاراکتر است")]
         public string title3 { get; set; }
+        [Required(ErrorMessage = " متن را وارد کنید")]
         public string text3 { get; set; }
-        [MaxLength(100)]
+        [Required(ErrorMessage = " عنوان را وارد کنید")]
+        [MaxLength(100, ErrorMessage = "طول عنوان بیشتر از 100 کاراکتر است")]
         public string title4 { get; set; }
+        [Required(ErrorMessage = " متن را وارد کنید")]
         public string text4 { get; set; }
     }
 
-    //CRAD
+    //CRUD
     public partial class AboutUs
     {
         EF_DataBase entity = new EF_DataBase();

@@ -12,10 +12,24 @@
             <div class="hoverable">
                 <h2 class="entry-title">@item.title</h2>
                 <p class="entry-content ext-justify d-none d-sm-block">
-                    @item.desc
-                    @*همه ساله با آغاز فصل نقل و انتقالات، بازار
-                    مسکن دستخوش تغییرات عمده می‌شود و هر سال هم دست اندرکاران با دادن پیام‌ها و وعده‌های توخالی
-                    مستاجران را به روزهای بهتر امیدوار می‌کنند، اما بعد از اتمام...*@
+                    @if (item.desc != null)
+                    {
+                        if (item.desc.Length > 150)
+                        {
+                            <span>
+                                @item.desc.Substring(0, 149) ...
+                            </span>
+                        }
+                        else
+                        {
+                            <span>@item.desc</span>
+                        }
+                    }
+                    else
+                    {
+                        <span>بدون توضیحات</span>
+                    }
+                   
                 </p>
             </div>
         </a>

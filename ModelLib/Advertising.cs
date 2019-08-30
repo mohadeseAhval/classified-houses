@@ -40,9 +40,10 @@ namespace ModelLib
     public partial class Advertising
     {
         public int id { get; set; }
-        
-        [MaxLength(300,ErrorMessage ="نباید از 50 کاراکتر بیشتر باشد")]
+        [Required(ErrorMessage = " عنوان آگهی را وارد کنید")]
+        [MaxLength(50,ErrorMessage = "طول عنوان بیشتر از 50 کاراکتر است")]
         public string title { get; set; }
+        [Required(ErrorMessage = " نوع آگهی را وارد کنید")]
         public TypeAd typeOfAd { get; set; }
 
         public long Price { get; set; }
@@ -50,24 +51,24 @@ namespace ModelLib
         public long mortgage { get; set; }
         
         public long rent { get; set; }
-        
+        [Required(ErrorMessage = " متراژ را وارد کنید")]
         public int area { get; set; }
-        
+        [Required(ErrorMessage = " تعداد اتاق ها را وارد کنید")]
         public numberOfRooms numberOfRooms { get; set; }
-        
+        [Required(ErrorMessage = " طبقه را وارد کنید")]
         public floor floor { get; set; }
-        
+        [Required(ErrorMessage = " تعداد طبقات را وارد کنید")]
         public numberOfFloors numberOfFloors { get; set; }
         
         public productionYear productionYear { get; set; }
-        
+        [Required(ErrorMessage = " آدرس آگهی را وارد کنید")]
         [MaxLength(100)]
         public string address { get; set; }
-        
-        [MaxLength(500)]
+        [Required(ErrorMessage = " توضیحات آگهی را وارد کنید")]
+        [MaxLength(400)]
         public string description { get; set; }
-        
-        [MaxLength(20)]
+        [Required(ErrorMessage = " شماره تماس را وارد کنید")]
+        [MaxLength(11)]
         public string tell  { get; set; }
 
         public int UpdatedBy_id { get; set; }
@@ -83,58 +84,25 @@ namespace ModelLib
         [ForeignKey("City_table")]
         public int City_id { get; set; }
         public City City_table { get; set; }
-        public PropertyType propertyType { get; set; }       
+        [Required(ErrorMessage = " نوع آگهی را وارد کنید")]
+        public PropertyType propertyType { get; set; }               
         public string imageUrl { get; set; }
         public Condition Condition { get; set; }
     }
 
     
 
-    //CRAD
+    //CRUD
     public partial class Advertising
     {
         EF_DataBase entity = new EF_DataBase();
 
         public string Create(Advertising newRecord)
-        {
-            //Condition Cfalse = default(Condition);
-            //newRecord.Condition = Cfalse;
-
-            // Set unconfirmed status for new ads by default.
+        {            
             newRecord.Condition = Condition.Cfalse;
             entity.Ads.Add(newRecord);
             try { entity.SaveChanges(); return "done"; }
             catch { return "error"; }
-        }
-
-        private IQueryable<AdViewModel> SelectAdsWithCreator(IQueryable<Advertising> adsQueryable)
-        {
-            return adsQueryable.Select(ab => new AdViewModel
-            {
-                id = ab.id,
-                title = ab.title,
-                typeOfAd = ab.typeOfAd,
-                Price = ab.Price,
-                mortgage = ab.mortgage,
-                rent = ab.rent,
-                area = ab.area,
-                numberOfRooms = ab.numberOfRooms,
-                floor = ab.floor,
-                numberOfFloors = ab.numberOfFloors,
-                productionYear = ab.productionYear,
-                address = ab.address,
-                description = ab.description,
-                tell = ab.tell,
-                UpdatedBy = entity.Users.Where(u => u.id == ab.UpdatedBy_id).FirstOrDefault(),
-                CreatedBy = entity.Users.Where(u => u.id == ab.CreatedBy_id).FirstOrDefault(),
-                qdate = ab.qdate,
-                date = ab.date,
-                City_table = ab.City_table,
-                Provience = ab.City_table.Province_table,
-                propertyType = ab.propertyType,
-                imageUrl = ab.imageUrl,
-                Condition = ab.Condition,
-            });
         }
 
         /// <summary>
@@ -202,7 +170,7 @@ namespace ModelLib
                 .OrderByDescending(a => a.date)
                 .Where(a => a.typeOfAd == type)
                 .Where(a => a.Condition == status);
-                 
+
         }
 
         /// <summary>
@@ -274,18 +242,6 @@ namespace ModelLib
             return query;
         }
 
-        public List<AdViewModel> GetBookmarderAds(int userId)
-        {
-            return SelectAdsWithCreator(
-                entity.Bookmark
-                    .Where(b => b.Users_id.Equals(userId))
-                    .Include(b => b.Advertising_table)
-                    .Include(b => b.Advertising_table.City_table)
-                    .Select(b => b.Advertising_table)
-                )
-                .ToList();
-        }
-
         public Advertising FindById(int id)
         {
             return entity.Ads.Include(a => a.City_table.Province_table)
@@ -306,7 +262,8 @@ namespace ModelLib
             if (newRecord.id == 0)
             {
                 entity.Ads.Add(newRecord);
-            } else
+            }
+            else
             {
                 // entity.Ads.Update(newRecord);
                 // entity.Ads.Add(newRecord);
@@ -328,6 +285,46 @@ namespace ModelLib
             try { entity.SaveChanges(); return "done"; }
             catch { return "error"; }
         }
+        private IQueryable<AdViewModel> SelectAdsWithCreator(IQueryable<Advertising> adsQueryable)
+        {
+            return adsQueryable.Select(ab => new AdViewModel
+            {
+                id = ab.id,
+                title = ab.title,
+                typeOfAd = ab.typeOfAd,
+                Price = ab.Price,
+                mortgage = ab.mortgage,
+                rent = ab.rent,
+                area = ab.area,
+                numberOfRooms = ab.numberOfRooms,
+                floor = ab.floor,
+                numberOfFloors = ab.numberOfFloors,
+                productionYear = ab.productionYear,
+                address = ab.address,
+                description = ab.description,
+                tell = ab.tell,
+                UpdatedBy = entity.Users.Where(u => u.id == ab.UpdatedBy_id).FirstOrDefault(),
+                CreatedBy = entity.Users.Where(u => u.id == ab.CreatedBy_id).FirstOrDefault(),
+                qdate = ab.qdate,
+                date = ab.date,
+                City_table = ab.City_table,
+                Provience = ab.City_table.Province_table,
+                propertyType = ab.propertyType,
+                imageUrl = ab.imageUrl,
+                Condition = ab.Condition,
+            });
+        }      
+        public List<AdViewModel> GetBookmarderAds(int userId)
+        {
+            return SelectAdsWithCreator(
+                entity.Bookmark
+                    .Where(b => b.Users_id.Equals(userId))
+                    .Include(b => b.Advertising_table)
+                    .Include(b => b.Advertising_table.City_table)
+                    .Select(b => b.Advertising_table)
+                )
+                .ToList();
+        }
         public List<Advertising> Get8AdAreaByTypeAd(TypeAd type)
         {
             return entity.Ads.OrderBy(n => n.area).Take(8)
@@ -341,8 +338,7 @@ namespace ModelLib
                 .Include(a => a.City_table)
                 .Where(a => a.typeOfAd == type)
                 .ToList();
-        }
-              
+        }              
         public List<Advertising> GetSimilarAds(Advertising ad)
         {
             return entity.Ads.OrderByDescending(n=>n.date).Take(10)

@@ -11,14 +11,16 @@ namespace ModelLib
    public partial class ContactPage
     {
         public int id { get; set; }
-        [MaxLength(20)]
+        [Required(ErrorMessage = " شماره تماس را وارد کنید")]
+        [MaxLength(11, ErrorMessage = "طول عنوان بیشتر از 11 کاراکتر است")]
         public string tell { get; set; }
         public string hoursOfWork { get; set; }
-        [MaxLength(100)]
+        [Required(ErrorMessage = " آدرس را وارد کنید")]
+        [MaxLength(100, ErrorMessage = "طول آدرس بیشتر از 100 کاراکتر است")]
         public string address { get; set; }
     }
 
-    //CRAD
+    //CRUD
     public partial class ContactPage
     {
         EF_DataBase entity = new EF_DataBase();
@@ -26,7 +28,6 @@ namespace ModelLib
 
         public string Create(ContactPage newRecord)
         {
-
             entity.ContactPage.Add(newRecord);
             try { entity.SaveChanges(); return "done"; }
             catch { return "error"; }

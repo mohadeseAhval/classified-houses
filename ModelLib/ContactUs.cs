@@ -15,15 +15,15 @@ namespace ModelLib
         [MaxLength(20, ErrorMessage = "طول نام بیشتر از 20 کاراکتر است")]
         public string userName { get; set; }
         [Required(ErrorMessage = "عنوان درخواست را وارد کنید")]
-        [MaxLength(100, ErrorMessage = "طول عنوان بیشتر از 100 کاراکتر است")]
+        [MaxLength(50, ErrorMessage = "طول عنوان بیشتر از 50 کاراکتر است")]
         public string subject { get; set; }
         [Required(ErrorMessage = "متن درخواست را وارد کنید")]
-        [MaxLength(400, ErrorMessage = "طول متن بیشتر از 400 کاراکتر است")]
+        [MaxLength(300, ErrorMessage = "طول متن بیشتر از 300 کاراکتر است")]
         public string text { get; set; }
         [Required(ErrorMessage = "ایمیل را وارد کنید")]
         public string email { get; set; }
         [Required(ErrorMessage = "شماره تماس را وارد کنید")]
-        [MaxLength(20, ErrorMessage = "طول متن بیشتر از 20 کاراکتر است")]
+        [MaxLength(11, ErrorMessage = "طول متن بیشتر از 11 کاراکتر است")]
         public string tell { get; set; }
        
     }
