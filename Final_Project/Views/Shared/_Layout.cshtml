@@ -158,7 +158,7 @@
                     <div class="col-lg-2 col-sm-4 py-3">
                         <a href="/">
                             <picture>
-                                <img src="~/Images/logo/logo.png" width="91"
+                                <img src="~/Images/logo/logo1.png" width="91"
                                      alt="آگهی های فروش و اجاره املاک - املاک" title="آگهی های فروش و اجاره املاک - املاک">
                             </picture>
                         </a> 
@@ -166,7 +166,7 @@
                 </div>
                 <div class="w-100 line-top py-3">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-8">
                             <div class="row">                                
                                 <div class="col-lg-3 col-sm-4 py-3">
                                     <a class="footer-link medium-sans" href="/Home/Faq">
@@ -191,10 +191,7 @@
                                     </a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            
-                        </div>
+                        </div>                       
                     </div>
                 </div>
                
@@ -214,7 +211,7 @@
                                 </a> <a href="/" class="telegram mr-2" target="_blank" rel="nofollow">
                                     <i class="sh-telegram"></i>
                                 </a> <a href="/" class="aparat mr-2"
-                                        target="_blank" rel="nofollow"><i class="sh-aparat"></i></a> <a href="http://www.instagram.com/shabesh.ir" class="insta mr-2" target="_blank" rel="nofollow">
+                                        target="_blank" rel="nofollow"><i class="sh-aparat"></i></a> <a href="/" class="insta mr-2" target="_blank" rel="nofollow">
                                     <i class="sh-instagram"></i>
                                 </a>
                             </div> 
@@ -242,291 +239,7 @@
         </footer>
         <div class="copy">
             <p >این سایت پروژه ی دانسشجویی است و استفاده از آن به هدف آموزش بلامانع است</p>
-        </div>
-     @*   <div class="modal mobile-call-modal fade" id="call-modal" tabindex="-1" role="dialog"
-             aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content pt-0">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-center w-100" id="usertypelabel">تماس با ما</h5>
-                        <button type="button" class="close call-close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true"><i class="sh-quit"></i></span>
-                        </button>
-                    </div>
-                    <div class="modal-body pt-0" id="call-modal-result"></div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="authModal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body p-0">
-                        <button class="close" data-dismiss="modal" aria-label="Close"><i class="sh-quit"></i></button>
-                        <button class="back"> بازگشت</button>
-                        <div class="auth-container login-chooser">
-                            <div class="auth-head">
-                                <span class="login-icons"> <i class="sh-user"></i> ورود / ثبت نام </span>
-                                <div class="fav-text mt-4">
-                                    <picture>
-                                        <source srcset="~/Images/home/mixed.png" type="image/png">
-                                        <img src="~/Images/home/mixed.png" class="mb-4" width="40" title="علاقه مندی"
-                                             alt="علاقه مندی">
-                                    </picture>
-                                    <span class="px-0"></span>
-                                </div>
-                                <div class="alarm-text mt-4">
-                                    <picture>
-                                        <source srcset="~/Images/home/mixed.png" type="image/png">
-                                        <img src="~/Images/home/mixed.png" class="mb-4" width="40" title="اطلاع رسانی"
-                                             alt="اطلاع رسانی">
-                                    </picture>
-                                    <span class="px-0"></span>
-                                </div>
-                            </div>
-                            <form class="auth-form" data-submit="checknumber">
-                                <div class="row text-center auth-title">
-                                    برای <span>ورود</span> یا <span>ثبت‌ نام</span>
-                                    شماره تلفن همراه خود را وارد کنید
-                                </div>
-                                <div class="row">
-                                    <div class="form-item col-12">
-                                        <input type="text" name="mobile" id="mobile1"
-                                               class="number-only flex-label" pattern="09[0-9]{9}"
-                                               required> <label for="mobile">شماره موبایل</label>
-                                        <span class="error-input">شماره موبایل ۱۱ رقمی را وارد کنید .</span> <span class="example">مثال : ۰۹۱۲۰۰۰۰۰۰۰</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 mt-4">
-                                        <button class="shabesh-button green w-100 submit-button submit-form "
-                                                data-action="registerContainer">
-                                            ادامه
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="auth-container login-container">
-                            <div class="auth-head"><span> <i class="sh-user"></i> ورود / ثبت نام </span></div>
-                            <form class="auth-form" data-submit="login">
-                                <div class="row text-center auth-title"> رمز عبور خود را وارد کنید</div>
-                                <div class="row">
-                                    <div class="form-item col-12 mb-2">
-                                        <input type="text" name="mobile" id="login_mobile"
-                                               class="flex-label" required readonly> <label for="login_mobile" class="fixed">شماره موبایل</label> <span class="error-input">شماره موبایل خود را وارد نمایید</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-item col-12 mb-2">
-                                        <input type="password" id="login_password"
-                                               name="password" class="flex-label"
-                                               minlength="8" autocomplete="off" required>
-                                        <label for="login_password">رمز عبور</label> <span class="error-input">رمز عبور را حداقل ۸ کاراکتر وارد نمایید</span>
-                                    </div>
-                                </div>
-                                <div class="row pt-3">
-                                    <div class="col-12">
-                                        <button type="submit" class="shabesh-button green w-100 submit-button submit-form ">
-                                            ورود
-                                        </button>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="user_id" id="login_user_id">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <button type="button"
-                                                class="shabesh-button green cleared w-100 cleared forget-pass">
-                                            فراموشی رمز
-                                            عبور
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="auth-container reset-password">
-                            <div class="auth-head"><span>بازیابی رمز عبور</span></div>
-                            <form class="auth-form" data-submit="reset-pass">
-                                <div class="row text-center auth-title">
-                                    کد ارسال شده به شماره همراه و رمز عبور جدید را وارد
-                                    کنید .
-                                </div>
-                                <input type="hidden" name="user_id" class="reset-userid">
-                                <div class="row confirm-code">
-                                    <div class="form-item col-12">
-                                        <input type="text" name="remember_token"
-                                               id="remember_token" class="flex-label" required>
-                                        <label for="remember_token">کد ارسالی</label> <span class="error-input">کد ارسالی را وارد کنید .</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-item col-12">
-                                        <input type="password" name="password" id="new_password"
-                                               class="flex-label" minlength="8" autocomplete="off"
-                                               required> <label for="new_password">
-                                            رمز عبور
-                                            جدید
-                                        </label> <span class="error-input">رمز عبور را حداقل ۸ کاراکتر وارد کنید .</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-item col-12">
-                                        <input type="password" name="repassword"
-                                               id="renewpassword" class="flex-label" minlength="8"
-                                               autocomplete="off" required> <label for="renewpassword">تکرار رمز عبور</label> <span class="error-input">تکرار رمز عبور را حداقل ۸ کاراکتر وارد کنید .</span>
-                                    </div>
-                                </div>
-                                <div class="row pt-3">
-                                    <div class="col-12">
-                                        <button class="shabesh-button w-100 green submit-button submit-form ">
-                                            تغییر رمز
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="auth-container register-code">
-                            <div class="auth-head"><span> <i class="sh-user"></i> ورود / ثبت نام </span></div>
-                            <form class="auth-form" data-submit="register/confirm">
-                                <div class="row text-center auth-title">
-                                    لطفاً کد ارسال شده به تلفن همراه خود را وارد کنید
-                                </div>
-                                <div class="row">
-                                    <div class="form-item col-12 mb-2">
-                                        <input type="text" name="mobile" id="register_mobile"
-                                               class="flex-label" required readonly> <label for="register_mobile" class="fixed">شماره موبایل</label> <span class="error-input">شماره موبایل خود را وارد نمایید</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-item col-12 mb-2">
-                                        <input type="text" name="code" id="register_code"
-                                               class="flex-label" minlength="6" maxlength="6"
-                                               required> <label for="register_code">
-                                            کد
-                                            ارسالی
-                                        </label> <span class="error-input">کد ۶ رقمی را وارد نمایید</span>
-                                    </div>
-                                </div>
-                                <div class="row pt-3">
-                                    <div class="col-12">
-                                        <button type="submit"
-                                                class="shabesh-button green w-100 auth-button submit-button submit-form ">
-                                            ادامه
-                                        </button>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="reg_id" id="register_id">
-                                <div class="row">
-                                    <div class="col-12 text-center resend-timer py-2">
-                                        <span class="timer-span">60</span>
-                                        <span class="resend-span resend-register">ارسال مجدد</span>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="auth-container register-container">
-                            <div class="auth-head"><span> <i class="sh-user"></i> ورود / ثبت نام </span></div>
-                            <form class="auth-form" data-submit="register/register">
-                                <div class="form-group">
-                                    <div class="custom-control initial-position custom-radio d-inline-block">
-                                        <input name="type" type="radio" class="custom-control-input" id="for-user" value="User"
-                                               required> <label class="custom-control-label" for="for-user"> شخصی </label>
-                                        <span class="error-input abs-input">نوع کاربری را انتخاب کنید .</span>
-                                    </div>
-                                    <div class="custom-control custom-radio d-inline-block">
-                                        <input name="type" type="radio"
-                                               class="custom-control-input"
-                                               id="for-agent"
-                                               value="Agent" required>
-                                        <label class="custom-control-label" for="for-agent"> مشاور املاک </label>
-                                    </div>
-                                    <div class="custom-control custom-radio d-inline-block">
-                                        <input name="type" type="radio"
-                                               class="custom-control-input"
-                                               id="for-agency"
-                                               value="Agency" required>
-                                        <label class="custom-control-label" for="for-agency"> آژانس املاک </label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-item col-12 mb-2">
-                                        <input type="text" class="flex-label" name="name"
-                                               id="register_name"
-                                               data-errormessage-value-missing="نام و نام خانوادگی را وارد نمایید"
-                                               required> <label for="register_name">
-                                            نام و نام
-                                            خانوادگی
-                                        </label> <span class="error-input">نام و نام خانوادگی را وارد کنید .</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-item col-12 mb-2">
-                                        <input type="text" class="flex-label" name="email"
-                                               id="register_email" required> <label for="register_email">ایمیل</label> <span class="error-input">پست الکترونیک را وارد کنید .</span>
-                                    </div>
-                                </div>
-                                <div class="row for-agency hidden">
-                                    <div class="form-item col-12 mb-2">
-                                        <input type="text" class="flex-label agency-required"
-                                               name="nationalcode" id="nationalcode"> <label for="nationalcode">کد ملی</label> <span class="error-input">کد ملی را وارد کنید .</span>
-                                    </div>
-                                </div>
-                                <div class="row for-agency hidden">
-                                    <div class="form-item col-12 mb-2">
-                                        <input type="text" class="flex-label agency-required"
-                                               name="agency_code" id="agency_code"> <label for="agency_code">کد صنفی</label> <span class="error-input">کد صنفی را وارد کنید .</span>
-                                    </div>
-                                </div>
-                                <div class="row for-agent hidden">
-                                    <div class="form-item col-12 mb-2">
-                                        <input type="text" class="flex-label agent-required"
-                                               name="agency_name" id="agency_name"> <label for="agency_name">نام آژانس</label> <span class="error-input">نام آژانس را وارد کنید .</span>
-                                    </div>
-                                </div>
-                                <div class="row for-agency hidden">
-                                    <div class="form-item col-12 mb-2">
-                                        <input type="text" class="flex-label" name="phone"
-                                               id="agency_phone"> <label for="agency_phone">
-                                            تلفن
-                                            تماس
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="row for-agency hidden">
-                                    <div class="form-item col-12 mb-2">
-                                        <input type="text" class="flex-label" name="address"
-                                               id="agency_address"> <label for="agency_address">آدرس آژانس</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-item col-12 mb-2">
-                                        <input type="password" id="reg_password"
-                                               name="password" class="flex-label"
-                                               minlength="8" autocomplete="off" required>
-                                        <label for="reg_password">رمز عبور</label> <span class="error-input">رمز عبور را حداقل ۸ کاراکتر وارد نمایید</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <button type="submit"
-                                                class="shabesh-button green w-100 auth-button submit-button submit-form ">
-                                            ثبت اطلاعات
-                                        </button>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="reg_id" id="reg_id"> <input type="hidden" name="mobile"
-                                                                                       id="reg_mobile"> <input type="hidden"
-                                                                                                               name="verify_code"
-                                                                                                               id="reg_code">
-                            </form>
-                        </div>
-                        <div class="row login-message mb-3 hidden">
-                            <div class="col-12"><span></span> <i class="sh-quit"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>*@
+        </div>  
     <script>
  var locations = [];
 var member = JSON.parse('{}');

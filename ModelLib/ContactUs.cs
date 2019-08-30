@@ -11,24 +11,24 @@ namespace ModelLib
    public partial class ContactUs
     {
         public int id { get; set; }
-        [Required(ErrorMessage = "نام خود را وارد کنید")]
-        [MaxLength(20)]
+        [Required(ErrorMessage = "نام را وارد کنید")]
+        [MaxLength(20, ErrorMessage = "طول نام بیشتر از 20 کاراکتر است")]
         public string userName { get; set; }
-        [Required(ErrorMessage = "این فیلد نباید خالی باشد")]
-        [MaxLength(100)]
+        [Required(ErrorMessage = "عنوان درخواست را وارد کنید")]
+        [MaxLength(100, ErrorMessage = "طول عنوان بیشتر از 100 کاراکتر است")]
         public string subject { get; set; }
-        [Required(ErrorMessage = "این فیلد نباید خالی باشد")]
-        [MaxLength(400)]
+        [Required(ErrorMessage = "متن درخواست را وارد کنید")]
+        [MaxLength(400, ErrorMessage = "طول متن بیشتر از 400 کاراکتر است")]
         public string text { get; set; }
-        [Required(ErrorMessage = "ایمیل خود را وارد کنید")]
+        [Required(ErrorMessage = "ایمیل را وارد کنید")]
         public string email { get; set; }
-        [Required(ErrorMessage = "شماره تماس خود را وارد کنید")]
-        [MaxLength(20)]
+        [Required(ErrorMessage = "شماره تماس را وارد کنید")]
+        [MaxLength(20, ErrorMessage = "طول متن بیشتر از 20 کاراکتر است")]
         public string tell { get; set; }
        
     }
 
-    //CRAD
+    //CRUD
     public partial class ContactUs
     {
         EF_DataBase entity = new EF_DataBase();

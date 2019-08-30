@@ -2725,7 +2725,7 @@ body.lb-disable-scrolling {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50%;
-    min-height: 54vh
+    min-height: 56vh
 }
 
 .pop-search .pop-holder {
@@ -4730,6 +4730,9 @@ button:focus {
     font-size: 12px;
     color: #5f5f5f
 }
+.searching .link-box ul li:hover {
+    color: #2ea6e1
+}
 
 .searching .bordered-title .border {
     text-align: center
@@ -5704,7 +5707,7 @@ button:focus {
 }
 
 .modern_list .announce-inner .sub-title h3 {
-    color: #4b8df8
+    color: #2ca5e0
 }
 
 .modern_list .announce-inner .slider {
@@ -8301,6 +8304,9 @@ label[for=rent], label[for=sale] {
 .announce-page .social-share .socials-icon .circle.whatsapp:hover img {
     -o-object-position: 85px -43px;
     object-position: 85px -43px
+}
+.announce-page .social-share .socials-icon ul{
+    margin-bottom:0 !important
 }
 
 .main_content {

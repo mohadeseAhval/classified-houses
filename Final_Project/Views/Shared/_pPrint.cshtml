@@ -1,5 +1,5 @@
 ﻿
-<div class="bordered-btn px-2 announce-information-responsive-fix text-center">
+<div class="bordered-btn px-2 announce-information-responsive-fix text-center" id="print-ad">
     <div class="print-icon float-left pt-lg-0 pt-md-0 pl-0 text-left">
         <div class="text-right clearfix float-left">
         </div>
@@ -9,5 +9,9 @@
     </div>
 </div>  
 
-@*<script defer src="~/Scripts/app40.js"></script>*@
+<script>
+    document.getElementById('print-ad').addEventListener("click", function (e) {
+        window.print()
+    })
+</script>
                              
