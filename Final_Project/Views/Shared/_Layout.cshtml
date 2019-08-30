@@ -1,8 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="fa-IR" dir="rtl">
-
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <title>@ViewBag.title</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta charset="utf-8">
@@ -30,7 +29,7 @@
     <link rel="stylesheet" type="text/css" href="~/Content/app40.css" media="all">
     <link href="~/Content/Admin/main.css" rel="stylesheet" />
     <script defer src="~/Scripts/jq.min.js"></script>
-    @RenderSection("Head", false);
+    @RenderSection("Head", false)
 </head>
 <body>
     <div class="main ">
@@ -126,16 +125,7 @@
         @* footer *@
         <footer id="footer" class="footer-section hidden-print">
             <div class="container py-3">
-                <div class="w-100 line py-3">
-                    <a href="index.html">
-                        <picture>
-                            <source srcset="~/Images/logo/logo.png">
-                            <source srcset="~/Images/logo/logo.png">
-                            <img src="~/Images/logo/logo.png" width="91"
-                                 alt="آگهی های فروش و اجاره املاک - املاک" title="آگهی های فروش و اجاره املاک - املاک">
-                        </picture>
-                    </a>
-                </div>
+                
                 <div class="row">
                     <div class="col-lg-2 col-sm-4 py-3">
                         <a class="footer-link medium-sans"
@@ -165,11 +155,18 @@
                             ما
                         </a>
                     </div>                                   
-                                                          
+                    <div class="col-lg-2 col-sm-4 py-3">
+                        <a href="/">
+                            <picture>
+                                <img src="~/Images/logo/logo.png" width="91"
+                                     alt="آگهی های فروش و اجاره املاک - املاک" title="آگهی های فروش و اجاره املاک - املاک">
+                            </picture>
+                        </a> 
+                    </div>                                 
                 </div>
                 <div class="w-100 line-top py-3">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-12">
                             <div class="row">                                
                                 <div class="col-lg-3 col-sm-4 py-3">
                                     <a class="footer-link medium-sans" href="/Home/Faq">
@@ -186,51 +183,67 @@
                                 <div class="col-lg-3 col-sm-4 py-3">
                                     <a class="footer-link medium-sans"
                                        href="/Home/Landing">همکاری</a>
-                                </div><div class="col-lg-3 col-sm-4 py-3">
-    <a class="footer-link medium-sans"
-       href="/Home/Advertising">
-        تبلیغات در املاک
-                                </a>
-</div>
+                                </div>
+                                <div class="col-lg-3 col-sm-4 py-3">
+                                    <a class="footer-link medium-sans"
+                                       href="/Home/Advertising">
+                                        تبلیغات در املاک
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4">
+                            
+                        </div>
+                    </div>
+                </div>
+               
+                <div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="w-100 title medium-sans pt-4 text-center text-md-right">
+                                ما را در شبکه های اجتماعی دنبال کنید
+                            </div>
+                            <div class="w-100 icons py-3 text-center text-md-right">
+                                <a href="/"
+                                   target="_blank" class="facebook" rel="nofollow">
+                                    <i class="sh-facebook"></i>
+                                </a> <a href="/" target="_blank"
+                                        class="linkdin mr-2" rel="nofollow">
+                                    <i class="sh-linkedin"></i>
+                                </a> <a href="/" class="telegram mr-2" target="_blank" rel="nofollow">
+                                    <i class="sh-telegram"></i>
+                                </a> <a href="/" class="aparat mr-2"
+                                        target="_blank" rel="nofollow"><i class="sh-aparat"></i></a> <a href="http://www.instagram.com/shabesh.ir" class="insta mr-2" target="_blank" rel="nofollow">
+                                    <i class="sh-instagram"></i>
+                                </a>
+                            </div> 
+                        </div>
+                        <div class="col-md-6">
                             <div class="enamad clearfix float-md-left float-right">
-                                <picture class="float-lg-left float-none">                                    
+                                <picture class="float-lg-left float-none">
                                     <img src="~/Images/home/samandehi.jpg" id="rgvjoeukoeukoeukrgvj" style="cursor:pointer"
-                                         onclick="window.open(&quot;https://logo.samandehi.ir/Verify.aspx?id=38883&amp;p=xlaomcsimcsimcsixlao&quot;, &quot;Popup&quot;,&quot;toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30&quot;)"
                                          alt="logo-samandehi">
                                 </picture>
-                                <picture class="float-lg-left float-none ml-2">
-                                    <source srcset="~/Images/home/logo-enamad.jpg" type="image/jpg">
+                                <picture class="float-lg-left float-none ml-2">                                    
                                     <img src="~/Images/home/logo-enamad.jpg" alt=""
-                                         onclick="window.open(&quot;https://trustseal.enamad.ir/Verify.aspx?id=29253&amp;p=H3ojp2FrcHiR48lN&quot;, &quot;Popup&quot;,&quot;toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30&quot;)"
+                                         style="cursor:pointer" id="H3ojp2FrcHiR48lN">
+                                </picture>
+                                <picture class="float-lg-left float-none ml-2">                                    
+                                    <img src="~/Images/home/logosadjad.png" alt=""
                                          style="cursor:pointer" id="H3ojp2FrcHiR48lN">
                                 </picture>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="w-100 title medium-sans pt-4 text-center text-md-right">
-                    ما را در شبکه های اجتماعی دنبال کنید
-                </div>
-                <div class="w-100 icons py-3 text-center text-md-right">
-                    <a href="/"
-                       target="_blank" class="facebook" rel="nofollow">
-                        <i class="sh-facebook"></i>
-                    </a> <a href="/" target="_blank"
-                            class="linkdin mr-2" rel="nofollow">
-                        <i class="sh-linkedin"></i>
-                    </a> <a href="/" class="telegram mr-2" target="_blank" rel="nofollow">
-                        <i class="sh-telegram"></i>
-                    </a> <a href="/" class="aparat mr-2"
-                            target="_blank" rel="nofollow"><i class="sh-aparat"></i></a> <a href="http://www.instagram.com/shabesh.ir" class="insta mr-2" target="_blank" rel="nofollow">
-                        <i class="sh-instagram"></i>
-                    </a>
-                </div>               
+                              
             </div>
         </footer>
-        <div class="modal mobile-call-modal fade" id="call-modal" tabindex="-1" role="dialog"
+        <div class="copy">
+            <p >این سایت پروژه ی دانسشجویی است و استفاده از آن به هدف آموزش بلامانع است</p>
+        </div>
+     @*   <div class="modal mobile-call-modal fade" id="call-modal" tabindex="-1" role="dialog"
              aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content pt-0">
@@ -512,15 +525,15 @@
                     </div>
                 </div>
             </div>
-        </div>       
-    </div>
+        </div>
+    </div>*@
     <script>
  var locations = [];
 var member = JSON.parse('{}');
 var base_url = "index.html";</script>
     <script defer src="~/Scripts/base40.js"></script>
     @*<script defer src="~/Scripts/app40.js"></script>*@
-    @RenderSection("script", false);
+    @RenderSection("script", false)
    
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85204224-1"></script>
     <script>
@@ -533,5 +546,4 @@ function gtag() {
 gtag('js', new Date());
 gtag('config', 'UA-85204224-1');</script>
 </body>
-<!-- Mirrored from shabesh.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Jun 2019 14:26:12 GMT -->
 </html>

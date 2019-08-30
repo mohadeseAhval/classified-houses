@@ -241,6 +241,7 @@
     <Content Include="Images\home\barman1.jpg" />
     <Content Include="Images\home\blog1.jpg" />
     <Content Include="Images\home\logo-enamad.jpg" />
+    <Content Include="Images\home\logosadjad.png" />
     <Content Include="Images\home\mika-375.jpg" />
     <Content Include="Images\home\mixed.png" />
     <Content Include="Images\home\moshaver1.jpg" />
@@ -631,6 +632,7 @@
     <Content Include="Views\BookmarkAds\Index.cshtml" />
     <Content Include="Views\Shared\_pFormAd.cshtml" />
     <Content Include="Views\Shared\_pBreadcrumb.cshtml" />
+    <Content Include="Views\Shared\_pPrint.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

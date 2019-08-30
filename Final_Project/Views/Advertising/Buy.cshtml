@@ -7,7 +7,9 @@
 @{
     ViewBag.Title = "خرید";
 }
-
+@section Head{
+    <link href="~/Content/stl.css" rel="stylesheet" />
+}
 <div class="main clearfix searching">
     <div class="w-100 bg-white">
         <div class="container pt-2">
@@ -37,10 +39,19 @@
 
                             @Html.Partial("_pAds", Model.pagedAds_o)
                         </div>
-                        @Html.PagedListPager((IPagedList)Model.pagedAds_o, page => Url.Action("Buy", new { page }))                       
+                        @Html.PagedListPager((IPagedList)Model.pagedAds_o, page => Url.Action("Buy", new { page }))  
+                        @*<div class="container">                         
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </div>*@                
                     </div>
                 </div>
-                <div class="col-lg-3 left-side mt-3 mt-lg-0">
+                <div class="col-lg-3 left-side mt-3 mt-lg-0 hiddenA">
                     <div class="inner w-100 bg-white px-3 px-sm-0">
 
                         <div class="w-100 link-box">

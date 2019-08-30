@@ -45,11 +45,6 @@ namespace Final_Project.Controllers
             return View();
         }
 
-        public ActionResult Blog()
-        {
-            return View();
-        }
-
         [HttpGet]
         public ActionResult Contact()
         {
@@ -58,18 +53,29 @@ namespace Final_Project.Controllers
                 new Breadcrumb { Title = "صفحه اصلی", Url = "/", Position = 1 },
                 new Breadcrumb { Title = "تماس با ما", Url = Url.Action(nameof(Contact), "Home"), Position = 2 }
             };
-            return View(model: ContactPage_Tb.Read());
+            ViewBag.ContactUsDetails = ContactPage_Tb.Read();
+            
+            return View();
         }
-
-        // uni
+       
         [HttpPost]
-        public JsonResult AddContact(ContactUs record)
+        [ValidateAntiForgeryToken]
+        public ActionResult Contact(ContactUs record)
         {
-            JsonResult result = new JsonResult();
+            if (ModelState.IsValid)
+            {
+                ContactUs.Create(record);
+                return RedirectToAction("Contact");
+            }
 
-            result.Data = ContactUs.Create(record);           
+            // Breadcrumb
+            ViewBag.Breadcrumb = new List<Breadcrumb> {
+                new Breadcrumb { Title = "صفحه اصلی", Url = "/", Position = 1 },
+                new Breadcrumb { Title = "تماس با ما", Url = Url.Action(nameof(Contact), "Home"), Position = 2 }
+            };
+            ViewBag.ContactUsDetails = ContactPage_Tb.Read();
 
-            return result;
+            return View(record);
         }
 
         public ActionResult Faq()
@@ -99,11 +105,6 @@ namespace Final_Project.Controllers
                 new Breadcrumb { Title = "ضوابط و قوانین", Url = Url.Action(nameof(Terms), "Home"), Position = 2 }
             };
             return View(model: Rules_Tb.Read());
-        }
-
-        public ActionResult News()
-        {
-            return View();
         }
 
         [HttpGet]

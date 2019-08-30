@@ -31,24 +31,24 @@ namespace Final_Project.Areas.Admin.Controllers
             }
         }
         [HttpPost]
-        //public ActionResult Operation(ContactUs inputs)
-        //{
-        //    if (inputs.id == 0)
-        //    {
-        //        //Create Mode
-        //        #region Create ContactUs
-        //        ViewBag.msg = ContactUsTable.Create(inputs);
-        //        #endregion
-        //    }
-        //    else
-        //    {
-        //        //Update Mode
-        //        #region Update ContactUs
-        //        ContactUsTable.Update(inputs);
-        //        #endregion
-        //    }
-        //    return Redirect("~/admin/ContactUs");
-        //}
+        public ActionResult Operation(ContactUs inputs)
+        {
+            if (inputs.id == 0)
+            {
+                //Create Mode
+                #region Create ContactUs
+                //ViewBag.msg = ContactUsTable.Create(inputs);
+                #endregion
+            }
+            else
+            {
+                //Update Mode
+                #region Update ContactUs
+                ContactUsTable.Update(inputs);
+                #endregion
+            }
+            return Redirect("~/admin/ContactUs");
+        }
         public ActionResult Delete(int id)
         {
 

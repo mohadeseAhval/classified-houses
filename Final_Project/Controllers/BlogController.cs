@@ -14,6 +14,12 @@ namespace Final_Project.Controllers
         // GET: Blog
         public ActionResult Index()
         {
+            // Breadcrumb
+            ViewBag.Breadcrumb = new List<Breadcrumb> {
+                new Breadcrumb { Title = "صفحه اصلی", Url = "/", Position = 1 },
+                new Breadcrumb { Title = "بلاگ", Url = Url.Action(nameof(Index), "Blog"), Position = 2 }
+            };
+
             var LatestNews = News_Tb.TopNews();
             var popularNews = News_Tb.GetMostViwedNews();
             var sliders = News_Tb.ReadByCat(CatNews.Slider);
@@ -22,9 +28,17 @@ namespace Final_Project.Controllers
         }
          public ActionResult Details(int id)
         {
+            
             // این همون رکوردیه که هم آی دی داره و هم ما میخوایم آپدیتش کنیم
             var post = News_Tb.Read(id);
             News_Tb.IncreaseVisitCount(post);
+
+            // Breadcrumb
+            ViewBag.Breadcrumb = new List<Breadcrumb> {
+                new Breadcrumb { Title = "صفحه اصلی", Url = "/", Position = 1 },
+                new Breadcrumb { Title = "بلاگ", Url = Url.Action(nameof(Index), "Blog"), Position = 2 },
+                new Breadcrumb { Title = post.title, Url = null, Position = 3 }
+            };
             return View(model: post);
         }
     }

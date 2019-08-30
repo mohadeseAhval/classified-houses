@@ -25,6 +25,7 @@ namespace ModelLib
         [Required(ErrorMessage = "شماره تماس خود را وارد کنید")]
         [MaxLength(20)]
         public string tell { get; set; }
+       
     }
 
     //CRAD

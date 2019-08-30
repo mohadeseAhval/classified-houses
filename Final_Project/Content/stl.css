@@ -23,3 +23,53 @@
     width:300px; 
     height:200px;
 }
+.pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: .25rem !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important; 
+    padding-bottom: 0 !important; 
+    width:100%;
+    justify-content:center;
+     margin-bottom: 0px !important;
+    padding-right: 0px !important;
+}
+.pagination li{
+    color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+}
+.pagination li.active {
+  background-color: LightGray;
+  color: black;
+  border: 1px solid LightGray;
+}
+.pagination-container{
+    background-color:#fff;
+}
+.main .result-announces{
+    min-height:0!important;
+}
+.search-results .fix-div{
+        width: 66.5% !important;
+}
+.hiddenA{
+    display:block !important;
+}
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+.hiddenA{
+    display:none !important;
+}
+}
+.copy{
+    background-color:LightGray;
+   
+}
+.copy p{
+ color:#c50000;
+}

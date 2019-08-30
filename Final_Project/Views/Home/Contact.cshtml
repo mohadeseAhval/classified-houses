@@ -1,11 +1,7 @@
 ﻿@using ModelLib
-@model List<ModelLib.ContactPage>
+@model ContactUs
 @{
     ViewBag.Title = "Contact";
-}
-@section Head{
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/jquery-1.11.3.min.js"></script>   
 }
 <div class="main clearfix searching">
     <div class="w-100 bg-white">
@@ -39,14 +35,20 @@
                         </div>
                     </div>
                  
-                    <form>                                            
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
                         <div class="form-group">
+                            <div>
+                                @Html.ValidationSummary(true)
+                            </div>
                             <div class="row">
                                 <div class="col-5">
                                     <div class="list-name">موضوع درخواست :*</div>
                                 </div>
                                 <div class="col-7">
-                                    <input class="form-control" id="subject" type="text" name="subject" placeholder="موضوع درخواست">
+                                    @Html.TextBoxFor(model => model.subject, new { @placeholder = "موضوع درخواست", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.subject)
                                 </div>
                             </div>
                         </div>
@@ -56,9 +58,8 @@
                                     <div class="list-name">متن :*</div>
                                 </div>
                                 <div class="col-7">
-                                    <textarea name="text" id="text"
-                                              data-errormessage-value-missing="متن پیام را وارد کنید ."
-                                              class="form-control" placeholder="متن"></textarea>
+                                    @Html.TextAreaFor(model => model.text, new { @placeholder = "متن", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.text)
                                 </div>
                             </div>
                         </div>
@@ -75,10 +76,8 @@
                                     <div class="list-name">نام و نام خانوادگی :*</div>
                                 </div>
                                 <div class="col-7">
-                                    <input id="userName" type="text" name="userName"
-                                           data-errormessage-value-missing="نام را وارد کنید ."
-                                           required class="form-control"
-                                           placeholder="نام و نام خانوادگی ">
+                                    @Html.TextBoxFor(model => model.userName, new { @placeholder = "نام و نام خانوادگی", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.userName)                                  
                                 </div>
                             </div>
                         </div>
@@ -88,8 +87,8 @@
                                     <div class="list-name">ایمیل  :*</div>
                                 </div>
                                 <div class="col-7">
-                                    <input class="form-control" id="email" type="email" name="email"
-                                           placeholder="ایمیل">
+                                    @Html.TextBoxFor(model => model.email, new { @placeholder = "ایمیل", @class="form-control"})
+                                    @Html.ValidationMessageFor(model => model.email)                                   
                                 </div>
                             </div>
                         </div>
@@ -99,53 +98,23 @@
                                     <div class="list-name">شماره موبایل :*</div>
                                 </div>
                                 <div class="col-7">
-                                    <input class="form-control" id="tell" type="text" name="tell"
-                                           placeholder="شماره موبایل">
+                                    @Html.TextBoxFor(model => model.tell, new { @placeholder = "شماره موبایل", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.tell)                                   
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-5"></div>
                             <div class="col-7">                                                               
-                                <button id="btnS" name="btnS" class="shabesh-button red px-5"> ارسال</button>
+                                <button id="btnS" type="submit" value="contact" class="shabesh-button red px-5"> ارسال</button>
                             </div>
                         </div>
-                        @Html.Partial("_pContactUs", Model)                       
-                    </form>                   
+                    }
+                    @Html.Partial("_pContactUs", (List<ModelLib.ContactPage>)ViewBag.ContactUsDetails)                 
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<script type="text/javascript">
-    $(function() {
-        var contact = {};
-        $("#btnS").click(function () {
-            contact.subject = $("#subject").val();
-            contact.text = $("#text").val();
-            contact.userName = $("#userName").val();
-            contact.email = $("#email").val();
-            contact.tell = $("#tell").val();
-            //console.log(contact);
-
-
-           $("section#page").slideUp("slow")
-            $.ajax({
-                url: "/Home/AddContact",
-                method: "POST",
-                data: contact,
-                success: function () {
-                    $("section#page").slideDown("slow");
-                    $(":input").val("");
-                },
-                error: function() { alert("NOK"); }
-            });
-
-
-        });
-
-    });
-
-</script>
 

@@ -2725,7 +2725,7 @@ body.lb-disable-scrolling {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50%;
-    min-height: 320px
+    min-height: 54vh
 }
 
 .pop-search .pop-holder {
@@ -6789,7 +6789,8 @@ button:focus {
 
 .header {
     min-height: 50px;
-    background: #fff
+    background: #2c343f;
+    color:#fff !important
 }
 
 .header .navbar-toggler {
@@ -6817,16 +6818,16 @@ button:focus {
 .header .navbar-nav li {
     padding-left: 15px !important;
     font-size: 14px;
-    color: #363636
+    color: #fff 
 }
 
 .header .navbar-nav .nav-item:hover {
-    color: #17bbc1
+    color: #17bbc1;   
 }
 
 .header .login_btn, .header .profile_btn {
     font-size: 14px;
-    color: #5f5f5f;
+    color: #fff;
     height: 100%;
     position: relative
 }
@@ -6845,9 +6846,8 @@ button:focus {
 
 .header .login_btn > button i, .header .login_btn a i, .header .login_btn label i, .header .profile_btn > button i, .header .profile_btn a i, .header .profile_btn label i {
     font-size: 23px;
-    color: #5f5f5f
-}
-
+    color: #fff
+}   
 .header .login_btn > button .fav-count, .header .login_btn a .fav-count, .header .login_btn label .fav-count, .header .profile_btn > button .fav-count, .header .profile_btn a .fav-count, .header .profile_btn label .fav-count {
     background: #ef5e4e;
     border-radius: 50%;
@@ -13173,7 +13173,8 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 }
 
 .enamad {
-    width: 160px
+    /*width: 160px*/
+
 }
 
 .enamad img {
@@ -13188,4 +13189,13 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 .no-result {
     padding: 20px;
     text-align: center
+}
+.copy{
+   background-color: #c8c8c8;
+    text-align: center;
+    padding: 10px 0 1px 0;
+}
+.copy p{
+ color: #c50000;   
+    font-size: 12px;
 }

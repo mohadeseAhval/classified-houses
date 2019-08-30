@@ -36,8 +36,6 @@ namespace Final_Project.Controllers
             return RedirectToAction(actionName, new { id = adId });
         }
 
-       
-
         public ActionResult Buy(int? page)
         {
             ViewBag.Breadcrumb = new List<Breadcrumb> {
@@ -66,9 +64,7 @@ namespace Final_Project.Controllers
             return View(new AdvertisingObject { area_o = area, pagedAds_o = onePageOfAds, price_o = price });
         }
         public ActionResult Details(int id)
-        {
-           
-
+        {           
             var ad = AdvertisingTable.FindById(id);
             var similarAds = AdvertisingTable.GetSimilarAds(ad);
             var adWithCreator = AdvertisingTable.FindByIdWithCreator(id);

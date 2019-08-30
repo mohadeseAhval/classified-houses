@@ -5,7 +5,9 @@
 @{
     ViewBag.Title = ViewBag.FormAdTitle;
 }
-
+@section Head{
+    <link href="~/Content/stl.css" rel="stylesheet" />
+}
 <div class="main clearfix searching">
     <div class="w-100 bg-white">
         <div class="container pt-2">
@@ -41,7 +43,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 left-side mt-3 mt-lg-0">
+                <div class="col-lg-3 left-side mt-3 mt-lg-0  hiddenA">
                     <div class="inner w-100 bg-white px-3 px-sm-0">
 
                         <div class="w-100 link-box">
