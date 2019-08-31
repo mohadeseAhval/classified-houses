@@ -272,6 +272,7 @@ namespace ModelLib
             catch { return "error"; }
         }
 
+        
         public string Delete(int id)
         {
             entity.Ads.Remove(entity.Ads.Find(id));
