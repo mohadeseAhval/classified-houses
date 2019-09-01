@@ -3,7 +3,7 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en
 <head>
     <meta charset="UTF-8">
     <title>فرم ورود/ثبت نام</title>
@@ -23,11 +23,11 @@
                     <form action="/Account/Login" method="post">
                         <div class="group">
                             <label for="user" class="label">نام کاربری</label>
-                            <input id="firstNameAndLastName" name="firstNameAndLastName" type="text" class="input">
+                            <input id="firstNameAndLastName1" name="firstNameAndLastName" type="text" class="input">
                         </div>
                         <div class="group">
                             <label for="pass" class="label">کلمه عبور</label>
-                            <input id="password" name="password" type="Password" class="input" data-type="password">
+                            <input id="password1" name="password" type="Password" class="input" data-type="password">
                         </div>
                         <div class="group">
                             <input id="check" type="checkbox" class="check" checked>
@@ -46,70 +46,85 @@
                     </form>
                 </div>
                 <div class="sign-up-htm">
-                    <form>
+                    <div>
                         <div class="group">
                             <input type="hidden" value="2" id="role_id" name="role_id" />
-                            <label for="firstNameAndLastName1" class="label">نام کاربری</label>
-                            <input id="firstNameAndLastName1" name="firstNameAndLastName1" type="text" class="input">
+                            <label for="firstNameAndLastName" class="label">نام کاربری</label>
+                            <input id="firstNameAndLastName" name="firstNameAndLastName" type="text" class="input">
                         </div>
                         <div class="group">
-                            <label for="tell1" class="label">تلفن</label>
-                            <input id="tell1" name="tell1" type="text" class="input">
+                            <label for="tell" class="label">تلفن</label>
+                            <input id="tell" name="tell" type="text" class="input">
                         </div>
                         <div class="group">
-                            <label for="address1" class="label">ادرس</label>
-                            <input id="address1" name="address1" type="text" class="input">
+                            <label for="address" class="label">ادرس</label>
+                            <input id="address" name="address" type="text" class="input">
                         </div>
                         <div class="group">
-                            <label for="email1" class="label">ایمیل</label>
-                            <input id="email1" name="email1" type="text" class="input">
+                            <label for="email" class="label">ایمیل</label>
+                            <input id="email" name="email" type="text" class="input">
                         </div>
                         <div class="group">
-                            <label for="NationalCode1" class="label">کدملی</label>
-                            <input id="NationalCode1" name="NationalCode1" type="text" class="input">
+                            <label for="NationalCode" class="label">کدملی</label>
+                            <input id="NationalCode" name="NationalCode" type="text" class="input">
                         </div>
                         <div class="group">
                             <label for="pass" class="label">کلمه عبور</label>
-                            <input id="Password1" name="Password1" type="Password" class="input" data-type="password">
+                            <input id="password" name="password" type="Password" class="input" data-type="password">
                         </div>
                         <div class="group">
-                            <label for="pass" class="label">تکرار کلمه عبور </label>
-                            <input id="passr" onchange="funcCheckPass()" name="passr" type="password" class="input" data-type="password">
+                            <label for="repeadPassword" class="label">تکرار کلمه عبور </label>
+                            <input id="repeadPassword" name="repeadPassword" type="password" class="input" data-type="password">
                         </div>
                         
 
                         <div class="group">
-                            <input type="submit" id="btn-send" name="btn-send" class="button" disabled="disabled" value="ثبت نام">
+                            <button id="btn-send" name="btn-send" style="cursor:pointer;text-align: center;" class="button">
+                                ثبت نام
+                            </button>
                         </div>
                         <div class="hr"></div>
                         <div class="foot-lnk">
                             <label for="tab-1"> قبلا عضو هستید؟ </label>
                             @*<a href="" for="tab-1">قبلا عضو هستید؟</a>*@
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="~/Scripts/main.js"></script>
 </body>
 </html>
 <script type="text/javascript">
+    var clearFormErrors = function () {
+        $(".form-error").remove();
+    }
+
+    var disableSubmitBtn = function () {
+        $('#btn-send').attr("disabled", true);
+    }
+
+    var enableSubmitBtn = function () {
+        $('#btn-send').attr("disabled", false);
+    }
 
     $(function() {
 
             //alert("Hello");
         $("#btn-send").click(function () {
+            clearFormErrors();
+            disableSubmitBtn();
+
             var Register = {};
             Register.role_id = $("#role_id").val();
-            Register.firstNameAndLastName = $("#firstNameAndLastName1").val();
-            Register.tell = $("#tell1").val();
-            Register.address = $("#address1").val();
-            Register.email = $("#email1").val();
-            Register.NationalCode = $("#NationalCode1").val();
-            Register.password = $("#Password1").val();
-            Register.repeadpassword = $("#passr").val();
+            Register.firstNameAndLastName = $("#firstNameAndLastName").val();
+            Register.tell = $("#tell").val();
+            Register.address = $("#address").val();
+            Register.email = $("#email").val();
+            Register.NationalCode = $("#NationalCode").val();
+            Register.password = $("#password").val();
+            Register.repeadPassword = $("#repeadPassword").val();
             
            
             //console.log(contact);
@@ -118,13 +133,27 @@
                 url: "/Account/Adduser",
                 method: "POST",
                 data: Register,
-                success: function () {
-                    $("section#page").slideDown("slow");
-                    $(":input").val("");
-                    //URL:"/Account/login",
-                    //alert("??? ??? ??? ?? ?????? ????? ??");
+                success: function (response) {
+                    console.log(response);
+
+                    if (!response.success) {
+                        if (response.code === '1') {
+                            response.result.forEach(function (item, index) {
+                                $("#" + item.Key).after("<span class='form-error'>" + item.Value + "</span>");
+                            });
+                        }
+                    } else {
+                        $("section#page").slideDown("slow");
+                        $(".input").val("");
+                        alert("ثبت نام با موفقیت انجام شد")
+                    }
+
+                    enableSubmitBtn();
                 },
-                error: function() { alert("NOK"); }
+                error: function (response) {
+                    enableSubmitBtn();
+                    console.log(response)
+                }
             });
 
 

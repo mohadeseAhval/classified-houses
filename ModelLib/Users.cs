@@ -13,22 +13,35 @@ namespace ModelLib
    public partial class Users
     {
         public int id { get; set; }
-        [Required(ErrorMessage = " نام و نام خانوادگی را وارد کنید")]
+
+        [Required(ErrorMessage = " نام کاربری را وارد کنید")]
         [MaxLength(20, ErrorMessage = "طول نام بیشتر از 20 کاراکتر است")]
         public string firstNameAndLastName { get; set; }
+
         [Required(ErrorMessage = "شماره تماس را وارد کنید")]
         [MaxLength(11, ErrorMessage = "طول متن بیشتر از 11 کاراکتر است")]
+        [RegularExpression("([0-9]+)", ErrorMessage = "فقط عدد قابل قبول است")]
         public string tell { get; set; }
+
         [Required(ErrorMessage = " آدرس را وارد کنید")]
         [MaxLength(100, ErrorMessage = "طول آدرس بیشتر از 100 کاراکتر است")]
         public string address { get; set; }
+
+        [EmailAddress(ErrorMessage = "ایمیل صحیح نیست")]
         [Required(ErrorMessage = "ایمیل را وارد کنید")]
         public string email { get; set; }
+
         [Required(ErrorMessage = "کد ملی را وارد کنید")]
+        [RegularExpression("([0-9]+)", ErrorMessage = "فقط عدد قابل قبول است")]
         public string NationalCode { get; set; }
+
         [Required(ErrorMessage = "رمز عبور را وارد کنید")]
         [MinLength(6, ErrorMessage = "طول رمز عبور کمتر از 6 کاراکتر است"), MaxLength(8,ErrorMessage = "طول رمز عبور بیشتر از 8 کاراکتر است")]
         public string password { get; set; }
+
+        [NotMapped]
+        public string repeadPassword { get; set; }
+
         [ForeignKey("role_table")]
         public int role_id { get; set; }
         public Role role_table { get; set; }
@@ -38,6 +51,17 @@ namespace ModelLib
     public partial class Users
     {
         EF_DataBase entity = new EF_DataBase();
+
+        public bool IsEmailUnique(string email)
+        {
+            return !entity.Users.Any(u => u.email.Equals(email));
+        }
+
+        public bool IsFirstNameAndLastNameUnique(string firstNameAndLastName)
+        {
+            return !entity.Users.Any(u => u.firstNameAndLastName.Equals(firstNameAndLastName));
+        }
+
         public bool Authentication(string firstNameAndLastName, string password)
         {
             return entity.Users.Any(item => item.firstNameAndLastName == firstNameAndLastName && item.password == password);

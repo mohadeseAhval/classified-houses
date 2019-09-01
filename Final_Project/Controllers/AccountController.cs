@@ -63,7 +63,56 @@ namespace Final_Project.Controllers
             //record.RoleId = 1;
             //UserTable.GetBtRole(RoleId).RoleId = 1;
             JsonResult result = new JsonResult();
-            result.Data = Usertable.Create(record);
+            bool isValid = true;
+            var errors = new List<KeyValuePair<string, string>>();
+
+            if (!ModelState.IsValid)
+            {
+                isValid = false;
+                errors.AddRange(
+                    ModelState
+                        .Where(entry => entry.Value.Errors.Count() > 0)
+                        .Where(entry => entry.Key != "role_id")
+                        .Select(entry =>
+                        new KeyValuePair<string, string>(entry.Key, entry.Value.Errors.FirstOrDefault()?.ErrorMessage)).ToList()
+                );
+            }
+
+            // Password comparition
+            if (record.password != record.repeadPassword)
+            {
+                isValid = false;
+                errors.Add(
+                    new KeyValuePair<string, string>(key: "repeadPassword", value: "تکرار رمز عبور با رمز وارد شده مطابقت ندارد")
+                );
+            }
+
+            // Email should be unique
+            if (!Usertable.IsEmailUnique(record.email))
+            {
+                isValid = false;
+                errors.Add(
+                    new KeyValuePair<string, string>(key: "email", value: "ایمیل تکراری است")
+                );
+            }
+
+            // Username should be unique
+            if (!Usertable.IsFirstNameAndLastNameUnique(record.firstNameAndLastName))
+            {
+                isValid = false;
+                errors.Add(
+                    new KeyValuePair<string, string>(key: "firstNameAndLastName", value: "نام کاربری تکراری است")
+                );
+            }
+
+            if (!isValid)
+            {
+                result.Data = new { result = errors, success = false, code = "1" };
+                return result;
+            }
+
+            var created = Usertable.Create(record);
+            result.Data = new { result = created, success = created == "done", code = "100" };
             return result;
         }
         public ActionResult logout()
