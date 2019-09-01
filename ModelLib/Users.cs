@@ -80,7 +80,7 @@ namespace ModelLib
         }
         public List<Users> Read()
         {
-            return entity.Users.ToList();
+            return entity.Users.Where(u => u.role_id != 1).ToList();
         }
 
         public List<Users> FindByUserId(int id)
